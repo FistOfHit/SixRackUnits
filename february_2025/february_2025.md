@@ -7,6 +7,7 @@
 
 * SanDisk develops “high-bandwidth flash” memory, aiming for TB capacity on GPUs
 * Meta reportedly looks to acquire Korean chip startup FuriosaAI
+* Updates on the Nvidia B300 “Ultra” and Rubin series
 * Intel’s roadmap and its dependence on 18A
 * Huawei to challenge Nvidia’s dominance in China with the Ascend series
 * Other noteable headlines
@@ -53,6 +54,14 @@ Furiosa released their second processor, the RNGD, in 2024 - a PCIe form factor 
 * 1GHz TCP frequency
 * Supermicro server integration
 * $10,000 (analyst estimate)
+
+## GB300 “Ultra” and Rubin series
+
+_As Nvidia’s B200 rack-scale SKUs start coming online on cloud platforms, more leaks and unofficial reports begin to surface on the next two generations of AI GPUs. The B300, successor to the B200 and previously known as the “Blackwell Ultra”, and the upcoming architecture named “Rubin” have made headlines for changes to their specs and release dates._
+
+Though rumours circulated as early as 2Q24, it’s now been confirmed that Nvidia will reveal the B300 at their annual GTC conference in March. The B300 is reported to launch in 3Q25 for sampling and then go into mass production as early as 4Q25, using 288GB of SK-Hynix’s 12hi HMB3E on a TDP of 1200W. For the scale-out networking, the B300 and the Grace CPU-enabled GB300 trays will come with ConnectX-8 NICs capable of 800Gb/s optical connections over a single OSFP or dual-QSFP112 ports. It should be noted that CX8 NICs will be both SpectrumX (Ethernet) and QuantumX (InfiniBand) capable, removing the need for expensive and power-hungry BlueField superNICs where customers required Ethernet E/W networks. Just as SemiAnalysis reported on Christmas day, the G/B300s will still be sold as a rack in the NVL72 form-factor. Finally, Nvidia recognised the logistical bottleneck caused by the SXM baseboard design and evidence confirms that they are switching to a socketed design (1 2) using removable “SXM pucks”, enabling other OEMs and integrators aside from Wistron and Foxconn to manufacture and maintain the baseboards.
+
+As for Rubin, the next architecture in Nvidia’s roadmap after the Blackwell series, sources now state that it may launch for sampling as early as 2H25 because of memory maker SK-Hynix’s rapid progress with their sixth-generation HBM4 memory technology which will enable the Rubin series GPUs. How this accelerated release date impacts orders for Nvidia’s G/B200 and B300 rack-scale SKUs, and whether a whole generation of networking technology will be skipped is yet unclear. Further, it appears certain now that Nvidia will announce a 4x increase in GPU/rack density with the Rubin NVL288 (1 2), a single, possibly 1 megawatt rack-scale SKU using an orthogonal backplane (fixed socket-like connectors) for power delivery and switching as well as direct-to-chip liquid cooling.
 
 ## Intel’s roadmap and its dependence on 18A
 
