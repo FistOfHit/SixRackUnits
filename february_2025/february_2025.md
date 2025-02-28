@@ -9,6 +9,7 @@
 * Meta reportedly looks to acquire Korean chip startup FuriosaAI
 * Intel’s roadmap and its dependence on 18A
 * Huawei to challenge Nvidia’s dominance in China with the Ascend series
+* Other noteable headlines
 
 **Vendor spotlight:**
 
@@ -68,6 +69,16 @@ _Chinese semiconductor manufacturer SMIC, once struggling with 7nm, is now likel
 Chinese chip makers appear to be catching up with TSMC/Intel with rumours (1 2 3 4) of SMICs 5nm process node now showing acceptable yield rates of somewhere between ~30-70%. The two U.S. CHIPS acts implemented in 2021 and 2022 prevented Nvidia from selling its AI hardware and ASML from selling chip manufacturing equipment to China, but instead of stalling progress as intended, the legislation may have instead resulted in accelerating the nation’s independence in the semiconductor space. Various tech giants are already running workloads on the original 910 and the second generation 910B (the latest publicly available AI GPU from Huawei) with names such as ByteDance, Baidu, and most recently even DeepSeek likely using large clusters of both 910/910B servers for their inferencing workloads. In terms of packaging and integration, Huawei presents their AI GPUs in the typical 8 GPU configuration, with networking topologies within servers being a 2x4 mesh, and between servers being a fat-tree topology, differing significantly from rivals such as Nvidia and AMD.
 
 The 920 (or 920C, or 910D, to be confirmed), the successor to the still only privately tested 910C, is rumoured to be available to some customers for sampling in 3Q25 and ready for mass production in ~2026. Sources suggest that Huawei will use SMIC’s 5nm process for the 920 depending on how it performs in making their Kirin mobile chip. As for the 920’s specs, its impossible to even speculate given that most of the information on the 910C is still unofficial. Leakers and independent analysts suggest various numbers from the 910C having between 96 and 128 GB of HBM, to having either 256 or 512 TFLOPS of FP16 compute, but the reliability of the sources varies greatly. Despite the impressive performance of the 910C, Nvidia’s sanction-busting H20 GPUs (the H100, but with less compute and slightly better memory) have seen major orders placed in 1Q25, after the Trump administration hinted at further iterations of the CHIPS act.
+
+## Other noteable headlines
+
+* Samsung reportedly redesigns its 1c DRAM process node to tackle low-yield issues, likely preparing for HBM4 in 2H25
+* Nvidia working with all major memory makers on new “SOCAMM” memory for AI PCs, based on LPDDR5X
+* Samsung to launch new low-power, low-latency, wide I/O DRAM (LPW/LLW DRAM) in 2028, aiming at providing HBM to mobile devices
+* Japanese AI lab Sakana.ai releases AI CUDA engineer, a system for writing optimised code to improve GPU performance – would help develop even better AI models
+* Microsoft releases the Majorana 1 – an 8-qubit quantum computer using a new state of matter to perform computations, enters the quantum race with Google and IBM
+* SK-Hynix achieves 70% yield in 12hi HBM4 ahead of mass production, possibly leading to Nvidia accelerating their own timeline for the Rubin series
+* Samsung to use Chinese YMTCs technology for 400+ layer NAND flash SSDs
 
 * * *
 
