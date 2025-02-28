@@ -8,6 +8,7 @@
 * SanDisk develops “high-bandwidth flash” memory, aiming for TB capacity on GPUs
 * Meta reportedly looks to acquire Korean chip startup FuriosaAI
 * Intel’s roadmap and its dependence on 18A
+* Huawei to challenge Nvidia’s dominance in China with the Ascend series
 
 **Vendor spotlight:**
 
@@ -52,10 +53,6 @@ Furiosa released their second processor, the RNGD, in 2024 - a PCIe form factor 
 * Supermicro server integration
 * $10,000 (analyst estimate)
 
-## OpenAI and DeepSeek developing custom accelerators
-
-_Tech organisations tend towards developing custom hardware as their technical capabilities grow and the demand for their products increases beyond what is cost-effective to run on merchant silicon such as GPUs from Nvidia or on the cloud from hyperscalers. OpenAI and DeepSeek are not the first - and certainly not the last - AI foundation model labs taking this route._
-
 ## Intel’s roadmap and its dependence on 18A
 
 _Intel’s roadmap on AI accelerators has changed so frequently in recent years that some large customers interested in the Gaudi series decided to stick with vendors able to provide more maintainable and upgradeable product, but recent successes with their 18A process node and PC/server CPUs might finally turn things around._
@@ -63,6 +60,14 @@ _Intel’s roadmap on AI accelerators has changed so frequently in recent years 
 After recent rumours of possible selloffs of parts of the business to market rivals, it appears Intel is now pinning its future (or at least its independence) on the success of the 18A (1.8nm) process node - Intel Foundry Service’s (IFS) “greatest transistor innovation in a decade”. Its success relies on two key advancements: the RibbonFET (field effect transistor) and BSPD (back-side power delivery). The new RibbonFET design, based on the same fundamental architecture as arch-rival TSMC’s gate-all-around (GAA), brought significant performance gains compared to the “Intel 3” 3nm and now aims to match the capability of TSMC’s “N2” 2nm. In addition, BSPD uses the back (or underside) of the silicon wafer for power delivery, leaving the front (or top) for logic. This results in better utilisation of chip area due to not having to mix power and transistor elements on one surface, as well as lower power leakage due to wires being able to be thicker and shorter. For memory, both TSMC and Intel now offer ~38 Mbit/mm^2 of memory density in SRAM - a type of memory which is used almost everywhere on chip, in registers, buffers, caches, and more.
 
 Despite the technological advancements, it seems that there are still significant challenges ahead until 18A earns Intel some semiconductor manufacturing market share from customers using TSMC and Samsung. Due to release in 2H25, Intel’s Panther lake desktop CPU has been subject to industry leakers who report on both the yield rate of the processor manufacturing process, and the performance of the processors cores. One source states that rate is as low as 20-30%, a number at which mass production would be incredibly difficult if not impossible. There have been no statements yet on whether Panther lake may be delayed or cancelled, and samples have already been sent out to select customers. Another source claims that the performance of the CPU’s “P” or performance cores (optimised for high throughput rather than energy efficiency) is “average”, indicating that the numbers from whatever benchmarks were run might not be competitive with other similar products on the market. These leaks appear to have some merit however, as rumours are already circulating hinting at the ~2026 Nova lake (successor to Panther lake) using a mixture of Intel’s planned 14A process node and TSMC’s N2.
+
+## Huawei’s Ascend series
+
+_Chinese semiconductor manufacturer SMIC, once struggling with 7nm, is now likely testing its 5nm process with possible yield rates between 30-70% on Huawei’s yet to be announced Ascend 920 or 910D AI GPU. If the improvement on the their 910C is large enough, its possible Huawei may capture a significant share of the Chinese market from Nvidia._
+
+Chinese chip makers appear to be catching up with TSMC/Intel with rumours (1 2 3 4) of SMICs 5nm process node now showing acceptable yield rates of somewhere between ~30-70%. The two U.S. CHIPS acts implemented in 2021 and 2022 prevented Nvidia from selling its AI hardware and ASML from selling chip manufacturing equipment to China, but instead of stalling progress as intended, the legislation may have instead resulted in accelerating the nation’s independence in the semiconductor space. Various tech giants are already running workloads on the original 910 and the second generation 910B (the latest publicly available AI GPU from Huawei) with names such as ByteDance, Baidu, and most recently even DeepSeek likely using large clusters of both 910/910B servers for their inferencing workloads. In terms of packaging and integration, Huawei presents their AI GPUs in the typical 8 GPU configuration, with networking topologies within servers being a 2x4 mesh, and between servers being a fat-tree topology, differing significantly from rivals such as Nvidia and AMD.
+
+The 920 (or 920C, or 910D, to be confirmed), the successor to the still only privately tested 910C, is rumoured to be available to some customers for sampling in 3Q25 and ready for mass production in ~2026. Sources suggest that Huawei will use SMIC’s 5nm process for the 920 depending on how it performs in making their Kirin mobile chip. As for the 920’s specs, its impossible to even speculate given that most of the information on the 910C is still unofficial. Leakers and independent analysts suggest various numbers from the 910C having between 96 and 128 GB of HBM, to having either 256 or 512 TFLOPS of FP16 compute, but the reliability of the sources varies greatly. Despite the impressive performance of the 910C, Nvidia’s sanction-busting H20 GPUs (the H100, but with less compute and slightly better memory) have seen major orders placed in 1Q25, after the Trump administration hinted at further iterations of the CHIPS act.
 
 * * *
 
