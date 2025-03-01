@@ -1,5 +1,5 @@
 # October 2024
-![](./images/1.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/1.png)
 
 *What might a human-scale CPU look like or even mean?*
 
@@ -25,13 +25,13 @@
 
 _Amidst the turmoil of [Nvidia/TSMC Blackwell manufacturing delays](https://www.trendforce.com/news/2024/09/10/news-nvidias-blackwell-overcomes-delays-as-gb200-reportedly-sets-for-december-mass-production/), [U.S. export controls](https://www.nortonrosefulbright.com/de-de/wissen/publications/5a936192/us-expands-export-restrictions-on-advanced-semiconductors), [SMIC's shaky 7nm process](https://www.trendforce.com/news/2024/06/28/news-huawei-faces-production-challenges-with-20-yield-rate-for-ai-chip/) and incredible competition between [various Chinese GPU manufacturers](https://www.trendforce.com/news/2024/02/22/news-hurdles-in-acquiring-nvidias-high-end-products-assessing-the-progress-of-eight-chinese-ai-chip-manufacturers-in-self-development/), how will Huawei's Ascend series' latest device, the 910C, compete?_
 
-![](./images/2.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/2.png)
 
 *Source: Huawei*
 
 U.S. export controls on semiconductor technology have forced Nvidia to make numerous changes to its AI-focused GPUs aimed at the enormous Chinese market, however there are rumours that [another round of even tighter restrictions](https://www.trendforce.com/news/2024/07/22/news-u-s-reportedly-enhancing-chip-export-restrictions-to-china-while-nvidias-h20-might-get-banned/) are about to hit. On top of this, China's own SMIC is [struggling to reliably produce chip dies at 7nm density](https://www.trendforce.com/news/2024/06/28/news-huawei-faces-production-challenges-with-20-yield-rate-for-ai-chip/), far behind TSMC/Intel/Samsung's technologies. [Multiple companies are competing](https://www.trendforce.com/news/2024/02/22/news-hurdles-in-acquiring-nvidias-high-end-products-assessing-the-progress-of-eight-chinese-ai-chip-manufacturers-in-self-development/) to fill this AI training hardware vacuum in China, and [Huawei has just begun sampling its Ascend 910C](https://www.trendforce.com/news/2024/02/22/news-hurdles-in-acquiring-nvidias-high-end-products-assessing-the-progress-of-eight-chinese-ai-chip-manufacturers-in-self-development/) chip with customers, hoping for good results.
 
-![](./images/3.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/3.jpeg)
 
 *Source: Huawei*
 
@@ -53,13 +53,13 @@ _Nvidia's plans to sell the B100/200 series and their GB200 trays, as well as Qu
 
 Recently, [Nvidia announced 3 datacentre-ready recommended architectures](https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment), the NVL 36, 36x2 and 72. Of these, the NVL36 was clearly aimed at customers who are happy to sacrifice potential rack density for lower power per rack (~40kW) and the ability to use air cooling, and the NVL72 was aimed at those who wanted density at all costs, albeit incredible power draws of ~120-132kW- per rack and liquid cooling as a requirement. The NVL36x2 however, was a compromise that Nvidia has now determined was [not going to generate sufficient demand](https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-reportedly-cancels-development-of-dual-rack-72-gpu-gb200-analyst-says-the-company-intends-to-focus-on-single-rack-offerings).
 
-![](./images/4.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/4.png)
 
 *Source: SemiAnalysis*
 
 The key decision came down to one factor it seems: Energy efficiency. Both the 36 and 72-GPU racks each will have a CPU:GPU (Grace:Blackwell) ratio of 1:2 and hence the same compute trays, but crucially, the NV36x2 would need additional switching and cabling to support the NVLink copper interconnects between the GB200 compute servers on both racks, resulting a total power draw higher than a single NVL72, whilst being slightly less performant due to the increased switching and distances.
 
-![](./images/5.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/5.png)
 
 The revised schedule, likely to be updated again depending on early customer feedback in 1H2025. The x86 + Blackwell servers have not yet been announced but are likely on the way for 2H2025.
 
@@ -69,13 +69,13 @@ _The reason that NVidia's GPUs have been able to have such high TDPs and use fas
 
 The Server PCIe Express Module (SXM) is proprietary NVidia tech for integrating a GPU into a baseboard (motherboard, main board, PCB, etc.), where other components like CPUs, RAM, and IO chips are connected. [SXM, when released back in ~2016](https://en.wikipedia.org/wiki/SXM_\(socket\)), solved many issues that NVidia were beginning to face and saw in their future. Using standard PCIe sockets to connect a power and memory bandwidth hungry GPU to a baseboard designed to handle components that were not as demanding, resulted in PCIe quickly becoming a problem.
 
-![](./images/6.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/6.png)
 
 *Source: r/pcmasterrace*
 
 SXM solved this issue by integrating the GPU tighter (not as much as BGA, future discussion) into a custom baseboard, allowing for better power delivery to the device as well as enabling the use of the NVLink tech-stack to connect multiple GPUs on the same board and via NVSwitches to GPUs on other boards. Recently however, with GPUs being sold in the millions every year, the SXM sockets are causing issues for NVidia and OEMs with maintenance and after-sales support, as the tight bonding makes this difficult.
 
-![](./images/7.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/7.jpeg)
 
 *PCI sockets*
 
@@ -85,7 +85,7 @@ SXM solved this issue by integrating the GPU tighter (not as much as BGA, future
 
 _At their annual "[Advancing AI](https://www.amd.com/en/corporate/events/advancing-ai.html)" event AMD announced multiple new products to maintain its dominance (CPUs) and continue its push (GPUs and NICs) into the AI hardware market. Among these, the "Turin" CPU, MI325X GPU and Pollara NIC are the key names._
 
-![](./images/8.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/8.png)
 
 *Source: AMD*
 
@@ -98,7 +98,7 @@ The AMD 5th gen CPU series, codenamed "Turin", featuring AMDs Zen 5 architecture
 * 64 – 512 MB L3 cache
 * Up to 5.0 GHz boost
 
-![](./images/9.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/9.png)
 
 *Source: AMD*
 
@@ -111,7 +111,7 @@ MI325X is a rather simple upgrade from the now famous MI300X, with all the specs
 * 128GB/s infinity fabric bandwidth (GPU-GPU + CPU-GPU)
 * ~1.3x performance of H200 claimed
 
-![](./images/10.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/10.png)
 
 *Source: AMD*
 
@@ -125,7 +125,7 @@ The Pensando series network interface card (NIC), codenamed "Pollara", is the wo
 
 _As we move towards 1Q2025, more and more leaks, reveals, and news finds its way into the public about next-next gen products (one after the next, announced, latest generation). Here we summarise what we know about the dates and specs of these products._
 
-![](./images/11.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/11.png)
 
 *Source: Nvidia*
 
@@ -145,7 +145,7 @@ Rubin GPU:
 Vera CPU (ARM):
 * Likely C2C scales with NVLink (900GB/s bandwidth CPU-CPU/GPU)
 
-![](./images/12.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/12.png)
 
 *Source: Intel*
 
@@ -171,7 +171,7 @@ Clearwater forest Xeon CPU:
 
 _How does a CPU understand and carry out the calculations needed to run complex applications and workloads like AI or MS word? All these abstract and complex programs are broken down and compiled into lots of (relatively) simple, easy to understand instructions that the CPU can understand, called an instruction set._
 
-![](./images/13.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/13.png)
 
 *The two ISAs that run the world*
 
@@ -179,7 +179,7 @@ The instruction set architecture (ISA) is a description of how to make use of a 
 
 Of all the ISAs ever made for all the various hardware that exists out there, the two most popular for CPUs are x86 and ARM, both designed for general purpose compute and increasingly tuned over the years for higher and higher performance and efficiency.
 
-![](./images/14.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/14.png)
 
 *An example of an instruction set*
 
@@ -191,13 +191,13 @@ _The core computation that all current AI models are implemented as, the computa
 
 The computations required to run almost all AI models are matrix multiplications (matmuls) - matrices just being a 2D array of numbers, and multiplying them being an operation between two matrices, A and B, to accumulate their information into a new third matrix, C, as shown in the diagram. When you can represent both the input data and the parameters of your AI model as matrices, it's clear why the matmul operation is key to enabling information propagation.
 
-![](./images/15.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/15.png)
 
 *A simple A x B = C operation visualised*
 
 The systolic array is an architecture that acts as a heart-like structure (hence the name "systolic") for continually taking in data and accumulating it (performing a matmul) and then outputting it as soon as the streaming is done. The diagram shows a logical representation of one, with each processing element (PE) accumulating the multiple of each data point coming in from the left and the top and passing the original data onwards to the left and bottom.
 
-![](./images/16.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/16.png)
 
 *A topological diagram of a systolic array*
 
@@ -207,13 +207,13 @@ Google's TPU series are the most widely used example of an architecture built ar
 
 _How does a CPU understand and carry out the calculations needed to run complex applications and workloads like AI or MS word? All these abstract and complex programs are broken down and compiled into lots of (relatively) simple, easy to understand instructions that the CPU can understand, called an instruction set._
 
-![](./images/17.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/17.png)
 
 *Pointing out caches on a physical chip*
 
 Compute components like CPUs and GPUs contain relatively small amounts of very well managed memory on device, known generally as caches. Since data used to compute is often re-used repeatedly, keeping recently used data close to compute (in caches) can reduce workload runtimes by many orders of magnitude. Caches are organised into levels, as shown in the diagrams, ranging from L1 (closest to the actual compute logic) to L3/4/5 (furthest from the compute, closer to RAM/Storage), and each level gets larger but also gets slower, as its physically further from where the data stored is actually used. Despite their small size and relative obscurity, the design, sizing, and management of these caches can have a significant impact on the performance of the device.
 
-![](./images/18.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/18.png)
 
 *The cache hierarchy as seen in almost all servers*
 

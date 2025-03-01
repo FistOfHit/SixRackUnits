@@ -1,5 +1,5 @@
 # September 2024
-![](./images/1.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/1.jpeg)
 
 *Is this what we imagine on-chip free-space optics might look like?*
 
@@ -33,7 +33,7 @@
 
 The roadmap as shown below details their plans for their other technologies such as their switch ASICs. The [Quantum](https://www.nvidia.com/en-gb/networking/products/infiniband/quantum-x800/) and [Spectrum](https://nvdam.widen.net/s/xfmlcbklg5/ethernet-solution-overview-spectrum-x800-gtcspring24-3175614) series supporting up to 144 and 64 ports at 800Gb/s respectively, with a 512-radix version of the spectrum coming in early 2025 hopefully, and the [CX8 SuperNIC](https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c) to support these bandwidths should, together, enable networks that will saturate the GPUs of the near future.
 
-![](./images/2.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/2.png)
 
 *Source: Nvidia*
 
@@ -45,7 +45,7 @@ However, it appears that [the issue has been solved](https://www.trendforce.com/
 
  _[A letter from Intel CEO](https://www.intc.com/news-events/press-releases/detail/1710/a-message-from-intel-ceo-pat-gelsinger-to-employees#:~:text=We%20must%20continue%20acting%20with,to%20Intel%20customers%20and%20partners.), Pat Gelsinger, states that Intel's XPU lineup will be focusing on AI inference only, conceding AI training to its competitors. Whether this is yet another failure on Intel's part to deliver, or a strategic move to focus on their strengths, the Intel Falcon shores is still a capable AI accelerator._
 
-![](./images/3.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/3.png)
 
 *Source: Intel - A TDP of 1500W, carrying 288GB of HBM3, 9.8TB/s of bandwidth between device memory and compute, with x86 (of course) cores on chip.*
 
@@ -61,7 +61,7 @@ The TDP (thermal design power), or maximum amount of heat the device can output 
 
 SambaNova systems, a [SoftBank and BlackRock funded](https://sambanova.ai/investors-funding) AI accelerator systems designer has been making headlines in the AI inference space with its [record-breaking LLM inference speeds](https://www.theregister.com/2024/09/10/sambanovas_inference_cloud/). Most companies who design and integrate systems that compete with the likes of Intel, Nvidia, AMD and others usually use the open-source, open-weight (anyone can download and modify) [Llama LLMs from Meta](https://www.llama.com/), since they can optimise and inference the models in any way they like to suit their own devices and setups. SambaNova has just reported speeds of up to 132 Tokens (for the purposes of this article, words)/second, for the 405 Billion parameter Llama 3.1 model.
 
-![](./images/4.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/4.png)
 
 *Source: SambaNova*
 
@@ -69,7 +69,7 @@ To put that into context, AWS and Azure both, likely serving the models on Nvidi
 
 [The RDU](https://sambanova.ai/technology/sn40l-rdu-ai-chip) comes in at 51 Billion transistors per piece, compared to the H100s 80 Billion, and has 64 GB of HBM3, compared to the H100s 80/96 GB. Each of the 8 trays in the rack support 2 RDUs with an additional 1.5 TB of DDR5 RAM ([1](https://www.nextplatform.com/2023/09/20/sambanova-tackles-generative-ai-with-new-chip-and-new-approach/)). The real secret through, of device interconnectivity, whether it be via copper like Nvidia's NVLink or via optics like an Ethernet network, is kept from the public.
 
-![](./images/5.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/5.png)
 
 *Source: SambaNova*
 
@@ -77,7 +77,7 @@ To put that into context, AWS and Azure both, likely serving the models on Nvidi
 
  _Indeed, every organisation inherits its behaviours from its leader, and the documentation for Tesla's new open-source transport protocol designed to run over an ethernet network, named the Tesla transport protocol over Ethernet (TTPoE), [reads like one of its CEOs tweets/posts on X](https://github.com/teslamotors/ttpoe?tab=readme-ov-file#introduction)._
 
-![](./images/6.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/6.jpeg)
 
 *Source: ServeTheHome*
 
@@ -85,7 +85,7 @@ To put that into context, AWS and Azure both, likely serving the models on Nvidi
 
 Tesla would know just as well as Google, Microsoft and Meta about how difficult and slow it can get to scale ethernet networks to 10s or 100's of thousands of endpoints, but unlike the other tech giants, Tesla has decided to open source its transport layer protocol and has designed it to run only over Ethernet, allowing users to avoid InfiniBand whilst seeing the latency reductions and bandwidth increases provided by this new protocol.
 
-![](./images/7.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/7.png)
 
 *Source: Tesla*
 
@@ -97,13 +97,13 @@ Tesla would know just as well as Google, Microsoft and Meta about how difficult 
 
 With regular DRAM, you have one die (or block of silicon) with the transistors and capacitors for storing memory, but since [compute has been scaling faster than memory](https://medium.com/riselab/ai-and-memory-wall-2cb4265cb0b8) for decades, we have had to stack multiple (specialised) DRAM dies vertically (diagram below) and link them up to access all the dies at once, providing more bandwidth per chip area from memory modules. Currently, the latest [Nvidia H1/200s and AMD MI300X/A ship with HBM3e and HBM3 respectively](https://www.trendforce.com/news/2024/07/10/news-samsung-sk-hynix-and-micron-ramp-up-hbm-production-reportedly-doubling-output-next-year/), third generation HBM modules. Towards the end of 2024 and 2025/6, we will see 12 high stacks for HBM3e and [possibly 16 or more for HBM4](https://www.trendforce.com/news/2024/07/15/news-jedec-releases-new-hbm4-spec-as-memory-giants-gear-up-to-take-the-lead/), reaching ever higher volumes and bandwidths.
 
-![](./images/8.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/8.png)
 
 *Source: Rambus*
 
 It's clear that at least until 2025/6, this will be a [two-horse race between Samsung and SK Hynix](https://www.trendforce.com/news/2024/07/10/news-samsung-sk-hynix-and-micron-ramp-up-hbm-production-reportedly-doubling-output-next-year/), both Korean memory manufacturers, with [Micron picking up](https://www.chosun.com/english/industry-en/2024/07/01/QHQ7B7BC3VDZTJK6I57ROKLHLE/) both market share and pace from 2H2024 onwards.
 
-![](./images/9.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/9.png)
 
 *Source: TrendForce*
 
@@ -125,7 +125,7 @@ Let's break down what this means:
 
   * 5x: Generation 5, Enhanced ("x" sounds better than "e" I suppose)
 
-![](./images/10.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/10.png)
 
 *Source: Samsung*
 
@@ -139,7 +139,7 @@ Connecting multiple servers together requires a network, and hence network cable
 
 SFPs have been in use for a while now, but more recently the need for extremely high bandwidth interconnect between servers has exploded due to the popularisation of training and inferencing very large generative AI models. Prior to that, users who ran very large workloads like weather forecasting or structural stress analysis could balance their compute and memory requirements with the 25Gb or even 10Gb network bandwidths, but with AI, the memory demand is so much greater that the technology needed to transfer data between servers has had to evolve incredibly fast to keep up. In addition, with GPUs like A100s and H100s, the compute speeds have increased rapidly, meaning that memory speeds are now more of a bottleneck than ever.
 
-![](./images/11.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/11.png)
 
 *Source: Ascent Optics*
 
@@ -149,7 +149,7 @@ A 400G (4x100G) 8-lane optical transceiver (transmitter and receiver pair per la
 
  _How do you compare different compute hardware? There are a few key metrics depending on the purpose of the device, but for CPUs and GPUs, a key metric is the number of floating-point operations per second, or how fast you can add and multiply lots of numbers. But this can be misleading._
 
-![](./images/12.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/12.png)
 
 *Estimated*
 

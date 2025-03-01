@@ -1,5 +1,5 @@
 # November 2024
-![](./images/1.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/1.png)
 
 *Server or switch? How many ports is too many?*
 
@@ -27,7 +27,7 @@ _Meta once again demonstrates leadership in tech with a commitment to open-sourc
 
 [The report](https://arxiv.org/html/2410.21680v1) focuses on two of Meta's largest R&D compute clusters known as [RSC-1](https://ai.meta.com/blog/ai-rsc/) (focused on LLM training) and [RSC-2](https://www.servethehome.com/meta-rsc-selects-nvidia-and-pure-storage-for-ai-research-cluster-amd-epyc/meta-rsc-2/) (vision model training and other HPC jobs), at 16K and 8K GPUs respectively. Both clusters use InfiniBand for the backend network and have similar network topologies, as well as having the same multiple storage offerings available to users. The paper discusses various methods and experiments and their results in detail.
 
-![](./images/2.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/2.png)
 
 *Source: Meta*
 
@@ -40,7 +40,7 @@ Key observations:
 * [[Link]](https://arxiv.org/html/2410.21680v1#:~:text=For%20example%2C%20we%20observe%20PCIe%20errors%20often%20co%2Doccur%20with%20XID%2079%20\(GPU%20falling%20off%20the%20bus\)%20and%20IPMI%20%E2%80%9CCritical%20Interrupt%E2%80%9D%20events.%20On%20RSC%2D1%20\(and%20RSC%2D2\)%2C%20we%20observe%2043%25%20\(63%25\)%20of%20PCI%20errors%20co%2Doccur%20with%20XID%2079%20and%2021%25%20\(49%25\)%20have%20all%203%20event%20types.) It's possible to correlate multiple hardware failure types as co-occurring and use these to accelerate fixes. For example, PCIe error rate spikes might indicate GPU errors
 * [[Link]](https://arxiv.org/html/2410.21680v1#:~:text=Observation%206%3A%20Cluster%20failures%20are%20dynamic%20and%20reducing%20cluster%20failure%20rate%20is%20a%20continuous%20battle.%20New%20workloads%20and%20software%20updates%20mean%20the%20cluster%20is%20constantly%20changing.) Failure rates (and hence MTTF) change over time for the same system, ML/AI workloads show a clearer diurnal pattern whereas regular HPC jobs do not
 
-![](./images/3.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/3.png)
 
 *Source: Meta*
 
@@ -52,7 +52,7 @@ _[SK-Hynix](https://www.skhynix.com/), a leading memory manufacturer, has been a
 
 SK-Hynix, one of the 3 companies in the world able to produce HBM at scale and currently the market leader, plans to release the 4th generation of this technology in 1H2026. However, with Nvidia wanting to release their next generation of AI GPUs, [the Rubin series](https://www.tweaktown.com/news/100151/this-data-center-ai-chip-roadmap-shows-nvidia-will-dominate-far-into-2027-and-beyond/index.html), in 2H2025, this release would be too late for them to properly qualify and integrate HBM4 instead of HBM3E.
 
-![](./images/4.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/4.png)
 
 *Source: AMD*
 
@@ -68,7 +68,7 @@ According to [reports](https://asia.nikkei.com/Business/Technology/Tech-Asia/App
 
 This presents significant challenges for Apple as the company has limited experience in designing and manufacturing such products compared to established players. While focusing on inference workloads might simplify some aspects of the design, the market is still showing unprecedented demand for AI server manufacturing capacity, which could impact Apple's ability to scale production quickly. The company will need to navigate numerous technical validation issues and manufacturing constraints as it takes on this challenge.
 
-![](./images/5.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/5.png)
 
 In addition, Foxconn is possibly already at capacity with [their commitments to Nvidia on building a new facility in Mexico](https://en.tmtpost.com/post/7276609) that will reportedly produce 20,000 servers a month for Nvidia's GB200 NVL72 SKU. Given this ongoing scaling of infrastructure, it's unclear how Foxconn will generate additional capacity for M4 based servers. As a result, [Apple has also approached Lenovo as well as other OEMs outside of China](https://www.trendforce.com/news/2024/11/06/news-apple-reportedly-in-talks-with-foxconn-to-produce-ai-servers-in-taiwan/) to ensure supply chain diversification.
 
@@ -76,7 +76,7 @@ In addition, Foxconn is possibly already at capacity with [their commitments to 
 
 _Perhaps the most important [paper](https://arxiv.org/pdf/2411.04330) in AI this year, a study by a collection of American academics shows that we are approaching [the limits of how much more we can keep quantising](https://buttondown.com/ainews/archive/ainews-bitnet-was-a-lie/) or "compressing" AI models. Naturally, this does pose some risk to the growth of future hardware sales._
 
-![](./images/6.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/6.png)
 
 Efficiently inferencing very large AI models relies [on quantising - or "compressing" – their weights](https://www.medoid.ai/blog/a-hands-on-walkthrough-on-model-quantization/). This results in being able to fit the model into fewer AI accelerators and hence [improve inferencing speed and efficiency](https://arxiv.org/html/2402.09748v1). In other words, quantisation allows models to be economically viable – making them suitable for a profitable service to users.
 
@@ -90,7 +90,7 @@ _Announced at SC24, the El Capitan supercomputer achieves [1st place in the top5
 
 Lawrence Livermore national labs (LLNL) is one of just 11 U.S. public labs to receive more than $1 billion in funding annually and primarily conducts R&D for the department of energy on national security matters. LNLL strategically invests a large amount of that funding into their HPC clusters annually, [cumulating in El Capitan](https://www.llnl.gov/article/52061/lawrence-livermore-national-laboratorys-el-capitan-verified-worlds-fastest-supercomputer), now the most powerful (by FLOPS) supercomputer holding the [top spot in the top500 rankings](https://www.top500.org/lists/top500/2024/11/). The are multiple lists that use various criteria to compare different machines but the primary rankings that the largest machines compete in is by their [LINPACK score](https://en.wikipedia.org/wiki/LINPACK_benchmarks), which measures how many computations the system can perform towards solving a very large generic matrix algebra problem.
 
-![](./images/7.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/7.jpeg)
 
 *Source: LLNL*
 
@@ -110,11 +110,11 @@ Some of the [key features/stats of El Capitan](https://www.top500.org/system/180
 
 _GDDR7 - the 7th generation of Graphics DDR memory - is now under development. Suited for processors that need large capacity and bandwidth, GDDR7 RAM will continue the competition against HBM._
 
-![](./images/8.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/8.jpeg)
 
 *Source: Micron*
 
-![](./images/9.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/9.jpeg)
 
 *Source: Samsung*
 
@@ -130,7 +130,7 @@ _A serialiser/deserialiser (SERDES), is a chip that converts digital signals to 
 
 SERDES implementations appear in many parts of the hardware stack, handling data movement at multiple levels of the system hierarchy. Within servers, SERDES circuits enable PCIe links between CPUs and other system components such as memory devices. Between servers, SERDES devices are part of the interface between electrical and optical signals, enabling high-bandwidth networks over fibre. In essence, they convert data to and from serial and parallel streams. This enables multiple independent data streams to be sent coherently over the same link, optimising the use of the link by keeping it saturated instead of it being idle.
 
-![](./images/10.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/10.png)
 
 *Source: Wikipedia*
 
@@ -144,10 +144,10 @@ _For a given socket in a modern CPU, some parts of memory will be closer than ot
 
 The Intel Cascade lake 6482 dual-socket 40 core CPU (20 cores per socket) is a great study for this, where doing core-core latency benchmarks reveal that when accessing registers from another core on the same socket, the latency is ~50ns, but when doing the same on a core from the other socket, the latency incurred is ~150ns. In practice, for most CPUs the latency increase is around 2-3x, significant for some HPC workloads where multiple small accesses incurring this overhead can cause a large drop in performance.
 
-![](./images/11.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/11.png)
 
 With NUMA architectures, both the hardware design and the operating system split the CPU into multiple NUMA "nodes", where core-core communication and the memory allocation is optimised such that processes pinned to certain cores will (if the workload is optimised) communicate more with processes pinned to nearby cores, and allocate memory needed by those processes to locations that are physically close.
 
-![](./images/12.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/12.png)
 
 This principle applies not only to communication and memory accesses, but also to everything else on the CPU that is asymmetrically distanced from the sockets, such as PCIe sockets, which connect the CPU to network interface cards, AI accelerators, and sometimes even storage. Some CPUs/systems are designed to optimise traffic here too, having PCIe-aware NUMA architectures, which can have even larger impacts on performance.

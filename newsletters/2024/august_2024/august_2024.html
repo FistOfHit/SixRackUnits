@@ -1,5 +1,5 @@
 <h1 id="august-2024">August 2024</h1>
-<p><img src="/images/1.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/1.jpeg" alt=""></p>
 <p><em>Perhaps what a datacentre on the moon could look like</em></p>
 <p> <strong>This month’s updates:</strong></p>
 <ul>
@@ -27,15 +27,15 @@
 <p> <em>A small American OEM, <a href="https://gigaio.com/">GigaIO</a> has made headlines in quite a few HPC publications about its 32-GPU server - That’s 32 GPUs, acting as if they are within a single chassis. Depending on the implementation details and what&#39;s technically sound vs what&#39;s just marketing, this might be a great product.</em></p>
 <p>For large workloads that must be distributed across multiple servers, a lot of communications hardware (networking) is needed to let CPUs and GPUs (compute) send data back and forth. However, sending data further away from compute will always be a slow and relatively inefficient process.</p>
 <p>Efforts to remove the networking for small-medium sized clusters <a href="https://www.nvidia.com/en-gb/data-center/nvlink/">1</a> (32 to 256 GPUs) have shown some success, and in the case of GigaIO, profits too, with <a href="https://tensorwave.com/">TensorWave</a> (a GPUaaS provider) now working with GigaIO on a <a href="https://gigaio.com/2023/12/gigaios-supernode-to-power-tensorwave-deployment-with-amd-mi300x/">5000+ GPU cluster.</a></p>
-<p><img src="/images/2.gif" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/2.jpeg" alt=""></p>
 <p><em>Source: GigaIO</em></p>
 <p>GigaIO&#39;s <a href="https://gigaio.com/products/fabrex-system-overview/">FabreX technology,</a> a PCIe-based interconnect that allows various components of a server (or multiple servers) to aggregate into one virtual server and talk to each other. This can extend over multiple racks, allowing for the possibility of having 1000s of GPUs Hyperconverged via one interconnect.</p>
-<p><img src="/images/3.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/3.jpeg" alt=""></p>
 <p><em>Source: GigaIO</em></p>
 <p>32 GPUs + 16 CPUs spread across 4 physical servers, connected via FabreX, acting as one physical server. This does mean that the connections between all GPUs are not equal in length, and so significant latency differences may be an issue.</p>
 <h2 id="-kestrel-u-s-public-sector-s-new-supercomputer-"><strong>Kestrel – U.S. Public sector&#39;s new supercomputer</strong></h2>
 <p> <em>NREL (National Renewable energy Lab) <a href="https://insidehpc.com/2024/08/hpe-kestrel-supercomputer-operational-at-nrel/">launched a GPU-enabled supercomputer</a>, with 528 Nvidia H100 GPUs, opening it up for use on U.S. government energy and renewables projects. A big win for HPE for sure, but an even bigger win for Ethernet.</em></p>
-<p><img src="/images/4.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/4.jpeg" alt=""></p>
 <p><a href="https://www.nrel.gov/hpc/kestrel-system-configuration.html">Key features</a>:</p>
 <ul>
 <li><p>132 HPE Cray XE servers, 4x H100 + 2x AMD Genoa each</p>
@@ -52,29 +52,29 @@
 <p>Using HPE&#39;s Slingshot 11 fabric for its networking solution, NREL decided to stick to Ethernet rather than adopting the InfiniBand standard that Nvidia is pushing. The Slingshot tech stack is a proven and capable ethernet networking solution, using HPE&#39;s switches and RoCE with <a href="https://www.hpe.com/psnow/doc/a50002546enw.pdf?jumpid=in_pdp-psnow-qs">additional features</a> such as adaptive routing and congestion control to create an efficient and fast network that approaches InfiniBand&#39;s realised latencies and throughputs. This is another data point supporting the <a href="https://www.fierce-network.com/data-center/hyperscalers-want-replace-infiniband-ethernet-heres-why">trend of industry moving towards ethernet</a> and refusing to pay premiums for InfiniBand and be locked-in to Nvidia&#39;s technology ecosystem.</p>
 <h2 id="-nvidia-b100s-delayed-cancelled-"><strong>Nvidia B100s delayed/cancelled</strong></h2>
 <p> _Due to issues with manufacturing and packaging the silicon itself at TSMC, Nvidia are being <a href="https://www.theregister.com/2024/08/05/nvidia_delays_blackwell_gpus_until/">forced to delay shipments of the B200</a>, and possibly even <a href="https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment">cancelling the B100</a>. Depending on who is asked, research into denser and more power-hungry semiconductors is either going fine or reaching a saturation point, but regardless of which you believe, evidence shows that we are starting to see some issues._</p>
-<p><img src="/images/5.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/5.jpeg" alt=""></p>
 <p>TSMC (Taiwan Semiconductor) and Nvidia had agreed to a very aggressive schedule of <a href="https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment">producing over a million chips per quarter</a> for the BX00 and GBX00 line-ups, but due to issues with the novel techniques being used to put the chips together and onto the motherboards, Nvidia have been forced to delay their plans to meet customer demands for B100 and B200 chips. This has knock on effects of course for the planned GB200 NVL36/72 (Grace CPU + Blackwell GPU servers, rack of 36 or 72 GPUS total), but they seem to have kept their plans for the B200 Ultra GPUs, the denser and more compute intensive versions of the B200s. How customers who have huge orders such as Meta and Tesla will react to this, we are yet to see, but its certain that the already deployed HX00 and GHX00 line-up&#39;s lifespans have been extended to accommodate these delays.</p>
-<p><img src="/images/6.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/6.jpeg" alt=""></p>
 <p><em>Source: SemiAnalysis</em></p>
 <h2 id="-nvidia-s-new-b200-a-and-air-cooled-nvl36-"><strong>Nvidia&#39;s new B200&quot;A&quot; and Air-cooled NVL36</strong></h2>
 <p> <em>Either in response to the BX00/GBX00 delays, or as was always planned, <a href="https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment">Nvidia have announced two new products</a>, showing that they are indeed listening and responding to market demands: The B200A reduced capability GPU, and the GB200A NVL36/72 copper-connected air-cooled racks.</em></p>
 <p>The GB200A is designed to have a lower TDP (thermal design power), and hence even 2RU dense compute units containing 4 of these (diagram below) can be air-cooled without loss of performance, allowing customers who don’t have liquid-cooling capable infrastructure to find a compromise between cutting edge products from Nvidia and costs/capabilities. In addition, using the <a href="https://www.nvidia.com/en-gb/data-center/nvlink/">NVLink gen5 GPU-GPU interconnect</a>, as well as their new <a href="https://www.nvidia.com/en-gb/data-center/nvlink/">NVLink switches</a> for connecting multiple NVLink-capable GPUs, Nvidia can now offer a <a href="https://www.semianalysis.com/p/nvidias-optical-boogeyman-nvl72-infiniband">fully copper-connected</a> 9-server rack, completely avoiding optics (and the associated additional parts and costs), with the NVLink switches also being <a href="https://www.nvidia.com/en-gb/data-center/nvlink/">extensible up to 576 GPUs</a>, potentially resulting in an InfiniBand/Ethernet-free small/medium GPU cluster.</p>
-<p><img src="/images/7.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/7.jpeg" alt=""></p>
 <p><em>source: SemiAnalysis</em></p>
 <p>GB200A NVL36 – NVLink connected 9 Grace CPU and 36 B200A GPU air cooled rack, containing 9 compute trays with 4 GPUs each, as well as 9 <a href="https://www.nvidia.com/en-gb/data-center/nvlink/">NVLink middle-of-rack switches</a>, resulting in a fully copper connected, air cooled multi-node rack. Nvidia has understood that liquid cooling, high-bandwidth networking, and excessive power densities are <a href="https://www.trendforce.com/presscenter/news/20240807-12244.html">roadblocks to customers adopting their latest products</a> and have adapted accordingly.</p>
 <h2 id="-ibm-s-new-tellum-ii-and-spyre-"><strong>IBM&#39;s new Tellum-II and Spyre</strong></h2>
 <p> _At Hotchips 2024, <a href="https://www.theregister.com/2024/08/27/ibm_telum_ii_mainframes/">IBM announced two new chips</a> for its latest push into high-performance AI inference. The Tellum-II CPU, and the Spyre AI accelerator. As usual for IBM, they&#39;re pushing on energy efficiency, smarter compute units, and larger caches instead of the power-hungry HBM approach Nvidia and AMD are taking_</p>
-<p><img src="/images/8.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/8.jpeg" alt=""></p>
 <p><em>Source: IBM</em></p>
 <p><a href="https://research.ibm.com/blog/spyre-for-z">The Spyre AI accelerator chip</a> (not yet named as a GPU/NPU or otherwise) is a PCIe form-factor, 75W, 300TOPs card is IBM&#39;s official push into generative AI hardware, focusing on efficient low-precision floating point compute, PCIe compatibility for ease of adoption by OEMs, and surprisingly (pleasantly so though), LPDDR5 instead of HBM. The decision to go with low-power DDR Gen5 RAM instead of high-bandwidth memory like Nvidia and AMD have, points to IBMs commitment to avoid excessive power-density. They might attempt to mitigate the lower bandwidth with larger L2/VL3 caches or even adding an VL4 cache <a href="https://www.ibm.com/blog/announcement/telum-ii/">like the Tellum-II does</a>, but this has not been confirmed yet.</p>
-<p><img src="/images/9.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/9.jpeg" alt=""></p>
 <p><em>Source: IBM</em></p>
 <p><a href="https://www.ibm.com/blog/announcement/telum-ii/">The Tellum-II</a> CPU is a major improvement over the first version, with the key upgrades being: 5.5GHz frequency (very high), 10x36MB L2 cache (quite large), 360MB and 2.8GB virtual L3 and L4 caches (wow), an integrated 24 TOPs AI accelerator unit, and an enhanced DPU with its own dedicated L2 cache! All of these add up to the Tellum-II being a very capable CPU, pairing IBM&#39;s famous reliability with decent AI inferencing performance. It&#39;s intended for traditional ML and light AI workloads, though paired with the Spyre AI accelerators, IBM have the potential for making competitive 4-6U compute trays (almost definitely air-cooled due to the low TDP they’ll have) <a href="https://www.servethehome.com/ibm-telum-ii-processor-and-spyre-ai-updates-at-hot-chips-2024/">with 8 accelerators</a> like the offerings that OEMs like Dell and HPE provide for Nvidia/AMD GPUs.</p>
 <hr>
 <h1 id="one-pagers-">One-pagers:</h1>
 <h2 id="-connectx-7-"><strong>ConnectX-7</strong></h2>
 <p> <em>Pre-training (from scratch) large language models (LLM) is orders of magnitude more computationally expensive than finetuning them, and so using a single server isn&#39;t practical. But to scale beyond the chassis, AI cards like GPUs need to start networking – They need network interface cards (NICs).</em></p>
-<p><img src="/images/10.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/10.jpeg" alt=""></p>
 <p><em>DGX (8 x H100 GPU): 1 NIC per GPU</em></p>
 <p>Basic functionality:</p>
 <p>1 - Takes data from GPUs/CPUs into its own memory</p>
@@ -94,8 +94,8 @@
 <h2 id="-nccl-testing-a-datacentre-"><strong>NCCL-testing a datacentre</strong></h2>
 <p> <em>Once a datacentre has been racked and cabled, how do we know that all the parts are talking to each other properly? For Nvidia servers, its best to use the very same technology that enables large-scale distributed AI training and inference – Nvidia&#39;s Collective Communications Library (NCCL)</em></p>
 <p>NCCL is Nvidia&#39;s software library for efficient and easy to use communications between multiple GPUs on the same network, whether within the same server or in a different rack. Once all the cabling is done, its NCCL that AI engineers will use to distribute the AI model training and inferencing across the datacentre.</p>
-<p><img src="/images/11.jpeg" alt=""></p>
-<p><img src="/images/12.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/11.jpeg" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/12.jpeg" alt=""></p>
 <p>NCCL’s “gather” and “reduce-scatter” functions, two of the many collective communication functions that NCCL provides. Diagrams show how NCCL can take data distributed across multiple GPUs and organise and optimise multiple send/receive operations simultaneously to achieve whatever end data pattern is required.</p>
 <p>Why is this important for testing? Since NCCL handles communication patterns of many kinds, it&#39;s easy to test all of these to see is every combination of cables are configured correctly. Setting up some simple checks to see if the data before and after the transfers are what you&#39;d expect will let you know if there might be issues in your networking and can also help diagnose them.</p>
 <h2 id="-spine-leaf-topology-"><strong>Spine-leaf topology</strong></h2>
@@ -111,5 +111,5 @@
 <li><p>Reduces the number of switches required whilst maintaining performance, keeping costs under control</p>
 </li>
 </ul>
-<p><img src="/images/13.png" alt=""></p>
+<p><img src="https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/august_2024/images/13.jpeg" alt=""></p>
 <p>In a classic spine-leaf topology, each of the leaf nodes (individual servers or a rack) are connected to each of the spine switches, allowing every node to talk to any other with a maximum of 2 hops. While this means that there will be fewer cables on any given physical path between two leaf switches, multiple paths (red) using all spine switches can be used to network between the same two pair of leaf switches, resulting in high aggregate bandwidth if the pathing and congestion are managed well by software.</p>
