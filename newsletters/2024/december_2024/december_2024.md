@@ -1,5 +1,5 @@
 # December 2024
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fed3ca708-0390-4e68-a239-42509b6a6aa5_1344x768.png)
+![](./images/1.png)
 
 *The connections between compute nodes within a datacentre can have very high bandwidths and connectivity, but scaling beyond a single building cannot be as simple as connecting two core switches across a few hundred meters.*
 
@@ -25,13 +25,13 @@
 
 _At their annual Re:Invent conference, AWS made two major announcements regarding developments in custom silicon: the general availability (GA) of the Trainium2 AI training accelerator, and the 400,000 chip "ultra-cluster" named project Rainier._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3ea7a470-f95e-4ebe-a6f5-368ba1920943_921x495.png)
+![](./images/2.png)
 
 *Source: Amazon*
 
 AWS recently announced GA for instances containing Trainium2 (Trn2) accelerators, the latest chip in its custom silicon lineup. Benchmarks for Trn2 instances aren't available yet, but the release notes state that the smaller SKU - a 16-chip, 9 x 2 RU (inc. a 2 RU Intel sapphire rapids CPU chassis), half-rack product - will provide ~20 PFLOPS at FP8 and 1.5 TB of on-chip memory (96 GB HBM3 per chip). This SKU will have ~8 TB/s scale-up and ~12.8 Tb/s scale-out (note the bytes vs bits conventions in the units) aggregate bandwidth, and these networks will be carried by AWS's own NeuronLink chip-to-chip and Elastic fabric adapter (EFA) ethernet stack, respectively.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2c8640ba-aa98-4fdd-ac70-d5f1a711b600_1024x659.png)
+![](./images/3.png)
 
 *Source: SemiAnalysis*
 
@@ -47,7 +47,7 @@ Through communications with UDN and SemiAnalysis, Nvidia has released early spec
 
 On the system specs, it's been revealed that the TDP of the B300 will be at 1200W, compared to the 1000W of the B200, but information on the exact effect this has on an 8-way GPU server's TDP will come from OEMs such as Dell and Lenovo. In addition, the OEMs will have more control over repairs and maintenance going forward as Nvidia is moving from existing SXM board designs to "SXM puck" designs which allows for more flexibility in board design and chip replacement.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb45edb8d-12e2-4e5b-b7ab-fed0c76f6fb9_766x538.png)
+![](./images/4.png)
 
 *Source: SemiAnalysis*
 
@@ -57,7 +57,7 @@ As for chip specs, the B300 GPU die will be taped out with TSMCs 4NP process nod
 
 _Google firmly holds onto its lead as the world's top designer and producer of custom silicon. The latest in its tensor processing unit (TPU) lineup, the TPUv6, demonstrates further efficiency and performance gains on its predecessors after being announced as generally available (GA) on Google cloud platform._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc0f137a6-c222-4f75-b9d8-5df7f21ce00c_1200x648.jpeg)
+![](./images/5.jpeg)
 
 *Source: Google*
 
@@ -65,7 +65,7 @@ Google has announced GA for its TPU v6e - or "Trillium" - generation of AI accel
 
 Improving on the TPUv5e by increasing the total compute capacity from ~200 to ~900 TFLOPs at BF16, the v6e also provides double the compute available in the more performant v5p TPU. Google has therefore set the precedent that the "e" (efficiency) variants will now compete with past generations' "p" (performance) variants. As for memory, v6e provides 32 GB of HBM per chip at a bandwidth of ~1.6 TB/s, doubling the specs for v5e but not improving on the v5p. Whilst its not made clear which generation of HBM is in use here, its very likely based on the specs that the memory system is implemented as two stacks of HBM3.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0275f805-bb69-43f0-abba-51862dcff0b3_1079x505.png)
+![](./images/6.png)
 
 *Source: Wikipedia*
 
@@ -79,7 +79,7 @@ At IEDM24, Nvidia and TSMC jointly announced their plans for overcoming the chip
 
 Copper interconnects and the technology supporting them have progressed to allow for incredibly dense and high-bandwidth connections between multiple chips on motherboard, but metal will always have fundamental limitations such as signal loss, electrical resistance, and interference. Optical fibres overcome many of these limitations but only recently have optical interface layers between chips themselves become a viable option.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdd6c3fe9-b427-443b-9db6-bc40e740ae4a_753x534.png)
+![](./images/7.png)
 
 *Source: Nvidia*
 
@@ -91,13 +91,13 @@ Industry analysts predict this technology will present in the market from 2028-2
 
 _Both Google and IBM - the two leaders in the race to quantum supremacy - end this year with announcements of significant progress in quantum computing hardware. Whilst Google shows progress in chip-making, IBM leads in networking._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F459a8905-6585-41d4-b5d8-7c3f9f97b61f_313x225.png)
+![](./images/8.png)
 
 *Source: Google*
 
 HPC scales in two dimensions: individual chip capability, and chip-to-chip networking speed. Addressing the former, Google announced a major milestone towards viable quantum supremacy using their Willow quantum compute chip. Whilst the workload they ran (random circuit sampling) in record time using the chip was not technically impressive, the technology that enabled everything was. For the first time, a quantum compute chip could correct errors faster than they appeared, and the error correction capability increases exponentially with the size of the chip.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1fd25b1a-3c25-4cc6-82b5-08a6bcb89b0a_2048x957.png)
+![](./images/9.png)
 
 *Source: IBM*
 
@@ -115,13 +115,13 @@ _Solid state drives (SSDs) are one of the two common devices used in datacentres
 
 In modern datacentres the majority of "cold" - infrequently accessed or archived - data is stored in HDDs. SSDs, however, are used for all other cases: when data has just been written, needs to be read, or needs to be available as quickly as possible with demand. SSDs therefore need to be manufactured in very specialised foundries, using similar technology to chip manufacturing.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe259508f-293d-4744-a51d-dc0fccc30bab_574x354.png)
+![](./images/10.png)
 
 *Sources: University of Waterloo, Jimi2mall*
 
 SSDs physically store information in cells, which are transistors that store electrical charge of various amounts. Depending on design, these cells can be single level cells (SLC), multi-level, or triple and quad level. Each successive cell design stores (for the purpose of this explanation) the same volume of charge but distinguishes the exact amount of charge more precisely, allowing the charge level to be "classified" into one of a greater number of levels.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F81712938-c6d9-46af-b7cc-77f46e532739_549x269.png)
+![](./images/11.png)
 
 *Source: Kingston technology*
 
@@ -133,13 +133,13 @@ _Hollow glass fibres that approach the width of the thinnest naturally occurring
 
 Modern optical fibres range in thickness from ~63 to ~8µm. At these scales, the diffraction (spread) of light being transmitted within the glass is less than the magnitude of the waveguide effect, or the "narrowing" effect that the total internal reflection (TIR) has on the light. Single-mode fibres are thinner - around 8-9 µm - and only allow for a single mode (path) for the light to internally reflect along. This allows for very long-distance transmission without significant signal degradation. Multi-mode fibres - 50-63 µm - are too thick to restrict light to a single mode, leading to greater signal loss, but are cheaper and easier to produce.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1a65187e-c663-4ae2-a332-b1a19695c5f4_1007x498.png)
+![](./images/12.png)
 
 *Source: RS*
 
 To connect network interfaces via fibre, transceivers are used to convert electrical signals to optical signals. Transceivers therefore require non-trivial amounts of power and add latency to the signalling process, but the increased efficiency and speed over using copper make optical connections cost-effective for most applications.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fb6051b73-33ee-43cc-a5e0-9cd85531b04a_1082x274.png)
+![](./images/13.png)
 
 *Source: MeetOptics*
 
@@ -153,6 +153,6 @@ For on device memory (not long-term storage) there are two options available to 
 
 While DRAM uses a capacitor-transistor pair to store a bit of memory, SRAM uses 6 transistors, hence taking up significantly more area per bit of memory stored. In addition, SRAM requires constant power supply to hold information, whereas information in DRAM can persist for short periods of time. However, these capacitors are also slow to charge (write) and discharge (read) and require periodic refreshing due to charge leakage from the capacitor. These processes result in SRAM having significantly higher read and write performance than SRAM, to the order of being 10-100x better.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F895efe23-5980-4906-a648-34986df3c8f4_660x570.png)
+![](./images/14.png)
 
 Due to its cost, power demand, and relatively low-density, SRAM is practically restricted to small volumes very near the compute or I/O resources on chip, acting as caches and buffers for fast local memory reads and writes. SRAM makes up all physical cache levels in CPUs and physical buffers in switches and NICs, as well small amounts of local memory on peripheral devices. For some specialised AI accelerators, SRAM is used as the main memory, with multiple sparse compute units being attached to their own small SRAM volumes. Such paradigms of computing are called "near-memory" or (perhaps wrongly) "in-memory" compute.

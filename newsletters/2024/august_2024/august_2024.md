@@ -1,5 +1,5 @@
 # August 2024
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd166ddb4-c07c-4015-abfe-1dfd3cb85665_1344x768.jpeg)
+![](./images/1.jpeg)
 
 *Perhaps what a datacentre on the moon could look like*
 
@@ -35,13 +35,11 @@ For large workloads that must be distributed across multiple servers, a lot of c
 
 Efforts to remove the networking for small-medium sized clusters [1](https://www.nvidia.com/en-gb/data-center/nvlink/) (32 to 256 GPUs) have shown some success, and in the case of GigaIO, profits too, with [TensorWave](https://tensorwave.com/) (a GPUaaS provider) now working with GigaIO on a [5000+ GPU cluster.](https://gigaio.com/2023/12/gigaios-supernode-to-power-tensorwave-deployment-with-amd-mi300x/)
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_lossy/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F28afd357-e580-40ae-bef9-700fd9a92a4b_800x390.gif)
+![](./images/2.gif)
 
-*Source: GigaIO*
+*Source: GigaIO - GigaIO's [FabreX technology](https://gigaio.com/products/fabrex-system-overview/), a PCIe-based interconnect that allows various components of a server (or multiple servers) to aggregate into one virtual server and talk to each other. This can extend over multiple racks, allowing for the possibility of having 1000s of GPUs Hyperconverged via one interconnect.*
 
-GigaIO's [FabreX technology,](https://gigaio.com/products/fabrex-system-overview/) a PCIe-based interconnect that allows various components of a server (or multiple servers) to aggregate into one virtual server and talk to each other. This can extend over multiple racks, allowing for the possibility of having 1000s of GPUs Hyperconverged via one interconnect.
-
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5cf4212d-a62e-49dc-9afe-920872b52fa4_178x596.jpeg)
+![](./images/3.jpeg)
 
 *Source: GigaIO*
 
@@ -51,7 +49,7 @@ GigaIO's [FabreX technology,](https://gigaio.com/products/fabrex-system-overview
 
  _NREL (National Renewable energy Lab) [launched a GPU-enabled supercomputer](https://insidehpc.com/2024/08/hpe-kestrel-supercomputer-operational-at-nrel/), with 528 Nvidia H100 GPUs, opening it up for use on U.S. government energy and renewables projects. A big win for HPE for sure, but an even bigger win for Ethernet._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9413c09f-0fcf-466d-b58d-90ffdc34f049_801x295.jpeg)
+![](./images/4.jpeg)
 
 [Key features](https://www.nrel.gov/hpc/kestrel-system-configuration.html):
 
@@ -71,7 +69,7 @@ Using HPE's Slingshot 11 fabric for its networking solution, NREL decided to sti
 
  _Due to issues with manufacturing and packaging the silicon itself at TSMC, Nvidia are being [forced to delay shipments of the B200](https://www.theregister.com/2024/08/05/nvidia_delays_blackwell_gpus_until/), and possibly even [cancelling the B100](https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment). Depending on who is asked, research into denser and more power-hungry semiconductors is either going fine or reaching a saturation point, but regardless of which you believe, evidence shows that we are starting to see some issues._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fd7069d57-0489-4f00-8f32-449d897d9240_1098x500.jpeg)
+![](./images/5.jpeg)
 
 TSMC (Taiwan Semiconductor) and Nvidia had agreed to a very aggressive schedule of [producing over a million chips per quarter](https://www.semianalysis.com/p/nvidias-blackwell-reworked-shipment) for the BX00 and GBX00 line-ups, but due to issues with the novel techniques being used to put the chips together and onto the motherboards, Nvidia have been forced to delay their plans to meet customer demands for B100 and B200 chips. This has knock on effects of course for the planned GB200 NVL36/72 (Grace CPU + Blackwell GPU servers, rack of 36 or 72 GPUS total), but they seem to have kept their plans for the B200 Ultra GPUs, the denser and more compute intensive versions of the B200s. How customers who have huge orders such as Meta and Tesla will react to this, we are yet to see, but its certain that the already deployed HX00 and GHX00 line-up's lifespans have been extended to accommodate these delays.
 
@@ -85,7 +83,7 @@ TSMC (Taiwan Semiconductor) and Nvidia had agreed to a very aggressive schedule 
 
 The GB200A is designed to have a lower TDP (thermal design power), and hence even 2RU dense compute units containing 4 of these (diagram below) can be air-cooled without loss of performance, allowing customers who don’t have liquid-cooling capable infrastructure to find a compromise between cutting edge products from Nvidia and costs/capabilities. In addition, using the [NVLink gen5 GPU-GPU interconnect](https://www.nvidia.com/en-gb/data-center/nvlink/), as well as their new [NVLink switches](https://www.nvidia.com/en-gb/data-center/nvlink/) for connecting multiple NVLink-capable GPUs, Nvidia can now offer a [fully copper-connected](https://www.semianalysis.com/p/nvidias-optical-boogeyman-nvl72-infiniband) 9-server rack, completely avoiding optics (and the associated additional parts and costs), with the NVLink switches also being [extensible up to 576 GPUs](https://www.nvidia.com/en-gb/data-center/nvlink/), potentially resulting in an InfiniBand/Ethernet-free small/medium GPU cluster.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7f91891f-5a7e-458d-986c-df9bce5aceee_1001x742.jpeg)
+![](./images/7.jpeg)
 
 *source: SemiAnalysis*
 
@@ -95,13 +93,13 @@ GB200A NVL36 – NVLink connected 9 Grace CPU and 36 B200A GPU air cooled rack, 
 
  _At Hotchips 2024, [IBM announced two new chips](https://www.theregister.com/2024/08/27/ibm_telum_ii_mainframes/) for its latest push into high-performance AI inference. The Tellum-II CPU, and the Spyre AI accelerator. As usual for IBM, they're pushing on energy efficiency, smarter compute units, and larger caches instead of the power-hungry HBM approach Nvidia and AMD are taking_
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F93e7bedd-8737-4b98-acd2-a452b2ee99b9_957x463.jpeg)
+![](./images/8.jpeg)
 
 *Source: IBM*
 
 [The Spyre AI accelerator chip](https://research.ibm.com/blog/spyre-for-z) (not yet named as a GPU/NPU or otherwise) is a PCIe form-factor, 75W, 300TOPs card is IBM's official push into generative AI hardware, focusing on efficient low-precision floating point compute, PCIe compatibility for ease of adoption by OEMs, and surprisingly (pleasantly so though), LPDDR5 instead of HBM. The decision to go with low-power DDR Gen5 RAM instead of high-bandwidth memory like Nvidia and AMD have, points to IBMs commitment to avoid excessive power-density. They might attempt to mitigate the lower bandwidth with larger L2/VL3 caches or even adding an VL4 cache [like the Tellum-II does](https://www.ibm.com/blog/announcement/telum-ii/), but this has not been confirmed yet.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F5884e5c1-fa05-4c3d-b290-a4718740eb2e_937x871.jpeg)
+![](./images/9.jpeg)
 
 *Source: IBM*
 
@@ -115,7 +113,7 @@ GB200A NVL36 – NVLink connected 9 Grace CPU and 36 B200A GPU air cooled rack, 
 
  _Pre-training (from scratch) large language models (LLM) is orders of magnitude more computationally expensive than finetuning them, and so using a single server isn't practical. But to scale beyond the chassis, AI cards like GPUs need to start networking – They need network interface cards (NICs)._
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F0ce8350e-598a-4884-8da8-de53c10fc8cb_416x315.png)
+![](./images/10.png)
 
 *DGX (8 x H100 GPU): 1 NIC per GPU*
 
@@ -147,9 +145,9 @@ OR
 
 NCCL is Nvidia's software library for efficient and easy to use communications between multiple GPUs on the same network, whether within the same server or in a different rack. Once all the cabling is done, its NCCL that AI engineers will use to distribute the AI model training and inferencing across the datacentre.
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F816bdea7-f691-43e0-b2a6-62911f436ccd_1367x588.jpeg)
+![](./images/11.jpeg)
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F25da1e93-cec1-4b08-afc4-1c5d17c62c2d_1324x615.jpeg)
+![](./images/12.jpeg)
 
 NCCL’s “gather” and “reduce-scatter” functions, two of the many collective communication functions that NCCL provides. Diagrams show how NCCL can take data distributed across multiple GPUs and organise and optimise multiple send/receive operations simultaneously to achieve whatever end data pattern is required.
 
@@ -169,6 +167,6 @@ Because network switches like the those from Arista or Juniper have so many port
 
   * Reduces the number of switches required whilst maintaining performance, keeping costs under control
 
-![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F98ccc41b-f5c7-48f7-88ec-b9264fdb4fae_732x287.png)
+![](./images/13.png)
 
 In a classic spine-leaf topology, each of the leaf nodes (individual servers or a rack) are connected to each of the spine switches, allowing every node to talk to any other with a maximum of 2 hops. While this means that there will be fewer cables on any given physical path between two leaf switches, multiple paths (red) using all spine switches can be used to network between the same two pair of leaf switches, resulting in high aggregate bandwidth if the pathing and congestion are managed well by software.
