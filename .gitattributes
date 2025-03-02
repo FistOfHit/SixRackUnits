@@ -1,6 +1,6 @@
 * text=auto
 
-/README.md linguist-documentation
+README.md linguist-documentation
 
-# Make any markdown files in newsletter subdirectories display when navigating to those directories
-/newsletters/*/*/*.md linguist-documentation
+# Try to make markdown files in newsletter directories display automatically
+newsletters/**/*.md linguist-detectable=true linguist-documentation=true
