@@ -1,0 +1,6 @@
+* text=auto
+
+/README.md linguist-documentation
+
+# Make any markdown files in newsletter subdirectories display when navigating to those directories
+/newsletters/*/*/*.md linguist-documentation
