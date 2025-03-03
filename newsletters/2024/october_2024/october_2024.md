@@ -1,21 +1,22 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # October 2024
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/october_2024/images/1.png)
 
 *What might a human-scale CPU look like or even mean?*
 
-**This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**Huawei's Ascend 910C**](#huaweis-ascend-910c)
+  - [**Nvidia cancels the NVL 36x2**](#nvidia-cancels-the-nvl-36x2)
+  - [**Nvidia moving away from SXM**](#nvidia-moving-away-from-sxm)
+  - [**AMDs EPYC Turin, MI325X, and Pollara NIC**](#amds-epyc-turin-mi325x-and-pollara-nic)
+  - [**(Rumours) Nvidia Vera/Rubin and Intel Falcon shores specs**](#rumours-nvidia-verarubin-and-intel-falcon-shores-specs)
 
-* Huawei's Ascend 910C begins customer trials in China
-* Nvidia cancels the NVL 36x2 copper connected rack SKU
-* Nvidia moving away from SXM, starting with the rumoured "B300"
-* AMD announces Turin CPU, MI325X GPU, and a UEC-compliant NIC
-* Rumoured: Nvidia Vera/Rubin and Intel Falcon shores specs
-
-**One-pagers:**
-
-* Instruction sets
-* Systolic arrays
-* Caches
+[**One-pagers:**](#one-pagers)
+  - [**Instruction sets**](#instruction-sets)
+  - [**Systolic arrays**](#systolic-arrays)
+  - [**Caches**](#caches)
 
 * * *
 
@@ -218,3 +219,5 @@ Compute components like CPUs and GPUs contain relatively small amounts of very w
 *The cache hierarchy as seen in almost all servers*
 
 "Compute is cheap, bandwidth is expensive, and latency is bound by physics" – For most modern hardware, all three of these statements mostly hold true (with certain caveats and exceptions). HPC and AI workloads, therefore, must be optimised to best use the memory system of the hardware they run on, and so far, we've done this very well. Specialised libraries for scientific/high-performance computing and even the coding languages themselves have been optimised to within fractions of a percent of theoretical optimal performance over the past few decades, and with new workloads, new software and new hardware being developed continuously, the drive to optimise our compute to better suit our memory systems continues.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

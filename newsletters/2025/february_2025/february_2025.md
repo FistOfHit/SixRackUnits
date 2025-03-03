@@ -1,24 +1,25 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # February 2025
 
 ![Could hardware ever reach a point of density and efficiency such that all computation happens locally and is P2P only? Or would the demand for compute scale endlessly with its supply?](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F119de8c8-0e8b-4b27-9cc4-c3a4bd6550a2_2688x1536.png)
 
 *Could hardware ever reach a point of density and efficiency such that all computation happens locally and is P2P only? Or would the demand for compute scale endlessly with its supply?*
 
-**This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**SanDisk develops high-bandwidth flash (HBF) memory**](#sandisk-develops-high-bandwidth-flash-hbf-memory)
+  - [**Meta to acquire Furiosa**](#meta-to-acquire-furiosa)
+  - [**GB300 "Ultra" and Rubin series**](#gb300-ultra-and-rubin-series)
+  - [**Intel's roadmap and its dependence on 18A**](#intels-roadmap-and-its-dependence-on-18a)
+  - [**Huawei's Ascend series**](#huaweis-ascend-series)
+  - [**Other notable headlines**](#other-notable-headlines)
 
-* SanDisk develops "high-bandwidth flash" memory, aiming for TB capacity on GPUs
-* Meta reportedly looks to acquire Korean chip startup FuriosaAI
-* Updates on the Nvidia B300 "Ultra" and Rubin series
-* Intel's roadmap and its dependence on 18A
-* Huawei to challenge Nvidia's dominance in China with the Ascend series
-* Other notable headlines
+[**Vendor spotlight:**](#vendor-spotlight)
+  - [**NextSilicon**](#nextsilicon)
 
-**Vendor spotlight:**
-* NextSillicon
-
-**One-pagers:**
-* Racetrack memory
-* Baseboard management controllers
+[**One-pagers:**](#one-pagers)
+  - [**Racetrack memory (RTM)**](#racetrack-memory-rtm)
+  - [**Baseboard management controllers (BMCs)**](#baseboard-management-controllers-bmcs)
 
 ---
 
@@ -182,3 +183,5 @@ BMCs are dedicated chips on the baseboard that perform a variety of functions cr
 As servers tend towards hundreds of cores per CPU, multiple GPUs, and additional NICs/switches all on the same board, the demand on the BMCs increases super-linearly. Individual components become denser and more performant with every iteration, but the number of sensors and the frequency of incoming data also increases, resulting in an even greater load on the management controller and connections. This trend towards increased networking and processing load has resulted in BMCs having a higher core count and using high-bandwidth connectivity such as 400G NICs and PCIe 5.0 to support the data collection and processing required for managing increasingly complex baseboards.
 
 Some BMCs implement advanced predictive maintenance via small AI models, to help prevent damage and wear on components, and incorporate specialised units such as NPUs to offload these small AI workloads. It's also likely that BMCs will eventually integrate more and higher bandwidth memory such as HBM stacks to cache sensor data, enabling better management functionality on chip rather than sending data to remote management servers. This shift mirrors industry's push toward "lights-out" datacentres, where fewer and fewer hardware faults require human intervention.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

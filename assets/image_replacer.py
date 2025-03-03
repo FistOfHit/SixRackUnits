@@ -2,26 +2,56 @@
 import os
 import re
 import argparse
+import sys
 from pathlib import Path
 from urllib.parse import urlparse
+from typing import List
 
-def is_url(path):
-    """Check if a string is a URL."""
+
+def is_url(path: str) -> bool:
+    """
+    Check if a string is a URL.
+    
+    Args:
+        path (str): The string to check
+        
+    Returns:
+        bool: True if the string is a URL, False otherwise
+    """
     try:
         result = urlparse(path)
         return all([result.scheme, result.netloc])
     except:
         return False
 
-def get_file_extension(path):
-    """Extract file extension from path, defaulting to .jpg if none found."""
+
+def get_file_extension(path: str) -> str:
+    """
+    Extract file extension from path, defaulting to .jpg if none found.
+    
+    Args:
+        path (str): The file path to extract extension from
+        
+    Returns:
+        str: The file extension (including the dot) or .jpg if none found
+    """
     _, ext = os.path.splitext(path)
     if ext:
         return ext.lower()
     return ".jpg"  # Default extension if none is found
 
-def find_image_paths(content, file_type):
-    """Find all image paths in the content based on file type."""
+
+def find_image_paths(content: str, file_type: str) -> List[str]:
+    """
+    Find all image paths in the content based on file type.
+    
+    Args:
+        content (str): The file content to search
+        file_type (str): The type of file ('md' or 'html')
+        
+    Returns:
+        List[str]: List of image paths found in the content
+    """
     if file_type == 'md':
         # Match markdown image syntax: ![alt text](path/to/image)
         return re.findall(r'!\[.*?\]\((.*?)\)', content)
@@ -30,8 +60,19 @@ def find_image_paths(content, file_type):
         return re.findall(r'<img[^>]*src=[\'"]([^\'"]+)[\'"]', content)
     return []
 
-def replace_image_paths(content, file_type, base_github_url):
-    """Replace image paths with GitHub raw URLs based on order of appearance."""
+
+def replace_image_paths(content: str, file_type: str, base_github_url: str) -> str:
+    """
+    Replace image paths with GitHub raw URLs based on order of appearance.
+    
+    Args:
+        content (str): The file content to process
+        file_type (str): The type of file ('md' or 'html')
+        base_github_url (str): The base GitHub URL for raw content
+        
+    Returns:
+        str: The updated content with replaced image paths
+    """
     if file_type == 'md':
         # Find all markdown image patterns
         image_patterns = list(re.finditer(r'!\[.*?\]\((.*?)\)', content))
@@ -101,8 +142,21 @@ def replace_image_paths(content, file_type, base_github_url):
     
     return content
 
-def process_directory(directory):
-    """Process all markdown and HTML files in the directory."""
+
+def process_directory(directory: str) -> None:
+    """
+    Process all markdown and HTML files in the directory.
+    
+    Args:
+        directory (str): Path to the directory containing files to process
+        
+    Raises:
+        FileNotFoundError: If the directory doesn't exist
+    """
+    dir_path = Path(directory)
+    if not dir_path.exists() or not dir_path.is_dir():
+        raise FileNotFoundError(f"Directory not found: {directory}")
+    
     # Use the specified GitHub repository with correct URL format
     github_repo = "FistOfHit/SixRackUnits"
     dir_name = os.path.basename(directory)
@@ -138,14 +192,29 @@ def process_directory(directory):
                 
                 print(f"Updated {file_path}")
 
-def main():
+
+def main() -> None:
+    """
+    Parse command line arguments and process the directory.
+    """
     parser = argparse.ArgumentParser(description='Replace image paths with GitHub raw URLs')
-    parser.add_argument('directory', help='Directory containing markdown and HTML files')
+    parser.add_argument(
+        'directory', 
+        help='Directory containing markdown and HTML files'
+    )
     
     args = parser.parse_args()
     
-    process_directory(args.directory)
-    print("Image replacement complete!")
+    try:
+        process_directory(args.directory)
+        print("Image replacement complete!")
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

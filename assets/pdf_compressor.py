@@ -1,33 +1,41 @@
 #!/usr/bin/env python3
-"""
-PDF Compressor
-
-A utility script to compress PDF files with options for compression level or target output size.
-"""
-
 import os
 import sys
 import argparse
 import subprocess
 from pathlib import Path
+from typing import Optional, Union
 
 
-def get_file_size_mb(file_path):
-    """Return the file size in megabytes."""
+def get_file_size_mb(file_path: str) -> float:
+    """
+    Return the file size in megabytes.
+    
+    Args:
+        file_path (str): Path to the file
+        
+    Returns:
+        float: Size of the file in megabytes
+    """
     return os.path.getsize(file_path) / (1024 * 1024)
 
 
-def compress_pdf(input_path, output_path=None, compression_level=None):
+def compress_pdf(input_path: str, output_path: Optional[str] = None, 
+                compression_level: Optional[int] = None) -> Optional[str]:
     """
     Compress a PDF file using Ghostscript.
     
     Args:
-        input_path: Path to the input PDF file
-        output_path: Path for the output PDF file (default: input_path with '_compressed' suffix)
-        compression_level: Compression level (0-4, where 0 is lowest quality, 4 is highest)
+        input_path (str): Path to the input PDF file
+        output_path (Optional[str]): Path for the output PDF file (default: input_path with '_compressed' suffix)
+        compression_level (Optional[int]): Compression level (0-4, where 0 is lowest quality, 4 is highest)
         
     Returns:
-        Path to the compressed file
+        Optional[str]: Path to the compressed file, or None if compression failed
+        
+    Raises:
+        FileNotFoundError: If the input file doesn't exist
+        ValueError: If an invalid compression level is provided
     """
     if not os.path.exists(input_path):
         raise FileNotFoundError(f"Input file not found: {input_path}")
@@ -83,12 +91,25 @@ def compress_pdf(input_path, output_path=None, compression_level=None):
         return None
 
 
-def main():
+def main() -> None:
+    """
+    Parse command line arguments and process the PDF file.
+    """
     parser = argparse.ArgumentParser(description="Compress PDF files")
-    parser.add_argument("input_path", help="Path to the input PDF file")
-    parser.add_argument("-o", "--output", help="Path for the output PDF file")
-    parser.add_argument("-c", "--compression-level", type=int, choices=range(5),
-                      help="Compression level (0-4, where 0 is highest compression, 4 is highest quality)")
+    parser.add_argument(
+        "input_path", 
+        help="Path to the input PDF file"
+    )
+    parser.add_argument(
+        "-o", "--output", 
+        help="Path for the output PDF file"
+    )
+    parser.add_argument(
+        "-c", "--compression-level", 
+        type=int, 
+        choices=range(5),
+        help="Compression level (0-4, where 0 is highest compression, 4 is highest quality)"
+    )
     
     args = parser.parse_args()
     
@@ -99,7 +120,7 @@ def main():
             args.compression_level
         )
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
 

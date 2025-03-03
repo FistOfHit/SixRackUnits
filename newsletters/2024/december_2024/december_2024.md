@@ -1,21 +1,22 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # December 2024
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/december_2024/images/1.png)
 
 *The connections between compute nodes within a datacentre can have very high bandwidths and connectivity, but scaling beyond a single building cannot be as simple as connecting two core switches across a few hundred meters.*
 
-**This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**Amazon's Trainium2 and "Project Rainier"**](#amazons-trainium2-and-project-rainier)
+  - [**Nvidia's B300 early specs**](#nvidias-b300-early-specs)
+  - [**Google "Trillium" TPUs now generally available**](#google-trillium-tpus-now-generally-available)
+  - [**Nvidia's plans for silicon photonics**](#nvidias-plans-for-silicon-photonics)
+  - [**Google and IBM in the race to quantum supremacy**](#google-and-ibm-in-the-race-to-quantum-supremacy)
 
-* Amazon's Trainium2 AI accelerator generally available, plans a 400K chip ultra-cluster "Rainier"
-* Nvidia's B300 GPU – limited release of specs ahead of official announcement at GTC 2025
-* Google's 6th gen TPUs, named "Trillium" now generally available on GCP
-* Nvidia presents its vision for future AI accelerators using silicon photonics and 3D stacking
-* Google and IBM make breakthroughs in quantum computing, on opposite ends of HPC
-
-**One-pagers:**
-
-* SSDs
-* Optical fibre
-* SRAM
+[**One-pagers:**](#one-pagers)
+  - [**SSDs**](#ssds)
+  - [**Optical fibre**](#optical-fibre)
+  - [**SRAM**](#sram)
 
 * * *
 
@@ -156,3 +157,5 @@ While DRAM uses a capacitor-transistor pair to store a bit of memory, SRAM uses 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/december_2024/images/14.png)
 
 Due to its cost, power demand, and relatively low-density, SRAM is practically restricted to small volumes very near the compute or I/O resources on chip, acting as caches and buffers for fast local memory reads and writes. SRAM makes up all physical cache levels in CPUs and physical buffers in switches and NICs, as well small amounts of local memory on peripheral devices. For some specialised AI accelerators, SRAM is used as the main memory, with multiple sparse compute units being attached to their own small SRAM volumes. Such paradigms of computing are called "near-memory" or (perhaps wrongly) "in-memory" compute.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

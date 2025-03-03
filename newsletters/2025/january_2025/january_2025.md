@@ -1,24 +1,24 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # January 2025
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/january_2025/images/1.png)
 
 *A person comparing their own size to the earth would have an easier time comprehending that size difference than trying to compare the size of a transistor to the chip it has been etched into.*
 
-**This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**DeepSeek possibly under-reports AI hardware infrastructure**](#deepseek-possibly-under-reports-ai-hardware-infrastructure)
+  - [**Samsung and Micron still in the race for HBM**](#samsung-and-micron-still-in-the-race-for-hbm)
+  - [**Mixed market sentiment on Nvidia's GB200 rack-scale SKUs**](#mixed-market-sentiment-on-nvidias-gb200-rack-scale-skus)
+  - [**Qualcomm and Arm to compete over datacentre Arm CPUs**](#qualcomm-and-arm-to-compete-over-datacentre-arm-cpus)
+  - [**The incredible engineering of Nvidia's RTX 5090**](#the-incredible-engineering-of-nvidias-rtx-5090)
 
-* DeepSeek's hardware inventory possibly much greater than reported
-* Samsung and Micron still competing for HBM, fighting for Nvidia's GPUs
-* Nvidia's GB200: Mixed sentiment from industry on persistent overheating reports
-* Qualcomm and Arm to compete again: The datacentre Arm-based CPU market
-* The incredible engineering of the world's best gaming GPU – the Nvidia RTX 5090
+[**Vendor spotlight:**](#vendor-spotlight)
+  - [**GigaIO**](#gigaio)
 
-**Vendor spotlight:**
-
-* GigaIO
-
-**One-pagers:**
-
-* Overclocking
-* Intel AVX/AMX
+[**One-pagers:**](#one-pagers)
+  - [**Overclocking**](#overclocking)
+  - [**Intel's AVX/AMX – Advanced Vector/Matrix eXtensions**](#intels-avxamx-advanced-vectormatrix-extensions)
 
 * * *
 
@@ -164,3 +164,5 @@ Modern CPUs rely on instruction sets - collections of commands that define how h
 AMX, launched in 2023 with Intel's Sapphire Rapids CPUs, targets matrix operations by introducing 2D tiles, which are dedicated on-chip memory blocks for matrix operations. Unlike AVX's general-purpose registers, AMX tiles are optimized for matrix multiplications, a core operation in neural networks. Using tiles allow developers to further optimise processing very large regions of memory by exploiting locality and parallelism further. This design mirrors GPU-style efficiency for AI tasks while retaining CPU flexibility for mixed workloads. For example, a CPU with AMX can handle both database queries and real-time inference to a degree, making it ideal for edge AI or hybrid cloud environments.
 
 AVX and AMX reflect Intel's strategy to bridge the gap between CPUs and specialized accelerators. AVX's vector parallelism suits diverse workloads, from video encoding to physics simulations, while AMX's matrix focus competes directly with GPUs in AI efficiency. Though AVX-512's power demands limit its adoption, AMX's lower energy footprint positions it as a scalable AI solution suitable for high-bandwidth CPUs such as Sapphire rapids onwards.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

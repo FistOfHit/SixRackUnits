@@ -2,12 +2,23 @@
 import os
 import re
 import requests
-from pathlib import Path
 import argparse
+import sys
+from pathlib import Path
 from urllib.parse import urlparse
+from typing import List, Optional
 
-def extract_image_urls(markdown_content):
-    """Extract all image URLs from markdown content."""
+
+def extract_image_urls(markdown_content: str) -> List[str]:
+    """
+    Extract all image URLs from markdown content.
+    
+    Args:
+        markdown_content (str): The markdown text to parse
+        
+    Returns:
+        List[str]: List of image URLs found in the markdown
+    """
     # Match only ![alt](url) pattern
     md_pattern = r'!\[.*?\]\((https?://[^)]+)\)'
     
@@ -15,8 +26,18 @@ def extract_image_urls(markdown_content):
     
     return md_urls
 
-def download_image(url, output_path):
-    """Download an image from URL to the specified path."""
+
+def download_image(url: str, output_path: str) -> Optional[str]:
+    """
+    Download an image from URL to the specified path.
+    
+    Args:
+        url (str): URL of the image to download
+        output_path (str): Base path where the image will be saved (without extension)
+        
+    Returns:
+        Optional[str]: Path to the downloaded file, or None if download failed
+    """
     try:
         response = requests.get(url, stream=True)
         response.raise_for_status()
@@ -47,9 +68,24 @@ def download_image(url, output_path):
         print(f"Error downloading {url}: {e}")
         return None
 
-def process_markdown_file(markdown_path):
-    """Process a markdown file, extract and download all images."""
+
+def process_markdown_file(markdown_path: str) -> Optional[List[str]]:
+    """
+    Process a markdown file, extract and download all images.
+    
+    Args:
+        markdown_path (str): Path to the markdown file to process
+        
+    Returns:
+        Optional[List[str]]: List of paths to downloaded files, or None if no images were found
+        
+    Raises:
+        FileNotFoundError: If the markdown file doesn't exist
+    """
     markdown_path = Path(markdown_path)
+    
+    if not markdown_path.exists():
+        raise FileNotFoundError(f"Markdown file not found: {markdown_path}")
     
     # Create 'images' directory in the same location as the markdown file
     output_dir = markdown_path.parent / "images"
@@ -64,7 +100,7 @@ def process_markdown_file(markdown_path):
     
     if not image_urls:
         print(f"No image URLs found in {markdown_path}")
-        return
+        return None
     
     print(f"Found {len(image_urls)} images in {markdown_path}")
     
@@ -80,12 +116,28 @@ def process_markdown_file(markdown_path):
     print(f"Downloaded {len(downloaded_files)} images to {output_dir}/")
     return downloaded_files
 
-def main():
+
+def main() -> None:
+    """
+    Parse command line arguments and process the markdown file.
+    """
     parser = argparse.ArgumentParser(description='Extract and download images from markdown files')
-    parser.add_argument('markdown_file', help='Path to the markdown file')
+    parser.add_argument(
+        'markdown_file', 
+        help='Path to the markdown file'
+    )
+    
     args = parser.parse_args()
     
-    process_markdown_file(args.markdown_file)
+    try:
+        process_markdown_file(args.markdown_file)
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    except Exception as e:
+        print(f"Unexpected error: {e}", file=sys.stderr)
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()

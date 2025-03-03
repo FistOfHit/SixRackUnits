@@ -1,21 +1,22 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # November 2024
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/1.png)
 
 *Server or switch? How many ports is too many?*
 
-**This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**Meta's reliability analysis**](#metas-reliability-analysis)
+  - [**Nvidia rushes SK-Hynix for HBM4**](#nvidia-rushes-sk-hynix-for-hbm4)
+  - [**Rumours: Apple to build its own datacentre servers**](#rumours-apple-to-build-its-own-datacentre-servers)
+  - [**Scaling AI to become increasingly difficult**](#scaling-ai-to-become-increasingly-difficult)
+  - [**El Capitan takes the top spot in the top500**](#el-capitan-takes-the-top-spot-in-the-top500)
 
-* Meta publishes a re-analysis of reliability in their large-scale ML clusters
-* Nvidia reportedly rushes SK-Hynix for HBM4, 6 months ahead of schedule
-* Rumour: Apple considers entering the AI server market via Foxconn and other OEMs
-* Evidence mounts: AI model quantisation has its limit, and what this means for hardware sales
-* Lawrence Livermore national labs' El Capitan supercomputer reaches 1st place in the top500
-
-**One-pagers:**
-
-* GDDR7
-* SERDES
-* NUMA
+[**One-pagers:**](#one-pagers)
+  - [**GDDR7**](#gddr7)
+  - [**SERDES**](#serdes)
+  - [**NUMA**](#numa)
 
 * * *
 
@@ -151,3 +152,5 @@ With NUMA architectures, both the hardware design and the operating system split
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/november_2024/images/12.png)
 
 This principle applies not only to communication and memory accesses, but also to everything else on the CPU that is asymmetrically distanced from the sockets, such as PCIe sockets, which connect the CPU to network interface cards, AI accelerators, and sometimes even storage. Some CPUs/systems are designed to optimise traffic here too, having PCIe-aware NUMA architectures, which can have even larger impacts on performance.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

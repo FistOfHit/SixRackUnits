@@ -1,27 +1,22 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # August 2024
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/august_2024/images/1.jpeg)
 
 *Perhaps what a datacentre on the moon could look like*
 
- **This month’s updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**GigaIO - SuperNODE**](#gigaio---supernode)
+  - [**Kestrel – U.S. Public sector's new supercomputer**](#kestrel-us-public-sectors-new-supercomputer)
+  - [**Nvidia B100s delayed/cancelled**](#nvidia-b100s-delayedcancelled)
+  - [**Nvidia's new B200"A" and Air-cooled NVL36**](#nvidias-new-b200a-and-air-cooled-nvl36)
+  - [**IBM's new Tellum-II and Spyre**](#ibms-new-tellum-ii-and-spyre)
 
-  * GigaIO introduces a 32-GPU server (single node) solution
-
-  * HPE x NREL complete the Kestrel supercomputer with 528 Nvidia H100 GPUs
-
-  * Nvidia’s Blackwell (B100) cards delayed/cancelled.
-
-  * Nvidia B200"A" cards and an air-cooled NVL36 (36-GPU rack) announced
-
-  * IBM announces Tellum-II and Spyre chips
-
- **One-pagers:**
-
-  * ConnectX-7
-
-  * NCCLs
-
-  * Spine-Leaf topology
+[**One-pagers:**](#one-pagers)
+  - [**ConnectX-7**](#connectx-7)
+  - [**NCCL-testing a datacentre**](#nccl-testing-a-datacentre)
+  - [**Spine-leaf topology**](#spine-leaf-topology)
 
 * * *
 
@@ -170,3 +165,5 @@ Because network switches like the those from Arista or Juniper have so many port
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/august_2024/images/13.png)
 
 In a classic spine-leaf topology, each of the leaf nodes (individual servers or a rack) are connected to each of the spine switches, allowing every node to talk to any other with a maximum of 2 hops. While this means that there will be fewer cables on any given physical path between two leaf switches, multiple paths (red) using all spine switches can be used to network between the same two pair of leaf switches, resulting in high aggregate bandwidth if the pathing and congestion are managed well by software.
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

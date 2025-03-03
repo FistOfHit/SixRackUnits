@@ -1,27 +1,22 @@
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+
 # September 2024
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2024/september_2024/images/1.jpeg)
 
 *Is this what we imagine on-chip free-space optics might look like?*
 
- **This month's updates:**
+[**This month's updates:**](#this-months-updates)
+  - [**Nvidia B100/200s not delayed?**](#nvidia-b100200s-not-delayed)
+  - [**Intel concedes on AI training**](#intel-concedes-on-ai-training)
+  - [**SambaNova's LLM inference speeds**](#sambanovas-llm-inference-speeds)
+  - [**Tesla's transport protocol over Ethernet**](#teslas-transport-protocol-over-ethernet)
+  - [**The race towards HBM4**](#the-race-towards-hbm4)
 
-  * Nvidia B100/200's not delayed? How TSMC and Nvidia overcame a major setback
-
-  * Intel concedes on training, focuses on AI inference for their next GPUs/XPUs
-
-  * SambaNova using a single rack to achieve the fastest LLM inference speeds to date
-
-  * Tesla develops its own transport protocol for its 100,000 GPU supercomputer
-
-  * The race towards HBM4, a tie between Samsung and SK Hynix, Micron catching up
-
- **One-pagers:**
-
-  * LPDDR5X
-
-  * OSFP
-
-  * FLOPs
+[**One-pagers:**](#one-pagers)
+  - [**LPDDR5x**](#lpddr5x)
+  - [**OSFP**](#osfp)
+  - [**FLOPs**](#flops)
 
 * * *
 
@@ -162,3 +157,6 @@ Looking at these numbers without any context or purpose is meaningless and says 
   * AMD's EPYC 7702 CPU doesn't even advertise FLOPs so it had to be estimated, since what CPUs do is much more complicated and flexible than what GPUs do
 
   * Cerebras' WSE-3 looks amazing, apart from when you learn its many, many times the size and cost of a H100 GPU and is much harder to program/optimise for
+
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
