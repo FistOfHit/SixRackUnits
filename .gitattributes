@@ -1,6 +1,13 @@
+# Set default behavior to automatically normalize line endings
 * text=auto
 
+# Ensure the root README.md displays (default behavior)
 README.md linguist-documentation
 
-# Try to make markdown files in newsletter directories display automatically
-newsletters/**/*.md linguist-detectable=true linguist-documentation=false
+# Set all Markdown files to be detectable but NOT documentation
+# This is counterintuitive but necessary according to GitHub's behavior
+*.md linguist-documentation=false
+*.md linguist-detectable=true
+
+# Explicitly mark newsletter markdown files as detectable
+newsletters/**/*.md linguist-detectable=true
