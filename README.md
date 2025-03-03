@@ -1,4 +1,4 @@
-[![](https://github.com/FistOfHit/SixRackUnits/blob/main/assets/header.png)](https://sixrackunits.substack.com)
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
 
 # SixRackUnits
 SixRackUnits (6RU) delivers short form news and educational content around AI/HPC hardware.
@@ -16,4 +16,4 @@ The free publication features all the monthly news updates produced, as well as 
 
 To subscribe, please visit the [substack](https://sixrackunits.substack.com).
 
-[![](https://github.com/FistOfHit/SixRackUnits/blob/main/assets/logo.png)](https://sixrackunits.substack.com)
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
