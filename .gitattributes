@@ -3,4 +3,4 @@
 README.md linguist-documentation
 
 # Try to make markdown files in newsletter directories display automatically
-newsletters/**/*.md linguist-detectable=true linguist-documentation=true
+newsletters/**/*.md linguist-detectable=true linguist-documentation=false
