@@ -2,7 +2,7 @@
 
 # February 2025
 
-![Could hardware ever reach a point of density and efficiency such that all computation happens locally and is P2P only? Or would the demand for compute scale endlessly with its supply?](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F119de8c8-0e8b-4b27-9cc4-c3a4bd6550a2_2688x1536.png)
+![Could hardware ever reach a point of density and efficiency such that all computation happens locally and is P2P only? Or would the demand for compute scale endlessly with its supply?](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/february_2025/images/1.png)
 
 *Could hardware ever reach a point of density and efficiency such that all computation happens locally and is P2P only? Or would the demand for compute scale endlessly with its supply?*
 
