@@ -2,9 +2,9 @@
 
 # March 2025
 
-![]()
+![What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/march_2025/images/1.png)
 
-**
+*What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*
 
 [**This month's updates:**](#this-months-updates)
   - [**Other notable headlines**](#other-notable-headlines)
