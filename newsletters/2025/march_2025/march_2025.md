@@ -23,6 +23,16 @@
 
 ## Other notable headlines
 
+* [Intel to still use TSMC for ~30% of its chip fabrication demand – No longer trying to get that down to zero, VP confirms](https://www.pcgamer.com/hardware/processors/intel-is-still-using-tsmc-for-30-percent-of-its-wafer-demands-we-were-talking-about-trying-to-get-that-to-zero-as-quickly-as-possible-thats-no-longer-the-strategy/)
+
+* [AsteraLabs and Micron working on PCIe 6.0 SSDs – Using Astera’s PCIE 6.0 switch and Micron’s 27GB/s (read) SSD on a x4 connection](https://www.tomshardware.com/pc-components/ssds/micron-shows-off-worlds-fastest-pcie-6-0-ssd-hitting-27-gb-s-speeds-astera-labs-pcie-6-0-switch-enables-impressive-sequential-reads)
+
+* [Neocloud CoreWeave signs a $12B deal with OpenAI for supplying GPUs over the next 5 years – raises doubts on OpenAI’s partnership with Microsoft and Oracle](https://www.reuters.com/technology/artificial-intelligence/coreweave-strikes-12-billion-contract-with-openai-ahead-ipo-sources-say-2025-03-10/)
+
+* [AWS Quanutm labs announces Ocelot – a new type of Quantum computing chip, competing with Microsoft’s reveal just weeks earlier](https://www.amazon.science/blog/amazon-announces-ocelot-quantum-chip)
+
+* [Nvidia confirmed to supply ~64,000 B200 GPUs (in GB200 units) for project Stargate – the U.S.’ $100B set of datacentre’s in Texas](https://finance.yahoo.com/news/nvidia-supply-ai-chips-openai-171623995.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAMF8-HV4KDeAlhl-QY7zGjTGrRfAimvIQnLsuEbo_Jfsio3OUoCuoPvIf8ssWG19PQgFR8tv3Mtw0McHzZ1P2hdOGAsvcBHbhK6Jr_B6YR3omWyWnTbokAo-FftRE-b5EC7OH8Z7MGzQRq-jZguPnZL_aJWvgmWBMn83eZXBUpkc)
+
 ---
 
 # Vendor spotlight:
@@ -46,5 +56,9 @@ Cerebras currently operate 3 datacentres with their 2nd and 3rd gen. CS-2 and CS
 ---
 
 # One-pagers:
+
+## Silicon binning
+
+## Branch prediction
 
 [![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
