@@ -83,7 +83,8 @@ def replace_image_paths(content: str, file_type: str, base_github_url: str) -> s
         
         for i, match in enumerate(image_patterns, 1):
             original_path = match.group(1)
-            if not is_url(original_path):
+            # Only replace if it's not already a URL or if it's a different URL than our target
+            if not is_url(original_path) or not original_path.startswith(base_github_url):
                 # Get original extension
                 ext = get_file_extension(original_path)
                 
@@ -104,6 +105,8 @@ def replace_image_paths(content: str, file_type: str, base_github_url: str) -> s
                 
                 # Update offset
                 offset += len(replacement) - len(full_match)
+                
+                print(f"Replaced: {original_path} -> {new_path}")
         
         return new_content
     
@@ -117,7 +120,8 @@ def replace_image_paths(content: str, file_type: str, base_github_url: str) -> s
         
         for i, match in enumerate(image_patterns, 1):
             original_path = match.group(1)
-            if not is_url(original_path):
+            # Only replace if it's not already a URL or if it's a different URL than our target
+            if not is_url(original_path) or not original_path.startswith(base_github_url):
                 # Get original extension
                 ext = get_file_extension(original_path)
                 
@@ -137,6 +141,8 @@ def replace_image_paths(content: str, file_type: str, base_github_url: str) -> s
                 
                 # Update offset
                 offset += len(replacement) - len(full_match)
+                
+                print(f"Replaced: {original_path} -> {new_path}")
         
         return new_content
     
@@ -161,9 +167,22 @@ def process_directory(directory: str) -> None:
     github_repo = "FistOfHit/SixRackUnits"
     dir_name = os.path.basename(directory)
     
-    # Construct the URL with the correct format including refs/heads/main
-    year = dir_name.split('_')[1]
-    base_github_url = f"https://raw.githubusercontent.com/{github_repo}/refs/heads/main/newsletters/{year}/{dir_name}/images"
+    # Extract year from directory name or use the parent directory name if needed
+    parts = dir_name.split('_')
+    if len(parts) > 1:
+        year = parts[1]
+    else:
+        # Try to get year from parent directory
+        parent_dir = os.path.basename(os.path.dirname(directory))
+        year = parent_dir
+    
+    # Construct the URL with the correct format
+    base_github_url = f"https://raw.githubusercontent.com/{github_repo}/main/newsletters/{year}/{dir_name}/images"
+    
+    print(f"Using base GitHub URL: {base_github_url}")
+    
+    # Track if any files were actually modified
+    files_modified = False
     
     for file_path in Path(directory).glob('*'):
         if file_path.is_file():
@@ -186,11 +205,17 @@ def process_directory(directory: str) -> None:
                     base_github_url
                 )
                 
-                # Write updated content
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    f.write(new_content)
-                
-                print(f"Updated {file_path}")
+                # Only write if content changed
+                if new_content != content:
+                    with open(file_path, 'w', encoding='utf-8') as f:
+                        f.write(new_content)
+                    print(f"Updated {file_path}")
+                    files_modified = True
+                else:
+                    print(f"No changes needed for {file_path}")
+    
+    if not files_modified:
+        print("No files were modified. Check if images are already using the correct URLs or if there are any images to replace.")
 
 
 def main() -> None:
