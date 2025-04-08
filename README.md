@@ -11,6 +11,7 @@ Originally designed for Substack but published internally first, this monthly ne
 <details>
   <summary>2025</summary>
     <ul>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/april_2025/april_2025.md">April</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/march_2025/march_2025.md">March</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/february_2025/february_2025.md">February</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/january_2025/january_2025.md">January</a></li>
