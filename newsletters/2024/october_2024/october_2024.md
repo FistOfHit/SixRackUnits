@@ -18,6 +18,8 @@
   - [**Systolic arrays**](#systolic-arrays)
   - [**Caches**](#caches)
 
+For a space to share sources and news/updates, join on <a href="https://t.me/aihpc_infra_fans">Telegram</a>, and check out my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
+
 * * *
 
 # This month's updates:

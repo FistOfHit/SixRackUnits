@@ -2,23 +2,6 @@
 
 # March 2025
 
-
-# Table of Contents
-
-- [**This month's updates:**](#this-months-updates)
-  - [**Official specs for the Nvidia Rubin NVL576 released at GTC**](#official-specs-for-the-nvidia-rubin-nvl576-released-at-gtc)
-  - [**Nvidia reveal plans for the GB300 NVL144 and HGX NVL16**](#nvidia-reveal-plans-for-the-gb300-nvl144-and-hgx-nvl16)
-  - [**Nvidia and partners announce next-gen datacentre switches with co-packaged optics**](#nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics)
-  - [**Bolt Graphics reveals “Zeus” GPU – Claiming to 10x the Nvidia 5090’s performance**](#bolt-graphics-reveals-zeus-gpu-claiming-to-10x-the-nvidia-5090s-performance)
-  - [**Micron secures first SOCAMM memory module supply for Nvidia GB300s**](#micron-secures-first-socamm-memory-module-supply-for-nvidia-gb300s)
-  - [**Other notable headlines**](#other-notable-headlines)
-- [**Vendor spotlight:**](#vendor-spotlight)
-  - [**Cerebras**](#cerebras)
-- [**One-pagers:**](#one-pagers)
-  - [**Silicon binning**](#silicon-binning)
-  - [**Branch prediction**](#branch-prediction)
-
-
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/newsletters/2025/march_2025/images/2.png)
 
 *What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*
@@ -37,6 +20,8 @@
 [**One-pagers:**](#one-pagers)
   - [**Silicon binning**](#silicon-binning)
   - [**Branch prediction**](#branch-prediction)
+
+For a space to share sources and news/updates, join on <a href="https://t.me/aihpc_infra_fans">Telegram</a>, and check out my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
 
 ---
 
