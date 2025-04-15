@@ -1,8 +1,8 @@
-[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/newsletters/2025/march_2025/images/1.png)](https://sixrackunits.substack.com)
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/assets/header.png)](https://sixrackunits.substack.com)
 
 # March 2025
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/newsletters/2025/march_2025/images/2.png)
+![What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/newsletters/2025/march_2025/images/2.png)
 
 *What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*
 
@@ -181,4 +181,4 @@ For some instructions such as conditionals or returns, if the processor cannot a
 
 Structures such as 2-bit saturating counters as shown in the diagram are among the simplest of these predictors, where they flip between predicting that a branch should be taken or not taken depending on the counters state which changes based on how many times they have correctly or wrongly predicted the outcome. Moden CPUs use multiple and more complex predictors to make more informed decisions, with structures such as TAGE or neural predictors that consider the history of the instruction stream, its origin, and more to make informed predictions.
 
-[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/main/newsletters/2025/march_2025/images/19.png)](https://sixrackunits.substack.com)
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

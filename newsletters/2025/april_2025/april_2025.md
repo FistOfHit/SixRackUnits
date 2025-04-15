@@ -2,9 +2,9 @@
 
 # April 2025
 
-![What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/march_2025/images/1.png)
+![Will we ever move away from cables? What could high-bandwidth, low-error, and secure wireless communications looks like in the future?*](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/1.png)
 
-*What would the densest possible storage device look like? We will inevitably move away from transistors and capacitors. The intermediate steps are unclear, but the end goal might be to use something created by nature itself and find a way to tap into it.*
+*Will we ever move away from cables? What could high-bandwidth, low-error, and secure wireless communications looks like in the future?*
 
 [**This month's updates:**](#this-months-updates)
   - [**Lightmatter's 3D photonics - computing with light**](#lightmatters-3d-photonics---computing-with-light)
@@ -46,6 +46,12 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 # Vendor spotlight:
 
 ## Kove
+
+*Host memory capacity is and has always been the be-all and end-all of large, high-performance applications. Running out of memory - triggering an OOM error - usually causes not just the application and its progress/state to crash, but the entire host machine. [Kove](https://kove.com/) are a firm working to change this with a solution for remote memory that is not only feasible, but performant too.*
+
+Founded in 2003, American firm Kove has quietly been working on and supplying remote memory solutions to customers who found their workloads constrained not by compute, but by memory capacity. Their Kove memory tower and Kove SDM pair racks of DRAM enclosures containing high-performance NICs with their software that manages the remote memory and transfers. At a high-level, the tower works by extending the main memory available to a host machine via network-attached DRAM, rather than adding more channels for DIMMs onto the host baseboard or connecting another board via PCIe. Common questions
+
+As for software, the management and networking stack works together to use a host server's local 
 
 ---
 
