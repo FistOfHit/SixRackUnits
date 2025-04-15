@@ -2,7 +2,7 @@
 
 # April 2025
 
-![Will we ever move away from cables? What could high-bandwidth, low-error, and secure wireless communications looks like in the future?*](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/1.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/title.jpeg)
 
 *Will we ever move away from cables? What could high-bandwidth, low-error, and secure wireless communications looks like in the future?*
 
@@ -47,11 +47,21 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 ## Kove
 
-*Host memory capacity is and has always been the be-all and end-all of large, high-performance applications. Running out of memory - triggering an OOM error - usually causes not just the application and its progress/state to crash, but the entire host machine. [Kove](https://kove.com/) are a firm working to change this with a solution for remote memory that is not only feasible, but performant too.*
+*Host memory capacity is and has always been the be-all and end-all of large, high-performance workloads, as triggering an OOM error usually causes not just the application and its progress/state to crash, but the entire host. [Kove](https://kove.com/) are a firm working to change this with a solution for remote, software-defined memory (SDM) that appraoches the performance of local memory.*
 
-Founded in 2003, American firm Kove has quietly been working on and supplying remote memory solutions to customers who found their workloads constrained not by compute, but by memory capacity. Their Kove memory tower and Kove SDM pair racks of DRAM enclosures containing high-performance NICs with their software that manages the remote memory and transfers. At a high-level, the tower works by extending the main memory available to a host machine via network-attached DRAM, rather than adding more channels for DIMMs onto the host baseboard or connecting another board via PCIe. Common questions
+Founded in 2003, American firm Kove has quietly been supplying remote memory solutions to customers who found their workloads constrained not by compute, but by memory capacity. Kove's memory tower system presents as a [rack](https://kove.com/products/kovesdm-memory-tower/) of DRAM enclosures containing some management compute and [high-performance NICs](https://arstechnica.com/sponsored/kove-tackles-the-last-software-defined-technology-memory/), and their [software stack](https://kove.com/products/kovesdm-software/) manages the remote memory and transfers to expose a memory pool that can be defined (configured or managed) entirely by software. With a maximum capacity of up to 256TiB (tebibyte, or 2^40 as opposed to 10^12 bytes) across several memory towers available as one unified address space with the local memory, bandwidth-intensive workloads can be accelerated without needing the compute to be throttled.
 
-As for software, the management and networking stack works together to use a host server's local 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/kove_tower.png)
+
+*Source: Viking Enterprise Solutions. Multiple memory towers can be combined in the same network fabric, with the address size being the limiting factor rather than physical space.*
+
+At a high-level, the memory tower works by extending the main memory available to a host machine via network-attached DRAM, rather than adding more channels for DIMMs onto the host baseboard or connecting another board via PCIe. Kove supports [InfiniBand for the data plane](https://www.vikingenterprisesolutions.com/kovesdm-memory-tower/) (with RoCE support in the works) and Ethernet for the control plane, allowing for reasonably easy to manage addtional infrastructure in any standard ethernet-managed datacentre with a dedicated and isolated high-performance fabric for the data.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/kove_specs.png)
+
+*Source: Kove.*
+
+As for software, the [management and networking stack](https://kove.com/products/kovesdm-software/) works together to use a host server's local memory as a form of cache (think of it as L4/5), and keeps recently accessed and likely soon to be accessed within the host chassis. Remote memory then is able to serve as a nearly-identical access latency extension of this local cache, as the microseconds of time to RDMA data from the tower to host are likely amortized away by both the large bandwidth available on the network and the access prediction capabilities of the software.
 
 ---
 
