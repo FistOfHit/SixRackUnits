@@ -9,9 +9,9 @@
 [**This month's updates:**](#this-months-updates)
   - [**Lightmatter's 3D photonics - computing with light**](#lightmatters-3d-photonics---computing-with-light)
   - [**Tenstorrent announces the BlackHole AI accelerator**](#tenstorrent-announces-the-blackhole-ai-accelerator)
-  - [**IBM's z17 mainframe - "for the AI age"**](#ibms-z17-mainframe)
+  - [**IBM's z17 mainframe**](#ibms-z17-mainframe)
   - [**Ironwood: Google's seventh gen. TPU**](#ironwood-googles-seventh-gen-tpu)
-  - [**China's answer to the NVL72 - Huawei's CloudMatrix 384**](#chinas-answer-to-the-mvl72---huaweis-cloudmatrix-384)
+  - [**China's answer to the NVL72 - Huawei's CloudMatrix 384**](#chinas-answer-to-the-nvl72---huaweis-cloudmatrix-384)
   - [**Other notable headlines**](#other-notable-headlines)
 
 [**Vendor spotlight:**](#vendor-spotlight)
@@ -33,17 +33,29 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 *American RISC chip/server design startup Tenstorrent seeks to take space in both the enterprise and retail AI accelerator markets with its low-power and easy to use PCIe card lineup, as well as servers designed around density and scaling. Their latest card, the BlackHole, seeks to offer a competitive price/performance ratio with a scale-up potential that appears to be significantly greater than what other PCIe devices from competitors such as Google and AWS can offer.*
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tenstorrent_blackhole.png)
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tenstorrent_galaxy.png)
+
 ## IBM's z17 mainframe
 
-**
+*IBM mainframes are known for their near perfect uptime and low-latency for critical operations such as transaction processing, airline fleet management, and fraud detection to name a few. As more and more such workloads begin to use computationally expensive AI models, IBM's mainframes need to adapt to not just be better at what they already do, but also be better at the workloads of the near-future.*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/ibm_z17.png)
 
 ## Ironwood: Google's seventh gen. TPU
 
 *In 2Q24 Google introduced the "Trillium" TPUv6 (Tensor processing unit), a continuation of their remarkably power-efficient series of custom AI accelerators available on GCP (Google cloud platform). Now, the series continues but with an unexpected progression: Inference and training are no-longer being assigned to two different versions in the same generation. The "Ironwood" TPUv7 appears to take on both workloads but the marketing around it confuses many.*
 
-## China's answer to the MVL72 - Huawei's CloudMatrix 384
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tpuv7.png)
+
+## China's answer to the NVL72 - Huawei's CloudMatrix 384
 
 *Nvidia's NVL72 was not the first but was certainly the most popular rack-scale, self-contained infrastructure solution built around AI accelerators. Densely packing this volume of high-powered chips into a single rack and interconnecting them with the NVLink scale-up network led to a product that could be easily integrated and used by hyperscalers and large businesses. But the NVL72 has its flaws, and Huawei is stepping up to take on Nvidia in this space too.*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_picture.jpeg)
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_diagram.png)
 
 ## Other notable headlines
 
@@ -82,8 +94,20 @@ As for software, the [management and networking stack](https://kove.com/products
 
 *Bandwidth, being the amount of data transferred within a unit time and latency, being the time taken to complete a transfer of a unit size, these two key measurements in any data transfer are often misunderstood and misrepresented. Even worse, some will simple invert bandwidth and call it latency not realising their lack of consideration for overheads, measurement conditions, and variance, and the damage they do to the science.*
 
+Measuring the performance of transferring data via a connection is usually done with two measurements: bandwidth and latency. Bandwidth measures the maximum volume of data that can be transferred through a connection in a given unit of time, and is measured as a rate such as Mbps (megabits per second). It's important to note that this is the maximum theoretical rate, not the actual or "realised" rate of data transfer across a connection. Bandwidth is often abstracted (applied to) or aggregated (accumulated) across a subset or an entirety of a network to give some indication of the potential rate that can be achieved for a workload using it. 
+
+Latency on the other hand measures the time taken for a unit volume of data to be transferred from a source 
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/bandwidth_latency.png)
+
+How to measure.
+
+Why they are different. 
+
 ## Liquid cooling plates
 
 *The height of air-cooled AI servers is influenced significantly by the size of the fans and the height of the heatsinks required to keep high-powered accelerator hardware cool. Pressure bonded cooling plates replace tall towers of metal fins in thinner-profile servers where getting enough airflow for cooling kilowatt+ devices either costs double-digit percentages of the servers total power draw, or is just physically impossible.*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/coolit_plate.png)
 
 [![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
