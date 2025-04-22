@@ -103,13 +103,15 @@ Latency on the other hand measures the time taken for a minimum unit volume of d
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/bandwidth_latency.png)
 
 A common error made when measuring network performance is assuming that bandwidth is the inverse of latency, i.e. that a bandwidth of 100 Mbps implies a latency of 1/100 seconds. This assumption is ignores a few issues:
-- Latency is inky measured for a minimal sized transfer, one that should never be large enough to saturate a link for measuring bandwidth
+- Latency is only measured for a minimal sized transfer, one that should never be large enough to saturate a link for measuring bandwidth
 - Bandwidth does not include the overheads involved with each minimal transfer, as these are amortized away when sending data in volume
-- 
+- As the rate of transfer over w channel increases, so does contention and hence resource utilisation, which causes an increase in latency i.e. the relationship is non-linear
 
 ## Liquid cooling plates
 
-*The height of air-cooled AI servers is influenced significantly by the size of the fans and the height of the heatsinks required to keep high-powered accelerator hardware cool. Pressure bonded cooling plates replace tall towers of metal fins in thinner-profile servers where getting enough airflow for cooling kilowatt+ devices either costs double-digit percentages of the servers total power draw, or is just physically impossible.*
+*The height of air-cooled AI servers is influenced significantly by the size of the fans and the height of the heatsinks required to keep high-powered accelerator hardware cool. Compression attached cooling plates replace tall towers of metal fins in thinner-profile servers where getting enough airflow for cooling kilowatt+ devices either costs double-digit percentages of the servers total power draw, or is just physically impossible.*
+
+
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/coolit_plate.png)
 
