@@ -47,6 +47,11 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 *In 2Q24 Google introduced the "Trillium" TPUv6 (Tensor processing unit), a continuation of their remarkably power-efficient series of custom AI accelerators available on GCP (Google cloud platform). Now, the series continues but with an unexpected progression: Inference and training are no-longer being assigned to two different versions in the same generation. The "Ironwood" TPUv7 appears to take on both workloads but the marketing around it confuses many.*
 
+Google's latest in their custom silicon for AI workloads, the "Ironwood" TPUv7 has just been announced. It's unclear yet what stage of production it's at, or when it will be generally available for public GCP users, but some specs are available now. Of all the information provided, the most controversial statement made was a misguided (or even dishonest) comparison between a TPU "pod" and the worlds most computationally capable supercomputer, El Capitan.
+
+The "Top500" organisation maintains a list of the worlds most powerful supercomputers ranked by their performance in a linear algebra benchmark. El capitan, placing first as of 4Q24, combines over 43,000 AMD MI300A APUs (CPU + GPU on the same package) to achieve a real performance of 1.74 exaFLOPs at FP64, with a theoretical peak at 2.74. TPUv7 pods on the other hand use their 2 or 3-dimensional torus network topology to combine 9,216 chips (not devices) into a single computational domain. 
+
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tpuv7.png)
 
 ## China's answer to the NVL72 - Huawei's CloudMatrix 384
@@ -64,6 +69,7 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 * [Samsung reportedly begins developing its 1nm "dream" process, ready for mass production in 2029](https://www.trendforce.com/news/2025/04/10/news-samsung-reportedly-begins-1nm-process-development-targets-2029-mass-production/)
 * [Nubis communications and Amphenol to develop signal re-drivers to enable 200G/lane SERDES across multiple meters of copper, enabling multi-rack scale-up networks without optics](https://www.businesswire.com/news/home/20250326861856/en/CORRECTING-and-REPLACING-Nubis-Extends-Linear-Paradigm-from-Optics-to-Copper-with-Breakthrough-Nitro-Linear-Redriver-Solution-Enabling-4-Meter-Reach-for-200Gbps-per-Lane-Copper-Cables-in-AI-Scale-Up-Networks)
 * [UALink (Ultra Accelerator Link) consortium announces their 1.0 specification, at 200G per lane. Aims to provide an open standard against Nvidia's NVLink](https://ualinkconsortium.org/)
+* [Cadence reveals its HBM4 IP promising up to 12.8 Gbps per lane - 3.2TB/s over a 2048-wide bus for a single stack](https://www.ctol.digital/news/cadence-launches-128gbps-hbm4-ip-subsystem-for-ai-hpc/)
 ---
 
 # Vendor spotlight:
