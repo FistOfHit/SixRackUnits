@@ -7,7 +7,7 @@
 *Will we ever move away from cables? What could high-bandwidth, low-error, and secure wireless communications looks like in the future?*
 
 [**This month's updates:**](#this-months-updates)
-  - [**Lightmatter's 3D photonics - computing with light**](#lightmatters-3d-photonics---computing-with-light)
+  - [**SemiAnalysis on AMD's upcoming rack-scale SKUs**](#semianalysis-on-amds-upcoming-rack-scale-skus)
   - [**Tenstorrent announces the BlackHole AI accelerator**](#tenstorrent-announces-the-blackhole-ai-accelerator)
   - [**IBM's z17 mainframe**](#ibms-z17-mainframe)
   - [**Ironwood: Google's seventh gen. TPU**](#ironwood-googles-seventh-gen-tpu)
@@ -27,7 +27,9 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 # This month's updates:
 
-## Lightmatter's 3D photonics - computing with light
+## SemiAnalysis on AMD's upcoming rack-scale SKUs
+
+**
 
 ## Tenstorrent announces the BlackHole AI accelerator
 
@@ -47,12 +49,20 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 *In 2Q24 Google introduced the "Trillium" TPUv6 (Tensor processing unit), a continuation of their remarkably power-efficient series of custom AI accelerators available on GCP (Google cloud platform). Now, the series continues but with an unexpected progression: Inference and training are no-longer being assigned to two different versions in the same generation. The "Ironwood" TPUv7 appears to take on both workloads but the marketing around it confuses many.*
 
-Google's latest in their custom silicon for AI workloads, the "Ironwood" TPUv7 has just been announced. It's unclear yet what stage of production it's at, or when it will be generally available for public GCP users, but some specs are available now. Of all the information provided, the most controversial statement made was a misguided (or even dishonest) comparison between a TPU "pod" and the worlds most computationally capable supercomputer, El Capitan.
+Google's latest in their custom silicon for AI workloads, the "Ironwood" TPUv7 has just been [announced](https://blog.google/products/google-cloud/ironwood-tpu-age-of-inference/). It's unclear yet what stage of production it's at, or when it will be generally available for public GCP users, but some specs are available now. Of all the information provided, the most controversial statement made was a misguided (or even dishonest) comparison between a TPU "pod" and the worlds most computationally capable supercomputer, [El Capitan](https://www.top500.org/system/180307/).
 
-The "Top500" organisation maintains a list of the worlds most powerful supercomputers ranked by their performance in a linear algebra benchmark. El capitan, placing first as of 4Q24, combines over 43,000 AMD MI300A APUs (CPU + GPU on the same package) to achieve a real performance of 1.74 exaFLOPs at FP64, with a theoretical peak at 2.74. TPUv7 pods on the other hand use their 2 or 3-dimensional torus network topology to combine 9,216 chips (not devices) into a single computational domain. 
-
+The "[Top500](https://www.top500.org/)" organisation maintains a list of the worlds most powerful supercomputers ranked by their performance in a linear algebra benchmark, [Linpack](https://www.netlib.org/benchmark/hpl/). El capitan, placing first as of 4Q24, combines over 43,000 AMD MI300A APUs (CPU + GPU on the same package) to achieve a real performance of 1.74 exaFLOPs at FP64, with a theoretical peak at 2.74. TPUv7 pods on the other hand use their 2 or 3-dimensional torus network topology to combine 9,216 chips (not devices) into a single computational domain and the performance per chip provided in the announcement is a theoretical peak as opposed to a measured benchmark, and is very likely for FP8 or FP16 as opposed to FP64. Google's claim therefore of reaching a 24x advantage in exaFLOPs over El Capitan has been received poorly by analysts with opinions generally skewing towards it being grossly misleading.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tpuv7.png)
+
+Focusing on the chip itself, it appears that the v7 is a natural successor to the [v5p](https://cloud.google.com/blog/products/ai-machine-learning/introducing-cloud-tpu-v5p-and-ai-hypercomputer), the "performant" version of the 5th generation which aimed to handle both lighter inferencing workloads as well as AI model training use cases, (in contrast to the v5e or "efficient") rather than the [v6](https://cloud.google.com/blog/products/compute/introducing-trillium-6th-gen-tpus) which was likely focused on inferencing only. Finally, looking at the specs ([1](https://blog.google/products/google-cloud/ironwood-tpu-age-of-inference/) [2](https://www.theregister.com/2025/04/10/googles_7thgen_ironwood_tpus_debut/) [3](https://www.nextplatform.com/2025/04/09/with-ironwood-tpu-google-pushes-the-ai-accelerator-to-the-floor/) [4](https://xpu.pub/2025/04/16/google-ironwood/)):
+
+* 4614 TFLOPs at FP8 (~2300 BF16)
+* 192GB HBM at 7.2TB/s - likely 6 stacks of [Micron's 12hi HBM3E](https://www.micron.com/products/memory/hbm/hbm3e#:~:text=Micron's%20HBM3E%20delivers%20pin%20speed,using%20a%2012%2Dhigh%20stack.)
+* Likely 4 (possibly 6) ports of ICI at 1.2TB/s bidirectional
+* ICI domain size of 9216, possibly in a 96x96 2D torus or 32x32x9 3D torus 
+* 4 x 256x256 MXU (systolic arrays), providing 65536 MACs/cycle
+* Estimates of up to ~1kW per chip
 
 ## China's answer to the NVL72 - Huawei's CloudMatrix 384
 
@@ -109,16 +119,23 @@ Latency on the other hand measures the time taken for a minimum unit volume of d
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/bandwidth_latency.png)
 
 A common error made when measuring network performance is assuming that bandwidth is the inverse of latency, i.e. that a bandwidth of 100 Mbps implies a latency of 1/100 seconds. This assumption is ignores a few issues:
-- Latency is only measured for a minimal sized transfer, one that should never be large enough to saturate a link for measuring bandwidth
-- Bandwidth does not include the overheads involved with each minimal transfer, as these are amortized away when sending data in volume
-- As the rate of transfer over w channel increases, so does contention and hence resource utilisation, which causes an increase in latency i.e. the relationship is non-linear
+
+* Latency is only measured for a minimal sized transfer, one that should never be large enough to saturate a link for measuring bandwidth
+* Bandwidth does not include the overheads involved with each minimal transfer, as these are amortized away when sending data in volume
+* As the rate of transfer over w channel increases, so does contention and hence resource utilisation, which causes an increase in latency i.e. the relationship is non-linear
 
 ## Liquid cooling plates
 
 *The height of air-cooled AI servers is influenced significantly by the size of the fans and the height of the heatsinks required to keep high-powered accelerator hardware cool. Compression attached cooling plates replace tall towers of metal fins in thinner-profile servers where getting enough airflow for cooling kilowatt+ devices either costs double-digit percentages of the servers total power draw, or is just physically impossible.*
 
-
+A prime example of air cooling pushed to its limits is SuperMicro's B200 HGX server, the [SYS-A22GA-NBRT](https://www.supermicro.com/en/products/system/gpu/10u/sys-a22ga-nbrt). Fitting 8 Nvidia B200 GPUs (each with a TDP of 1200W) as well as 2 Intel Xeon 6900s (about 500W each) into an air cooled chassis requires accommodating the cooling fin towers for the GPUs, taking up the entire floor-space in the chassis as well as over 6U of height. The remaining space needs to be large enough so that enough airflow can pass to keep the other components such as CPUs, NICs, SSDs and more. Pushing beyond this limit to 1400W+ TDP chips and more will require significantly greater volumes of airflow moving through impractically large chassis, to the point where the power used by cooling fans will creep towards 15 or even 20% of the servers total draw.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/coolit_plate.png)
+
+Using a denser fluid such as liquid is the next logical step for cooling systems. Immersion cooling appears to still be building a reputation, having been only applied successfully in a very small number of setups, and so the only practical solution currently is direct-to-chip liquid cooling. In this paradigm, large coolant distribution units (CDUs) are placed underneath or at the side of existing racks and large, high pressure plumbing systems connect the pumps to in/outlets on the chassis. Further plumbing internal to the chassis then routes the cooled liquid from the CDU through "cold plates", or flat hollow plates made from copper or aluminum, which are in placed in contact with the chips/components. The heated liquid is then pumped back to the CDU for cooling. 
+
+Systems like the plate shown above can reliably cool chips with TDPs of up to 2000W, with models rated for 4000W (under very high coolant pressures) being evaluated for future AI accelerators. For servers, adopting cooling plates for all or even some of the components leads to a significant increase in power efficiency and compute density, allowing for solutions like Nvidia's NVL72 racks. Definitely not the first - but by far the most popular - NVL72s use extensive liquid cooling support infrastructure to cool 27 x 1U trays in a single rack, requiring many types of cooling plates for the various collections of components on the baseboard. Moving forward, more standard server architectures are likely to shrink in size towards 2-4U and datacentre PUE values will decrease. 
+
+
 
 [![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
