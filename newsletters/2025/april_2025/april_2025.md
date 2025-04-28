@@ -29,7 +29,9 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 
 ## SemiAnalysis on AMD's upcoming rack-scale SKUs
 
-**
+*For AI accelerator manufacturers targeting hyperscalers, few things in AI hardware have become clearer in the past quarter than the need to focus now on systems rather than chips. Nvidia have taken the lead by supplying their NVL rack-scale products to all major hyperscalers as well as some GPUaaS providers, promising a turnkey infrastructure solution that meets the demands of the largest AI workloads. Rumours surface now of AMD's entry into this space with their own, the IF64 and IF128.*
+
+Reported exclusively by [SemiAnalysis](https://semianalysis.com/2025/04/23/amd-2-0-new-sense-of-urgency-mi450x-chance-to-beat-nvidia-nvidias-new-moat/#mi450x-infinity-fabric-over-ethernet-ifoe-ifoe64-mi450x-ifoe128-%e2%80%93-semianalysis-estimates), AMD's IF64 and IF128 are likely to be the names of their rack-scale systems built around the MI450X GPUs, scheduled for 2H26. Competing directly with Nvidia's Rubin "Ultra" GPus (also scheduled for the same time frame), the MI450X 
 
 ## Tenstorrent announces the BlackHole AI accelerator
 
@@ -68,7 +70,14 @@ Focusing on the chip itself, it appears that the v7 is a natural successor to th
 
 *Nvidia's NVL72 was not the first but was certainly the most popular rack-scale, self-contained infrastructure solution built around AI accelerators. Densely packing this volume of high-powered chips into a single rack and interconnecting them with the NVLink scale-up network led to a product that could be easily integrated and used by hyperscalers and large businesses. But the NVL72 has its flaws, and Huawei is stepping up to take on Nvidia in this space too.*
 
+It's likely to come as a surprise to many who don't operate in the Chinese market, but Nvidia internally see Huawei as one of their [biggest competitors](https://semianalysis.com/2025/04/23/amd-2-0-new-sense-of-urgency-mi450x-chance-to-beat-nvidia-nvidias-new-moat/#recommendations-to-nvidia) for AI accelerators. We reported back in [February](https://sixrackunits.substack.com/i/158104265/huaweis-ascend-series) and even last [October](https://sixrackunits.substack.com/i/156730584/huaweis-ascend-c) about Huawei's progress in high-performance AI accelerators, with their Ascend 910C being announced and now mass produced for use in firms such as Baidu, ByteDance, and famously, DeepSeek all evaluating the chips in hopes of beginning to taper off of their reliance on foreign hardware amidst increasingly hostile export policies from the US. 
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_picture.jpeg)
+
+Seeing the trend in the market for rack-scale systems, Huawei have announced their own reference architecture, the [CloudMatrix (CM) 384](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/), a multi-rack system built around the Ascend 910C AI accelerators and "[CloudEngine](https://carrier.huawei.com/en/products/fixed-network/b2b/ethernet-switches/dc-switches)" network switches. The 16-rack, 384 chip SKU hosts 4 x 8-GPU air-cooled servers per rack over 12 racks with 4 racks of switches, and is fully optically connected for its single scale-up domain; this means that unlike the NVL72 which uses copper for its NVLink scale-up network, the CM384 uses almost 5400 400G transceivers. Some analysts predict this fact alone will limit the number of CM384s that will ever be deployed as its possible that the [supply of transceivers](https://x.com/ResearchQf/status/1916580472706195724) will be insufficient to meet the demand for the racks, rather than the cost or power of these optics. Other's raise concerns about the total power draw of the system, predicted to be at ~560-600kW per unit, well over 3x the advertised power of the NVL72, though SemiAnalysis calculations show an advantage regardless in the FLOPs/Watt ratio of the CM384 over the NVL72.
+
+As for the system's specs:
+
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_diagram.png)
 
@@ -112,9 +121,7 @@ As for software, the [management and networking stack](https://kove.com/products
 
 Measuring the performance of transferring data via a connection is usually done with two measurements: bandwidth and latency. 
 
-Bandwidth measures the maximum volume of data that can be transferred through a connection in a given unit of time, and is measured as a rate such as Mbps (megabits per second). It's important to note that this is the maximum theoretical rate, not the actual or "realised" rate of data transfer across a connection. Bandwidth is often abstracted (applied to) or aggregated (accumulated) across a subset or an entirety of a network to give some indication of the potential rate that can be achieved for a workload using it. 
-
-Latency on the other hand measures the time taken for a minimum unit volume of data to be transferred from a source to a destination, and is measured in units of time such as milliseconds. Some factors that influence latency like distance between endpoints or the speed/path of light in a material are physical and unavoidable, whilst others like the time to encode and decode signals are dependant on the hardware and protocols used for transmission. 
+Bandwidth measures the maximum volume of data that can be transferred through a connection in a given unit of time, and is measured as a rate such as Mbps (megabits per second). It's important to note that this is the maximum theoretical rate, not the actual or "realised" rate of data transfer across a connection. Bandwidth is often abstracted (applied to) or aggregated (accumulated) across a subset or an entirety of a network to give some indication of the potential rate that can be achieved for a workload using it. Latency on the other hand measures the time taken for a minimum unit volume of data to be transferred from a source to a destination, and is measured in units of time such as milliseconds. Some factors that influence latency like distance between endpoints or the speed/path of light in a material are physical and unavoidable, whilst others like the time to encode and decode signals are dependant on the hardware and protocols used for transmission. 
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/bandwidth_latency.png)
 
