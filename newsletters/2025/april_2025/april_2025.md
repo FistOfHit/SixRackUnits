@@ -39,13 +39,29 @@ Reported exclusively by [SemiAnalysis](https://semianalysis.com/2025/04/23/amd-2
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tenstorrent_blackhole.png)
 
+*Source: Tenstorrent*
+
+Run by industry legend [Jim Keller](https://en.wikipedia.org/wiki/Jim_Keller_(engineer)), Tenstorrent is one of the many startups targeting the (relatively) low-power PCIe card AI accelerator space with the [Wormhole](https://tenstorrent.com/hardware/wormhole), and now also the [BlackHole](https://tenstorrent.com/hardware/blackhole) cards. What makes Tenstorrent particularly unique is their custom IP for the RISC-V cores they use on their cards, designed specifically around their focus on keeping power draw low but also allowing for their "infinite" scaling strategy. The card comes in [3 forms](https://tenstorrent.com/hardware/blackhole#:~:text=4%20%2D%206%20weeks-,Blackhole%E2%84%A2%20p150a,-%241%2C399), the P100a, p150a, and p150b, the first being a version without scale-up networking and only 28GB of GDDR6 with 120 RISC-V "Tensix" cores, and the last two being actively and passively cooled versions that come with scale-up ports on the PCB itself, as well as supporting up 32GB of GDDR6 and 140 of the same cores.
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tenstorrent_galaxy.png)
+
+*Source: Tenstorrent*
+
+The Blackhole uses PCIe 5.0 for its host interface, but remarkably supports up to 3.2Tb/s of scale-up bandwidth through 4 x 800G QSFP-DD ports on the card itself. [Some analysts](https://www.youtube.com/live/4LyquT1DUK0?si=TgGi9-ZESWsPPjxl&t=3064) suggest that due the sheer amount of bandwidth available on the card, it might even be usable as a network switch, though Tenstorrent clarifies that this interconnect will be exclusively for connecting to other Blackhole cards only. This p2p (peer-to-peer) scale-up strategy allows for creating 2D torus topologies much like [Google's TPUs](https://semianalysis.com/2023/04/12/google-ai-infrastructure-supremacy/#minimizing-network-cost-through-topology) or [AWS's Trainium](https://semianalysis.com/2024/12/03/amazons-ai-self-sufficiency-trainium2-architecture-networking/#neuronlinkv3-scale-up-networking) cards and Tenstorrent's design of their server built around Blackhole cards, the ["Galaxy"](https://tenstorrent.com/hardware/galaxy), shows that they agree. A Tenstorrent Galaxy system contains 32 of the accelerators in a 6U chassis, arranged in a [4x8 mesh](https://www.theregister.com/2024/08/27/tenstorrent_ai_blackhole/) and providing up to 9.3 PFLOPs of FP8 performance in a 7.5kW envelope, leading to it being competitive against Nvidia's H100 HGX systems in efficiency (FLOPs/Watt).
 
 ## IBM's z17 mainframe
 
 *IBM mainframes are known for their near perfect uptime and low-latency for critical operations such as transaction processing, airline fleet management, and fraud detection to name a few. As more and more such workloads begin to use computationally expensive AI models, IBM's mainframes need to adapt to not just be better at what they already do, but also be better at the workloads of the near-future.*
 
+The [z16 mainframe](https://www.ibm.com/products/z16) released in 2Q22 was designed before transformer-based AI models had replaced many statistical/ML models in some mission critical applications, leading to IBM using the inbuilt AI acceleration capability of the [Telum I](https://www.ibm.com/z/telum) processor to support such workloads. Integrated AI support came in the form of dedicated matrix units on the processors, but as the type and scale of AI workloads grew rapidly over the past 3 years, IBM realised that the next mainframe would necessarily need to be designed around AI workloads being run on dedicated accelerators. The [z17](https://www.ibm.com/products/z17) embodies this change, with the new system being designed to support AI workloads natively and with the same level of reliability and performance as other applications running on the mainframe.
+
+As we reported in [August last year](https://sixrackunits.substack.com/i/156551570/ibms-new-telum-ii-and-spyre), The Telum II and Spyre processors now used in the z17 are designed around extreme uptime, power efficiency, and consistent performance. The new mainframe hosts up to 32 Telum II CPUs, each containing 8 cores running at 5.5Ghz and 360MB of L2 cache, with 360MB and 2.8GB of virtual L3 and L4 caches respectively. The CPUs are supported by dedicated data processing units (DPUs) for offloading inter-processor communication and other functions for secure and reliable communications, leading to all 32 processors being connected in one scale-up I/O domain. Finally, the mainframe includes 12 I/O expansion drawers which can each support up to 16 PCIe Gen 5 cards, which means that a total of 192 Spyre AI accelerator cards - over 24TB of fast LPDDR5 memory - can be installed in a single z17 system. 
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/ibm_z17.png)
+
+*Source: IBM*
+
+Holding true to their legendary eight nines (99.999999%) uptime guarantee, IBM openly discuss the development and testing process for their processors and systems showing how z17's will have around 1 second of downtime per year, even through up to magnitude 8.3 earthquakes. ServeTheHome's articles and review ([1](https://www.servethehome.com/the-new-ibm-z17-telum-ii-processor-module-cut-open-down-to-silicon/2/) [2](https://www.servethehome.com/the-ibm-z17-mainframe-brings-ai-with-telum-ii-and-spyre/) [3](https://www.youtube.com/watch?v=C8oLfMXUo0U&ab_channel=ServeTheHome)) reveal just how extensive IBM's development processes are, showing the complete vertical integration of their manufacturing and testing, from the materials and chemicals used for the processors and cooling systems to the racking and securing of the components for functionality under extreme conditions. 
 
 ## Ironwood: Google's seventh gen. TPU
 
@@ -56,6 +72,8 @@ Google's latest in their custom silicon for AI workloads, the "Ironwood" TPUv7 h
 The "[Top500](https://www.top500.org/)" organisation maintains a list of the worlds most powerful supercomputers ranked by their performance in a linear algebra benchmark, [Linpack](https://www.netlib.org/benchmark/hpl/). El capitan, placing first as of 4Q24, combines over 43,000 AMD MI300A APUs (CPU + GPU on the same package) to achieve a real performance of 1.74 exaFLOPs at FP64, with a theoretical peak at 2.74. TPUv7 pods on the other hand use their 2 or 3-dimensional torus network topology to combine 9,216 chips (not devices) into a single computational domain and the performance per chip provided in the announcement is a theoretical peak as opposed to a measured benchmark, and is very likely for FP8 or FP16 as opposed to FP64. Google's claim therefore of reaching a 24x advantage in exaFLOPs over El Capitan has been received poorly by analysts with opinions generally skewing towards it being grossly misleading.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/tpuv7.png)
+
+*Source: Google*
 
 Focusing on the chip itself, it appears that the v7 is a natural successor to the [v5p](https://cloud.google.com/blog/products/ai-machine-learning/introducing-cloud-tpu-v5p-and-ai-hypercomputer), the "performant" version of the 5th generation which aimed to handle both lighter inferencing workloads as well as AI model training use cases, (in contrast to the v5e or "efficient") rather than the [v6](https://cloud.google.com/blog/products/compute/introducing-trillium-6th-gen-tpus) which was likely focused on inferencing only. Finally, looking at the specs ([1](https://blog.google/products/google-cloud/ironwood-tpu-age-of-inference/) [2](https://www.theregister.com/2025/04/10/googles_7thgen_ironwood_tpus_debut/) [3](https://www.nextplatform.com/2025/04/09/with-ironwood-tpu-google-pushes-the-ai-accelerator-to-the-floor/) [4](https://xpu.pub/2025/04/16/google-ironwood/)):
 
@@ -74,12 +92,20 @@ It's likely to come as a surprise to many who don't operate in the Chinese marke
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_picture.jpeg)
 
-Seeing the trend in the market for rack-scale systems, Huawei have announced their own reference architecture, the [CloudMatrix (CM) 384](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/), a multi-rack system built around the Ascend 910C AI accelerators and "[CloudEngine](https://carrier.huawei.com/en/products/fixed-network/b2b/ethernet-switches/dc-switches)" network switches. The 16-rack, 384 chip SKU hosts 4 x 8-GPU air-cooled servers per rack over 12 racks with 4 racks of switches, and is fully optically connected for its single scale-up domain; this means that unlike the NVL72 which uses copper for its NVLink scale-up network, the CM384 uses almost 5400 400G transceivers. Some analysts predict this fact alone will limit the number of CM384s that will ever be deployed as its possible that the [supply of transceivers](https://x.com/ResearchQf/status/1916580472706195724) will be insufficient to meet the demand for the racks, whilst others raise concerns about the total power draw of the system being a hindrance to its adoption, predicted to be at ~560-600kW per unit, well over 3x the advertised power of the NVL72. Despite this, SemiAnalysis' calculations show an advantage in the FLOPs/Watt ratio of the CM384 over the NVL72, also noting that power capacity is usually not an issue for datacenters in China as it is in the US and Europe.
+*Source: SemiAnalysis*
 
-As for the system's specs:
-
+Seeing the trend in the market for rack-scale systems, Huawei have announced their own reference architecture, the [CloudMatrix (CM) 384](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/), a multi-rack system built around the Ascend 910C AI accelerators and "[CloudEngine](https://carrier.huawei.com/en/products/fixed-network/b2b/ethernet-switches/dc-switches)" network switches. The 16-rack, 384 chip SKU hosts 4 x 8-GPU air-cooled servers per rack over 12 racks with 4 racks of switches, and is fully optically connected for its single scale-up domain; this means that unlike the NVL72 which uses copper for its NVLink scale-up network, the CM384 uses almost 5400 400G transceivers. Some analysts predict this fact alone will limit the number of CM384s that will ever be deployed as its possible that the [supply of transceivers](https://x.com/ResearchQf/status/1916580472706195724) will be insufficient to meet the demand for the racks, whilst others raise concerns about the total power draw of the system being a hindrance to its adoption, predicted to be at ~560-600kW per unit, well over 3x the advertised power of the NVL72. Despite this, SemiAnalysis' calculations show an advantage in the FLOPs/Watt ratio of the CM384 over the NVL72, also noting that power availability is usually not an issue for datacenters in China as it is in the US and Europe.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/cloudmatrix384_diagram.png)
+
+*Source: SemiAnalysis*
+
+As for the system's specs ([1](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/#cloudmatrix384-scale-up-topology-estimates) [2](https://www.google.com/amp/s/www.nextplatform.com/2024/08/13/huaweis-hisilicon-can-compete-with-nvidia-gpus-in-china/amp/)):
+* ~300 PFLOPs at BF16, ~780 TFLOPs per chip
+* 49.2TB of HBM total, 128GB per chip
+* ~1 PFLOPs aggregate unidirectional scale-up bandwidth
+* ~150 TFLOPs aggregate unidirectional scale-out bandwidth
+* ~600kW TDP at peak load with all transceivers in
 
 ## Other notable headlines
 
@@ -107,7 +133,7 @@ At a high-level, the memory tower works by extending the main memory available t
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/kove_specs.png)
 
-*Source: Kove.*
+*Source: Kove*
 
 As for software, the [management and networking stack](https://kove.com/products/kovesdm-software/) works together to use a host server's local memory as a form of cache (think of it as L4/5), and keeps recently accessed and likely soon to be accessed within the host chassis. Remote memory then is able to serve as a nearly-identical access latency extension of this local cache, as the microseconds of time to RDMA data from the tower to host are likely amortized away by both the large bandwidth available on the network and the access prediction capabilities of the software.
 
@@ -139,10 +165,10 @@ A prime example of air cooling pushed to its limits is SuperMicro's B200 HGX ser
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/april_2025/images/coolit_plate.png)
 
+*Source: CoolIT*
+
 Using a denser fluid such as liquid is the next logical step for cooling systems. Immersion cooling appears to still be building a reputation, having been only applied successfully in a very small number of setups, and so the only practical solution currently is direct-to-chip liquid cooling. In this paradigm, large coolant distribution units (CDUs) are placed underneath or at the side of existing racks and large, high pressure plumbing systems connect the pumps to in/outlets on the chassis. Further plumbing internal to the chassis then routes the cooled liquid from the CDU through "cold plates", or flat hollow plates made from copper or aluminum, which are in placed in contact with the chips/components. The heated liquid is then pumped back to the CDU for cooling. 
 
 Systems like the plate shown above can reliably cool chips with TDPs of up to 2000W, with models rated for 4000W (under very high coolant pressures) being evaluated for future AI accelerators. For servers, adopting cooling plates for all or even some of the components leads to a significant increase in power efficiency and compute density, allowing for solutions like Nvidia's NVL72 racks. Definitely not the first - but by far the most popular - NVL72s use extensive liquid cooling support infrastructure to cool 27 x 1U trays in a single rack, requiring many types of cooling plates for the various collections of components on the baseboard. Moving forward, more standard server architectures are likely to shrink in size towards 2-4U and datacentre PUE values will decrease. 
-
-
 
 [![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)

@@ -4,7 +4,7 @@
 SixRackUnits (6RU) delivers short form news and educational content around AI/HPC hardware.
 
 ## About
-Originally designed for Substack but published internally first, this monthly newsletter/blog is part-time market analyst work done for keeping various teams within the organisation up to date with developments in the field of AI/HPC hardware. For anyone interested in what happens within and between servers, this publication presents a technical - but not an expert - view on news, as well as educational content on relevant topics.
+Originally designed for Substack but published here first, this monthly newsletter/blog is part-time market analyst work done for keeping people up to date with developments in the field of AI/HPC hardware. For anyone interested in what happens within and between servers, this publication presents a technical - but not an expert - view on news, as well as educational content on relevant topics.
 
 For a space to share sources and news/updates, join on <a href="https://t.me/aihpc_infra_fans">Telegram</a>, and check out my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
 
