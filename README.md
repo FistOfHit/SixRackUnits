@@ -13,6 +13,7 @@ For a space to share sources and news/updates, join on <a href="https://t.me/aih
 <details>
   <summary>2025</summary>
     <ul>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/may_2025/may_2025.md">May</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/april_2025/april_2025.md">April</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/march_2025/march_2025.md">March</a></li>
     <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/february_2025/february_2025.md">February</a></li>
