@@ -6,28 +6,29 @@ SixRackUnits (6RU) delivers short form news and educational content around AI/HP
 ## About
 Originally designed for Substack but published here first, this monthly newsletter/blog is part-time market analyst work done for keeping people up to date with developments in the field of AI/HPC hardware. For anyone interested in what happens within and between servers, this publication presents a technical - but not an expert - view on news, as well as educational content on relevant topics.
 
-For a space to share sources and news/updates, join on <a href="https://t.me/aihpc_infra_fans">Telegram</a>, and check out my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
+For a space to share sources and news/updates, check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
 
 ## Read the issues
 
 <details>
   <summary>2025</summary>
     <ul>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/may_2025/may_2025.md">May</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/april_2025/april_2025.md">April</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/march_2025/march_2025.md">March</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/february_2025/february_2025.md">February</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/january_2025/january_2025.md">January</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/june/june.md">June</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/may/may.md">May</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/april/april.md">April</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/march/march.md">March</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/february/february.md">February</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2025/january/january.md">January</a></li>
     </ul>
 </details>
 <details>
   <summary>2024</summary>
     <ul>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/december_2024/december_2024.md">December</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/november_2024/november_2024.md">November</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/october_2024/october_2024.md">October</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/september_2024/september_2024.md">September</a></li>
-    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/august_2024/august_2024.md">August</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/december/december.md">December</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/november/november.md">November</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/october/october.md">October</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/september/september.md">September</a></li>
+    <li><a href="https://github.com/FistOfHit/SixRackUnits/blob/main/newsletters/2024/august/august.md">August</a></li>
     </ul>
 </details>
 
