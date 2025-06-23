@@ -2,9 +2,9 @@
 
 # June 2025
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/title.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/title.jpg)
 
-**
+*If it turns out that biological-based computing is indeed the most efficient way to process data, then what will supercomputers - and hence datacentres - look like?*
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. In addition, we also cover vendors of anything interesting in the space, as well as short "one-pagers" on a random topic that we find interesting (and hope you do too).
 
@@ -15,7 +15,7 @@ For a space to share sources and news/updates, check out the <a href="https://si
   - [**Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6**](#broadcom-shows-the-world-a-100-terabit-switch-asic-tomahawk-6)
   - [**Huawei's present and future - mixed reactions from the market**](#huawei-s-present-and-future)
   - [**1 PB/s planned for HBM within the next decade, KAIST reveals**](#1-pb-s-planned-for-hbm-within-the-next-decade-kaist-reveals)
-  - [****]()
+  - [**Meta making merchant silicon? Rumours of MTIA rack-scale in 2027**](#meta-making-merchant-silicon-rumours-of-mtia-rack-scale-in-2027)
   - [**Other notable headlines**](#other-notable-headlines)
 
 **Note**: From this issue onwards, I will return to having 5 updates per issue but will now be scrapping the one-pager and vendor spotlight sections. Apologies. 
@@ -33,7 +33,15 @@ For a space to share sources and news/updates, check out the <a href="https://si
 
 ## Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6
 
-**
+51.2T switches are still being integrated into datacentres, but Broadcom has already shown the world a 100 Terabit switch ASIC: Tomahawk 6.
+
+512 lanes of 200G, can be used as 1024 lanes of 100G - This means it can connect 1000 devices on a single switch with a pretty reasonable performance. 
+
+Two tier fabrics with this can now server extremely large clusters. 
+
+can provide 128 ports of 800G or 64 ports of 1.6T - a single asic, arguably easier to cool too. 
+
+True 102.4T switches, instead of joint ASIC switches where some connectivity comes at the cost of ASIC bandwidth. 
 
 ---
 
@@ -44,6 +52,12 @@ For a space to share sources and news/updates, check out the <a href="https://si
 ---
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
+
+**
+
+---
+
+## Meta making merchant silicon? Rumours of MTIA rack-scale in 2027
 
 **
 
