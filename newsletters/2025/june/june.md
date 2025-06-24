@@ -26,18 +26,50 @@ For a space to share sources and news/updates, check out the <a href="https://si
 
 ## AMD delivers a roadmap to defeat Nvidia
 
-**
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_title.jpg)
+
+*Source: AMD*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_roadmap.jpg)
+
+*Source: AMD*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_diagram.png)
+
+*Source: AMD*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_dual_rack_diagram.png)
+
+*Source: AMD*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_block_diagram.png)
+
+*Source: AMD*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_block_diagram2.png)
+
+*Source: AMD*
 
 ---
 
 
 ## Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6
 
-51.2T switches are still being integrated into datacentres, but Broadcom has already shown the world a 100 Terabit switch ASIC: Tomahawk 6.
+Many AI datacentres outside of hyperscalers and the largest of neoclouds are still getting accustomed to the cable densities and optical transceiver failure rates of 51.2T switches. Despite this, Broadcom progresses and announces a 102.4T switch ASIC: the Tomahawk 6.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/tomahawk6_chip.png)
+
+*Source: Broadcom*
+
+Typically, supporting such high bandwidths on a single platform requires multiple distinct ASICs  
 
 512 lanes of 200G, can be used as 1024 lanes of 100G - This means it can connect 1000 devices on a single switch with a pretty reasonable performance. 
 
-Two tier fabrics with this can now server extremely large clusters. 
+Two tier fabrics with this can now server extremely large clusters. How exactly 100,000K devices can be connected is not given but assuming its a classic two tier design
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/tomahawk6_topology.jpg)
+
+*Source: Broadcom*
 
 can provide 128 ports of 800G or 64 ports of 1.6T - a single asic, arguably easier to cool too. 
 
@@ -53,7 +85,31 @@ True 102.4T switches, instead of joint ASIC switches where some connectivity com
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
 
-**
+HBM continues to advance at a rapid pace, with the major memory makers all not jonly keeping up with JEDEC, but also outpacing it and moving to custom designs. 
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_roadmap2.jpg)
+
+*Source: KAIST TERA*
+
+KAIST Teralab, (why are they an authority on HBM?) presented the future of HBM for the next 10 years. 
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_roadmap.png)
+
+*Source: KAIST TERA*
+
+Whilst datarates may stall at physical limits based on current copper trace-based signalling methods, the bandwidth will still increase exponentially due to HBM being stacked higher and higher and buses becoming wider. Moving to 1PB per chip in the future. For reference, thats 1000x the bandwidth of the current HBM3E. 
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_forecast.png)
+
+*Source: KAIST TERA*
+
+Cooling must also keep up since such high stacks cant dissipate heat fast enough to be passively or actively air cooled anymore. Even direct or immersion cooling wont be enough for far future technologies. Will move to direct-in stack cooling. 
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_cooling.png)
+
+*Source: KAIST TERA*
+
+Worth watching how the key players in HBM space will plan for this and who will emerge as the leader in this space if any. 
 
 ---
 
