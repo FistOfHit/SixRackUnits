@@ -55,25 +55,29 @@ For a space to share sources and news/updates, check out the <a href="https://si
 
 ## Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6
 
-Many AI datacentres outside of hyperscalers and the largest of neoclouds are still getting accustomed to the cable densities and optical transceiver failure rates of 51.2T switches. Despite this, Broadcom progresses and announces a 102.4T switch ASIC: the Tomahawk 6.
+51.2T switches - network switches that support up to 51.2 Tbps of aggregate bandwidth - are still only seen in large-scale high-end AI datacentres. [Usually implemented](https://www.arista.com/assets/data/pdf/Datasheets/7060X6-Datasheet.pdf) as a 2U chassis of 64 x 800G ports, these switches power modern non-blocking east-west or backend fabrics. With the cable densities and transceiver counts used in large scale deployments such as Nvidia SuperPods, many datacentres have had a [difficult time](https://cxotechmagazine.com/cable-plant-matters-in-the-rapidly-changing-data-center-landscape/) adapting to such high-bandwidth networking infrastructure.
+
+Despite all of this, Broadcom targets the prepared and eager datacentres of the near future by announcing a 102.4T switch ASIC: the [Tomahawk 6](https://www.broadcom.com/products/ethernet-connectivity/switching/strataxgs/bcm78910-series). The chip will come in [512 x 200G lane and 1024 x 100G lane SKUs](https://www.naddod.com/blog/broadcom-tomahawk-6-102-4-t-ethernet-switch-chip-for-ai-fabrics), with the latter being significantly larger due to the increased shoreline (perimeter) required to support that many physical lanes. In addition, a [CPO (Co-Packaged Optics) version](https://www.gazettabyte.com/home/2025/6/3/tomahawk-6-the-industrys-first-100-terabit-switch-chip.html#:~:text=Co%2Dpackaged%20optics:%20Enhancing%20reliability?) of the chip will be available, for near-future switch platforms competing with Nvidia's upcoming QuantumX-800 and SpectrumX products. 
+
+Note that this is not a 102.4T switch, which may consist of multiple ASICs (chips), but a single chip.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/tomahawk6_chip.png)
 
 *Source: Broadcom*
 
-Typically, supporting such high bandwidths on a single platform requires multiple distinct ASICs  
-
-512 lanes of 200G, can be used as 1024 lanes of 100G - This means it can connect 1000 devices on a single switch with a pretty reasonable performance. 
-
-Two tier fabrics with this can now server extremely large clusters. How exactly 100,000K devices can be connected is not given but assuming its a classic two tier design
+Among the many claims made by Broadcom regarding the ASIC's performance, the most interesting was its ability to support 100,000+ "XPUs", or devices, on a two-tier network. Typically, for a non-blocking spine-leaf network topology as is common in [Nvidia's SuperPod reference architectures](https://docs.nvidia.com/dgx-superpod/reference-architecture-scalable-infrastructure-h100/latest/dgx-superpod-architecture.html), three tiers of switches are required when scaling to large numbers of devices. This is because in switches like Nvidia's SN5600 and Arista's 7060DX5-64S provide 64 ports of 400G each, which means that a single switch can connect to 32 devices at 400G (the other 32 ports are needed for uplink to the spine layer). With this domain size for a single switch, 64 such switches can be used in the leaf layer, with each spine switch having 64 ports to connect to each leaf switch. This then implies a maximum of 64 x 32 = 2048 devices in a two tier topology, using these switches, at a 400G bandwidth. 
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/tomahawk6_topology.jpg)
 
 *Source: Broadcom*
 
-can provide 128 ports of 800G or 64 ports of 1.6T - a single asic, arguably easier to cool too. 
+The Tomahawk 6, on the other hand, is promised by Broadcom to support 131,072 devices at 200G. One possible topology is shown below, a non-blocking spine-leaf setup (not-rail optimised because the diagram would get too complicated). To increase the bandwidth of the fabric without introducing a third tier, [multiple "planes"](https://www.gazettabyte.com/home/2025/6/3/tomahawk-6-the-industrys-first-100-terabit-switch-chip.html#:~:text=Wide%20and%20flat%20topologies), or parallel implementations of this topology, can be used with extensive breakout in the ports/cabling. The benefit of such a setup would be the simplicity retained by each two-tier plane when it comes to congestion control, resulting in a more efficient and performant fabric overall.
 
-True 102.4T switches, instead of joint ASIC switches where some connectivity comes at the cost of ASIC bandwidth. 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/tomahawk6_100k.png)
+
+*Source: SixRackUnits*
+
+The customers for the ASIC haven't been made public yet, but it's confirmed that sampling is underway, with mass production and hence integration into switches expected to start in 2Q26.
 
 ---
 
