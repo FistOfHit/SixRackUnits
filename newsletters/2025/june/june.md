@@ -111,13 +111,15 @@ According to forecasts by the group, data rates for pins that connect the HBM mo
 
 Based on how the increased stack heights, die densities, and module power usage all compound to increase heat generation, current cooling methods will not be able to keep up. Teralab propose two new methods: dedicated module immersion tanks and in-chip embedded liquid cooling.
 
-The former is implemented already at a more macro-level, where entire servers can be dipped into tanks of non-conductive fluids, but is still constrained to research lab supercomputers ([1](https://esg.tsmc.com/en/update/innovationAndService/caseStudy/42/index.html) [2](https://www.amd.com/en/resources/case-studies/shell.html)) rather than hyperscaler datacentres. The proposed method here however shrinks the domain of immersion to the chip/stacks themselves, isolating the fluid but also allowing for a dedicated fluid supply to each module. 
+The former is implemented already at a more macro-level, where entire servers can be dipped into tanks of non-conductive fluids, but is still constrained to research lab supercomputers ([1](https://esg.tsmc.com/en/update/innovationAndService/caseStudy/42/index.html) [2](https://www.amd.com/en/resources/case-studies/shell.html)) rather than hyperscaler datacentres. The proposed method here however shrinks the domain of immersion to the chip/stacks themselves, isolating the fluid but also allowing for a dedicated fluid supply to each module.
 
 The latter is seemingly a much more complex and involved method requiring integrating the cooling system into the chip manufacturing process too, but appears to show promise for significantly cooling capabilities than current industry conventions. Presently, implementations of all such cooling systems remain in the research domain ([1](https://www.eenewseurope.com/en/steam-cooling-embedded-in-hot-chips/) [2](https://www.iis.u-tokyo.ac.jp/en/news/4747/) [3](https://www.mdpi.com/2072-666X/13/6/918)).
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_cooling.png)
 
 *Source: KAIST TERA*
+
+The presentation goes further into specifics on current and future research streams, and also talks about future SoC (System-on-Chip) designs created around HBM stacks rather than compute chips. Detail is given on how other memory technologies such as LPDDR die and [HBF (High Bandwidth Flash)](https://www.tomshardware.com/pc-components/dram/sandisks-new-hbf-memory-enables-up-to-4tb-of-vram-on-gpus-matches-hbm-bandwidth-at-higher-capacity) can be integrated onto future packages, controlled by HBM logic die to provide CPU-independent tiered memory systems for compute. For more on this, see the slides [here](https://drive.google.com/file/d/1wdGvyAYM0SOjlweJcgPDKwXlk6czbuZo/view?pli=1).
 
 ---
 
