@@ -89,31 +89,35 @@ The customers for the ASIC haven't been made public yet, but it's confirmed that
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
 
-HBM continues to advance at a rapid pace, with the major memory makers all not jonly keeping up with JEDEC, but also outpacing it and moving to custom designs. 
+The 3 major memory makers - SK Hynix, Samsung, and Micron -  are all working on HBM4 implementations, hoping to secure orders from the likes of Nvidia and AMD for their upcoming GPUs. The balance is tipping it seems with SK-hynix [already sampling HBM4](https://dealsite.co.kr/articles/143019) and possibly even discussing [custom HBM4](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506190003) implementations with some customers, whilst Samsung is [still struggling](https://www.linkedin.com/pulse/sk-hynix-micron-hbm4-qualification-nvidia-done-deal-samsung-baratte-jp5yf/) to pass Nvidia's qualification for HBM3E, but there is still a lot of potential for change.
+
+Meanwhile, the Korea Advanced Institute of Science and Technology, or KAIST, Teralab research group recently [presented a roadmap](https://drive.google.com/file/d/1wdGvyAYM0SOjlweJcgPDKwXlk6czbuZo/view?pli=1) detailing the current trends and future plans for HBM. Extending out to 2038, the roadmap reaches HBM8 and speculates that packages (device chips) will reach ~1PB/s of aggregate memory bandwidth from 6TB worth of HBM modules, as well as requiring up to 15kW of power and futuristic "embedded-in-chip" liquid cooling methods.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_roadmap2.jpg)
 
 *Source: KAIST TERA*
 
-KAIST Teralab, (why are they an authority on HBM?) presented the future of HBM for the next 10 years. 
+Teralab have an extensive history of research on semiconductor packaging, interconnects, and HBM in particular, and have also [collaborated](https://tera.kaist.ac.kr/projects/industry-collaboration-partners) with both SK Hynix and Samsung on HBM and surrounding technologies. The 371-slide presentation was part of a significant effort to understand the current technological and economic trends shown in the memory markets in addition to well-informed speculation based on current and planned research. The full slides are available [here](https://drive.google.com/file/d/1wdGvyAYM0SOjlweJcgPDKwXlk6czbuZo/view?pli=1).
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_roadmap.png)
 
 *Source: KAIST TERA*
 
-Whilst datarates may stall at physical limits based on current copper trace-based signalling methods, the bandwidth will still increase exponentially due to HBM being stacked higher and higher and buses becoming wider. Moving to 1PB per chip in the future. For reference, thats 1000x the bandwidth of the current HBM3E. 
+According to forecasts by the group, data rates for pins that connect the HBM module interface to the compute dies will level off at about double that of current HBM3E implementations. The capacity of individual memory dies however, should increase by ~3.5x, driven by denser process nodes and large die sizes. The leading hope for these incredible predictions though is the total module bandwidth increase, expected to jump sharply over the next decade due to stack height and bus width increases. 
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_forecast.png)
 
 *Source: KAIST TERA*
 
-Cooling must also keep up since such high stacks cant dissipate heat fast enough to be passively or actively air cooled anymore. Even direct or immersion cooling wont be enough for far future technologies. Will move to direct-in stack cooling. 
+Based on how the increased stack heights, die densities, and module power usage all compound to increase heat generation, current cooling methods will not be able to keep up. Teralab propose two new methods: dedicated module immersion tanks and in-chip embedded liquid cooling.
+
+The former is implemented already at a more macro-level, where entire servers can be dipped into tanks of non-conductive fluids, but is still constrained to research lab supercomputers ([1](https://esg.tsmc.com/en/update/innovationAndService/caseStudy/42/index.html) [2](https://www.amd.com/en/resources/case-studies/shell.html)) rather than hyperscaler datacentres. The proposed method here however shrinks the domain of immersion to the chip/stacks themselves, isolating the fluid but also allowing for a dedicated fluid supply to each module. 
+
+The latter is seemingly a much more complex and involved method requiring integrating the cooling system into the chip manufacturing process too, but appears to show promise for significantly cooling capabilities than current industry conventions. Presently, implementations of all such cooling systems remain in the research domain ([1](https://www.eenewseurope.com/en/steam-cooling-embedded-in-hot-chips/) [2](https://www.iis.u-tokyo.ac.jp/en/news/4747/) [3](https://www.mdpi.com/2072-666X/13/6/918)).
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_cooling.png)
 
 *Source: KAIST TERA*
-
-Worth watching how the key players in HBM space will plan for this and who will emerge as the leader in this space if any. 
 
 ---
 
