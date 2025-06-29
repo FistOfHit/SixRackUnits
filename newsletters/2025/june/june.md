@@ -26,29 +26,78 @@ For a space to share sources and news/updates, check out the <a href="https://si
 
 ## AMD delivers a roadmap to defeat Nvidia
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_title.jpg)
-
-*Source: AMD*
+At their Advancing AI 2025 event this month, AMD delivered a reveal rivalling Nvidia's GTC last quarter. In it, AMD showed commitment to taking on the datacenter GPU market with a solid roadmap towards the most performant GPUs and the most ambitious rack-scale products planned for the next 3 years.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_roadmap.jpg)
 
 *Source: AMD*
 
+The roadmap charts a path through the three key routes towards dominance in AI training: CPUs, GPUs, and NICs. The Imminent "rack-scale" solution (2H25) is a not a particularly interesting stepping stone as it will still use a scale-out fabric between servers on the same rack, so as a quick summary: 64 MI350X air-cooled or 96/128 MI355X liquid-cooled GPUs, 5th gen. Turin CPUs, and Pollara 400G UEC (Ultra Ethernet Consortium) compatible NICs.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_title.jpg)
+
+*Source: AMD*
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_diagram.png)
 
-*Source: AMD*
+*Source: SemiAnalysis*
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_dual_rack_diagram.png)
+The much more interesting part of the future begins in 2H26 with what AMD call the "Helios" architecture. According to [SemiAnalysis' estimates](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#introducing-the-mi400-helios-rack), this will be a double-width rack supporting 72 MI400X or MI450X GPUs and 18 7th Gen. "Venice" CPUs over 18 compute trays, as well as 6 scale-up trays containing two 102.4T ASICs each, and 6 scale-out trays with one 51.2T ASIC each. This implies the following specs:
+- 720 PFLOPs at FP16
+- 31.1 TB/s of HBM4 @ 1.4
 
-*Source: AMD*
-
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_block_diagram.png)
-
-*Source: AMD*
+This 
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_block_diagram2.png)
 
-*Source: AMD*
+*Source: SemiAnalysis*
+
+
+
+No APU version for the 350 and 355X, possibly do that for MI400 according to semianalysis estimates
+
+The D2D is via AMD's Infinity fabric, a P2P design creating a mesh fabric on the board at 153.6 GB/s. Not a switched design, just over 1 TB/s aggregate bandwidth, not a switched fabric like NVidia's NVLink is.
+
+Why MI355X has 40% higher TDP than MI350X but not that much more performance on paper?
+
+OCI (Oracle Cloud Infrastructure) [to deploy 130K](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) (131,072) of MI355X GPUs
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_dual_rack_diagram.png)
+
+*Source: SemiAnalysis*
+
+
+Finally, some stats for all the new reveals ([1](https://www.tomshardware.com/pc-components/gpus/amd-announces-mi350x-and-mi355x-ai-gpus-claims-up-to-4x-generational-gain-up-to-35x-faster-inference-performance) [2](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506130004) [3](https://morethanmoore.substack.com/p/amds-ai-future-is-rack-scale-helios) [4](https://www.amd.com/en/blogs/2025/amd-instinct-mi350-series-and-beyond-accelerating-the-future-of-ai-and-hpc.html) [5](https://www.amd.com/en/blogs/2025/amd-delivering-open-rack-scale-ai-infrastructure-to-unlock-agentic-ai.html) [6](https://x.com/Jukanlosreve/status/1933729517937569954)):
+
+### MI350X :
+- 288GB HBM3E 12Hi @ 8TB/s: 8 stacks of 36GB each (Samsung + Micron)
+- ~4.6/9.3/18.5 PFLOPs @ FP16/8/4, ~72/144 TFLOPs @ FP64/32
+- 1000W TBP (Total Board Power)
+- Using TSMCs "N3P" 3nm and "N6" 6nm processes
+- 256MB AMD "Ininifity Cache" (sort of similar to L3 cache)
+- PCIe 5.0 x16 H2D interconnect
+- Shipping 2H25
+- 1/2.2 GHz Base/Boost clock
+- Focusing on air-cooled deployments
+
+
+### MI355X:
+- 288GB HBM3E 12Hi @ 8TB/s: 8 stacks of 36GB each (Samsung + Micron)
+- ~5.0/10.1/20.1 PFLOPs @ FP16/8/4, ~79/158 TFLOPs @ FP64
+- 1400W TBP (Total Board Power)
+- Using TSMCs "N3P" 3nm and "N6" 6nm processes
+- Shipping 2H25
+- 1/2.4 GHz Base/Boost clock
+- Focusing on liquid cooled deployments
+
+### MI400X:
+- 432 GB HBM4 @ 19.6TB/s:
+- ~10/20/40 PFLOPs @ FP16/8/4, 
+- 300GB/s scale out bandwidth (3 x 800G NICs per GPU)
+
+### MI450X:
+
+### MI500X:
+- Reportedly using TSMCs "N2P" 2nm process node
 
 ---
 
