@@ -6,7 +6,7 @@
 
 *If it turns out that biological-based computing is indeed the most efficient way to process data, then what will supercomputers - and hence datacentres - look like?*
 
-This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. In addition, we also cover vendors of anything interesting in the space, as well as short "one-pagers" on a random topic that we find interesting (and hope you do too).
+This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top and even summarising all the material available can be difficult - so we do it for you!
 
 For a space to share sources and news/updates, check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a> for posts on similar topics!
 
@@ -23,7 +23,7 @@ For a space to share sources and news/updates, check out the <a href="https://si
 
 ## AMD delivers a roadmap to defeat Nvidia
 
-At their Advancing AI 2025 event this month, AMD delivered a reveal rivalling Nvidia's GTC last quarter. In it, AMD showed commitment to taking on the datacenter GPU market with a solid roadmap towards the most performant GPUs and the most ambitious rack-scale products planned for the next 3 years.
+At their Advancing AI 2025 event this month, AMD delivered a reveal rivalling Nvidia's GTC last quarter. In it, AMD showed commitment to taking on the datacenter GPU market with a solid roadmap, heading towards the most performant GPUs and the most ambitious rack-scale products in the industry.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_roadmap.jpg)
 
@@ -46,6 +46,7 @@ The much more interesting part of the future begins in 2H26 with what AMD call t
 - 216 "Vulcano" 800G NICs
 - 6 scale-up trays @ 204.8T each
 - 6 scale-out trays @ 51.2T each
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_diagram.png)
 
 *Source: SemiAnalysis - The title which names the MI450X instead of the MI400X appears to be a typo, though it's not hard to imagine that the 400 series will have an intermediate refresh before the 500 releases. In fact, the 450 might be the rack-scale version of the 400, designed for DLC in very dense setups.*
@@ -161,9 +162,9 @@ The customers for the ASIC haven't been made public yet, but it's confirmed that
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
 
-The 3 major memory makers - SK Hynix, Samsung, and Micron -  are all working on HBM4 implementations, hoping to secure orders from the likes of Nvidia and AMD for their upcoming GPUs. The balance is tipping it seems with SK-hynix [already sampling HBM4](https://dealsite.co.kr/articles/143019) and possibly even discussing [custom HBM4](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506190003) implementations with some customers, whilst Samsung is [still struggling](https://www.linkedin.com/pulse/sk-hynix-micron-hbm4-qualification-nvidia-done-deal-samsung-baratte-jp5yf/) to pass Nvidia's qualification for HBM3E, but there is still a lot of potential for change.
+The three major memory makers - SK Hynix, Samsung, and Micron -  are all working on their own implementations of HBM4, hoping to secure orders from the likes of Nvidia and AMD for their upcoming GPUs. The balance is tipping it seems with SK-hynix [already sampling HBM4](https://dealsite.co.kr/articles/143019) and possibly even discussing [custom HBM4](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506190003) implementations with some customers, whilst Samsung is [still struggling](https://www.linkedin.com/pulse/sk-hynix-micron-hbm4-qualification-nvidia-done-deal-samsung-baratte-jp5yf/) to pass Nvidia's qualification for HBM3E, but there is still a lot of potential for change.
 
-Meanwhile, the Korea Advanced Institute of Science and Technology, or KAIST, Teralab research group recently [presented a roadmap](https://drive.google.com/file/d/1wdGvyAYM0SOjlweJcgPDKwXlk6czbuZo/view?pli=1) detailing the current trends and future plans for HBM. Extending out to 2038, the roadmap reaches HBM8 and speculates that packages (device chips) will reach ~1PB/s of aggregate memory bandwidth from 6TB worth of HBM modules, as well as requiring up to 15kW of power and futuristic "embedded-in-chip" liquid cooling methods.
+Meanwhile, the KAIST (Korea Advanced Institute of Science and Technology) Teralab research group recently [presented a roadmap](https://drive.google.com/file/d/1wdGvyAYM0SOjlweJcgPDKwXlk6czbuZo/view?pli=1) detailing the current trends and future plans for HBM. Extending out to 2038, the roadmap reaches HBM8 and speculates that packages (devices essentially) will reach ~1PB/s of aggregate memory bandwidth from 6TB worth of HBM modules, as well as requiring up to 15kW of power and futuristic "embedded-in-chip" liquid cooling methods.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_roadmap2.jpg)
 
@@ -183,9 +184,9 @@ According to forecasts by the group, data rates for pins that connect the HBM mo
 
 Based on how the increased stack heights, die densities, and module power usage all compound to increase heat generation, current cooling methods will not be able to keep up. Teralab propose two new methods: dedicated module immersion tanks and in-chip embedded liquid cooling.
 
-The former is implemented already at a more macro-level, where entire servers can be dipped into tanks of non-conductive fluids, but is still constrained to research lab supercomputers ([1](https://esg.tsmc.com/en/update/innovationAndService/caseStudy/42/index.html) [2](https://www.amd.com/en/resources/case-studies/shell.html)) rather than hyperscaler datacentres. The proposed method here however shrinks the domain of immersion to the chip/stacks themselves, isolating the fluid but also allowing for a dedicated fluid supply to each module.
+The former is implemented already at a more macro-level, where entire servers can be dipped into tanks of non-conductive fluids, but is still constrained to research lab supercomputers ([1](https://esg.tsmc.com/en/update/innovationAndService/caseStudy/42/index.html) [2](https://www.amd.com/en/resources/case-studies/shell.html)) rather than hyperscaler datacentres. The proposed method here however shrinks the domain of immersion to the chip/stacks themselves, isolating the fluid and allowing for a dedicated supply to each module.
 
-The latter is seemingly a much more complex and involved method requiring integrating the cooling system into the chip manufacturing process too, but appears to show promise for significantly cooling capabilities than current industry conventions. Presently, implementations of all such cooling systems remain in the research domain ([1](https://www.eenewseurope.com/en/steam-cooling-embedded-in-hot-chips/) [2](https://www.iis.u-tokyo.ac.jp/en/news/4747/) [3](https://www.mdpi.com/2072-666X/13/6/918)).
+The latter is seemingly a much more complex and involved method requiring integrating the cooling system into the chip manufacturing process too, but appears to show promise for significantly greater cooling capabilities than the current state-of-the-art. Presently, implementations of all such cooling systems remain in the research domain ([1](https://www.eenewseurope.com/en/steam-cooling-embedded-in-hot-chips/) [2](https://www.iis.u-tokyo.ac.jp/en/news/4747/) [3](https://www.mdpi.com/2072-666X/13/6/918)).
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/HBM_cooling.png)
 
@@ -197,19 +198,19 @@ The presentation goes further into specifics on current and future research stre
 
 ## OmniPath might still make a comeback: Cornelis announces the CN5000 spec
 
-The modern networking market for AI is often seen as a two-horse race between InfiniBand and Ethernet, the first being an established standard for HPC and AI applications, and the second being the underdog who is rapidly catching up at smaller and medium scales and usually was the only real solution at extremely large scales. But there are other players each bringing their own pros and cons, but most only really being useful in very specific situations.
+The modern networking market for AI is often seen as a two-horse race between InfiniBand and Ethernet, the first being an established standard for HPC and AI applications, and the second being the underdog who is rapidly catching up at smaller and medium scales and usually was the only real solution at extremely large scales. There are other players each bringing their own pros and cons, but most only really being useful in very specific situations.
 
-OmniPath, now advanced by Cornelis networks (but developed originally by Intel), is another competitor which appears to meet the criteria for being a viable datacentre data fabric: scalability, performance, and availability.
+OmniPath, now advanced by [Cornelis networks](https://www.cornelisnetworks.com/) (but [developed originally](https://en.wikipedia.org/wiki/Omni-Path) by Intel), is another competitor which appears to meet the criteria for being a viable datacentre data fabric: scalability, performance, and availability.
 
-Introducing speeds of up to 400Gbps for a lossless and congestion-free fabric, as well as message injection rates "2x greater than InfiniBand NDR", OmniPath is sticking to its USP of having better latency. Though now, rather than staying in the shadows with research labs running HPC applications, Cornelis wants to bring OmniPath into the limelight with AI.
+Introducing speeds of up to 400Gbps for a lossless and congestion-free fabric, as well as message injection rates "2x greater than InfiniBand NDR", OmniPath is sticking to its USP of having better latency than other fabrics. Though now, rather than staying in the shadows with research labs running HPC applications, Cornelis wants to bring OmniPath into the limelight [with AI](https://www.cornelisnetworks.com/pdf-archive/2023/11/CN5000_Family_Product_Brief_A00337.pdf).
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/omnipath_roadmap.jpg)
 
 *Source: Cornelis Networks*
 
-This is essentially the same plan they had in 2024 as well, predicting that UEC (Ultra Ethernet Consortium) compatible hardware would only be available in mass around 2027, despite the standard being finalised just this month. This is a sensible bet given how long it takes consortiums to progress from paperwork to implementation but given the urgency that industry is showing when moving away from InfiniBand, its possible that vendors will release limited ranges of[UEC-ready products in 2H25](https://www.tomshardware.com/networking/amd-deploys-its-first-ultra-ethernet-ready-network-card-pensando-pollara-provides-up-to-400-gbps-performance)
+This is essentially the same plan they had in 2024 as well, predicting that UEC (Ultra Ethernet Consortium) compatible hardware would only be available in mass around 2027, despite the standard being finalised just this month. This is a sensible bet given how long it takes consortiums to progress from paperwork to implementation but given the urgency that industry is showing when moving away from InfiniBand, its possible that vendors will release limited ranges of [UEC-ready products in 2H25](https://www.tomshardware.com/networking/amd-deploys-its-first-ultra-ethernet-ready-network-card-pensando-pollara-provides-up-to-400-gbps-performance)
 
-Current plans for the CN5000 technology is to support 400G fabrics for up to 500K endpoints (devices), but by 2027 that should quadruple to 1.6T and 2 million endpoints, showing a good understanding of where the market is heading for hyperscalers, neoclouds, and AI labs. In addition, OmniPath will support Ethernet next year and then UEC the year after next, signalling that Cornelis do not intend to make the same mistakes that Nvidia did until last year with aggressive vendor lock-in through InfiniBand.
+Current plans for the CN5000 technology is to support 400G fabrics for up to 500K endpoints (devices), but by 2027 that should quadruple to 1.6T and 2 million endpoints, showing a good understanding of where the market is heading for hyperscalers, neoclouds, and AI labs. In addition, OmniPath will support Ethernet next year and then UEC the year after next, signalling that Cornelis do not intend to make the same mistakes that Nvidia did until last year with aggressive [vendor lock-in](https://www.fierce-network.com/data-center/hyperscalers-want-replace-infiniband-ethernet-heres-why) through InfiniBand.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/omnipath_nic.png)
 
