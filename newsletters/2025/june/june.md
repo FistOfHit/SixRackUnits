@@ -14,6 +14,7 @@ For a space to share sources and news/updates, check out the <a href="https://si
   - [**AMD delivers a roadmap to defeat Nvidia**](#amd-delivers-a-roadmap-to-defeat-nvidia)
   - [**Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6**](#broadcom-shows-the-world-a-100-terabit-switch-asic-tomahawk-6)
   - [**1 PB/s planned for HBM within the next decade, KAIST reveals**](#1-pb-s-planned-for-hbm-within-the-next-decade-kaist-reveals)
+  - [**OmniPath might still make a comeback: Cornelis announces the CN5000 spec**](#omnipath-might-still-make-a-comeback-cornelis-announces-the-cn5000-spec)
   - [**Other notable headlines**](#other-notable-headlines)
 
 ---
@@ -68,7 +69,7 @@ The options available for the topologies here are quite interesting. If we assum
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_scale_up_topology.png)
 
-*Source: SixRackUnits*
+*Source: SixRackUnits - I made this independently of the SemiAnalysis diagram, I promise! Honestly forgot that existed.*
 
 Similarly for the scale-out, one possible simple topology is given below:
 
@@ -126,8 +127,9 @@ Finally, some stats for all the new reveals, including both confirmed and estima
 *Assuming that the 355 will be very similar to the 350 in terms of architecture and composition.
 **The [source](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/06/12/amd-plots-interception-course-with-nvidia-gpu-and-system-roadmaps/amp/) that claims that the MI500X will use a 14A process node does not provide any justification for this statement.
 
----
+[SemiAnalysis](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#introducing-the-mi400-helios-rack) and other sources mentioned above go much further into the details of the announcements, they are all well worth a read.
 
+---
 
 ## Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6
 
@@ -156,7 +158,6 @@ The Tomahawk 6, on the other hand, is promised by Broadcom to support 131,072 de
 The customers for the ASIC haven't been made public yet, but it's confirmed that sampling is underway, with mass production and hence integration into switches expected to start in 2Q26.
 
 ---
-
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
 
@@ -194,6 +195,37 @@ The presentation goes further into specifics on current and future research stre
 
 ---
 
+## OmniPath might still make a comeback: Cornelis announces the CN5000 spec
+
+The modern networking market for AI is often seen as a two-horse race between InfiniBand and Ethernet, the first being an established standard for HPC and AI applications, and the second being the underdog who is rapidly catching up at smaller and medium scales and usually was the only real solution at extremely large scales. But there are other players each bringing their own pros and cons, but most only really being useful in very specific situations.
+
+OmniPath, now advanced by Cornelis networks (but developed originally by Intel), is another competitor which appears to meet the criteria for being a viable datacentre data fabric: scalability, performance, and availability.
+
+Introducing speeds of up to 400Gbps for a lossless and congestion-free fabric, as well as message injection rates "2x greater than InfiniBand NDR", OmniPath is sticking to its USP of having better latency. Though now, rather than staying in the shadows with research labs running HPC applications, Cornelis wants to bring OmniPath into the limelight with AI.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/omnipath_roadmap.jpg)
+
+*Source: Cornelis Networks*
+
+This is essentially the same plan they had in 2024 as well, predicting that UEC (Ultra Ethernet Consortium) compatible hardware would only be available in mass around 2027, despite the standard being finalised just this month. This is a sensible bet given how long it takes consortiums to progress from paperwork to implementation but given the urgency that industry is showing when moving away from InfiniBand, its possible that vendors will release limited ranges of[UEC-ready products in 2H25](https://www.tomshardware.com/networking/amd-deploys-its-first-ultra-ethernet-ready-network-card-pensando-pollara-provides-up-to-400-gbps-performance)
+
+Current plans for the CN5000 technology is to support 400G fabrics for up to 500K endpoints (devices), but by 2027 that should quadruple to 1.6T and 2 million endpoints, showing a good understanding of where the market is heading for hyperscalers, neoclouds, and AI labs. In addition, OmniPath will support Ethernet next year and then UEC the year after next, signalling that Cornelis do not intend to make the same mistakes that Nvidia did until last year with aggressive vendor lock-in through InfiniBand.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/omnipath_nic.png)
+
+*Source: Cornelis Networks*
+
+The CN5000 SuperNIC comes in single or dual port PCIe form factors, using gen 5. (~64GB/s uni-directional). Cornelis state the power draw to be 15 or 19W for the single and dual port versions, and will provide SKUs for air-cooled and liquid-cooled versions. [One source](https://mp.weixin.qq.com/s?chksm=ecb43f98dbc3b68e29b778ff3aae6fd8f7d82d0541fba6ea420cfd830af3834ba55852e73d16&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1751105088_3&mid=2247485130&sn=9a8d7061ca4614a56e61db33d0d82442&idx=1&__biz=MzI5NzQxNDcxNw%3D%3D&scene=169&subscene=200&sessionid=1751105088) claims that the NIC is capable of 800 million packets per second, and provides "<1 microsecond latency for MPI" though there are no other sources to corroborate this.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/omnipath_switch.png)
+
+*Source: Cornelis Networks*
+
+[The switch](https://www.cornelisnetworks.com/pdf-archive/2023/11/CN5000_Family_Product_Brief_A00337.pdf) is a 1U, 48-port chassis, with a TDP of 710W empty, or 1.1kW with 48 7.5W AOC (Active Optical Cables) ports. 48 ports is an odd number, and might be from some combination of having multiple interconnected ASICs inside, keeping the form-factor to 1U, reducing or managing latency by keeping the port count low, or some other optimisations to the ASIC for the incredible message rates OmniPath provides. These switches will also come in air and liquid-cooled SKUs.
+
+It should be remarked that very few vendors are open about the power draws of their switches and NICs publicly like Cornelis is.
+
+---
 
 ## Other notable headlines
 
@@ -205,6 +237,7 @@ The presentation goes further into specifics on current and future research stre
 * [Nvidia's Rubin GPU and Vera CPU rumoured to not be delayed at all - samples to be produced by September, mass production by 2Q26](https://www.tweaktown.com/news/105660/nvidias-next-gen-rubin-gpu-vera-cpu-rumors-no-delays-new-chips-are-being-moved-up/index.html)
 * [Samsung yet again fails HBM3E certification on Nvidia packages, aiming for a re-run in September](https://m.businesspost.co.kr/BP?command=mobile_view&num=398661)
 * [SK-Hynix reportedly already supplying small quantities of HBM4 to Nvidia, Micron less than a quarter behind](https://x.com/Jukanlosreve/status/1934381245791883502)
-* []()
+* [AMD's Zen 6 architecture could lead to 7 GHz boost clock rates on CPUs](https://www.tweaktown.com/news/106021/amds-next-gen-zen-6-chips-could-launch-with-crazy-high-7-0ghz-cpu-clock-speeds/index.html?utm_source=newsletter)
+* [Samsung might ship HBM4 12Hi samples in early 3Q25, possibly catching up with other the memory makers](https://x.com/Jukanlosreve/status/1938429838794363266)
 
 ---
