@@ -13,12 +13,8 @@ For a space to share sources and news/updates, check out the <a href="https://si
 [**This month's updates:**](#this-months-updates)
   - [**AMD delivers a roadmap to defeat Nvidia**](#amd-delivers-a-roadmap-to-defeat-nvidia)
   - [**Broadcom shows the world a 100 Terabit switch ASIC: Tomahawk 6**](#broadcom-shows-the-world-a-100-terabit-switch-asic-tomahawk-6)
-  - [**Huawei's present and future - mixed reactions from the market**](#huawei-s-present-and-future)
   - [**1 PB/s planned for HBM within the next decade, KAIST reveals**](#1-pb-s-planned-for-hbm-within-the-next-decade-kaist-reveals)
-  - [**Meta making merchant silicon? Rumours of MTIA rack-scale in 2027**](#meta-making-merchant-silicon-rumours-of-mtia-rack-scale-in-2027)
   - [**Other notable headlines**](#other-notable-headlines)
-
-**Note**: From this issue onwards, I will return to having 5 updates per issue but will now be scrapping the one-pager and vendor spotlight sections. Apologies. 
 
 ---
 
@@ -34,70 +30,101 @@ At their Advancing AI 2025 event this month, AMD delivered a reveal rivalling Nv
 
 The roadmap charts a path through the three key routes towards dominance in AI training: CPUs, GPUs, and NICs. The Imminent "rack-scale" solution (2H25) is a not a particularly interesting stepping stone as it will still use a scale-out fabric between servers on the same rack, so as a quick summary: 64 MI350X air-cooled or 96/128 MI355X liquid-cooled GPUs, 5th gen. Turin CPUs, and Pollara 400G UEC (Ultra Ethernet Consortium) compatible NICs.
 
+This product might still be quite popular among some hyperscalers wishing to deploy in volume, with OCI (Oracle Cloud Infrastructure) saying that they are preparing [to deploy 130K](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) (131,072) MI355X GPUs. This is unsurprising given that they have a very mature datacentre operations business and so won't be as impacted by the 40% increase in GPU TDP (see below for specs) as much as neoclouds or smaller datacentre build-outs would.
+
+Given that there will be [no APU form](https://www.techradar.com/pro/amd-unveils-puzzling-new-mi355x-ai-gpu-as-it-acknowledges-there-wont-be-any-ai-apu-for-now) of the 350 series, it's entirely possible that the 355X was developed purely for Oracle and other hyperscalers who committed enough to justify a rather odd SKU like this.
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_title.jpg)
 
 *Source: AMD*
 
+The much more interesting part of the future begins in 2H26 with what AMD call the "Helios" architecture. According to [SemiAnalysis' estimates](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#introducing-the-mi400-helios-rack), this will be a double-width rack supporting:
+
+- 72 MI400X or MI450X GPUs
+- 18 7th Gen. "Venice" CPUs
+- 216 "Vulcano" 800G NICs
+- 6 scale-up trays @ 204.8T each
+- 6 scale-out trays @ 51.2T each
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_rack_diagram.png)
 
-*Source: SemiAnalysis*
+*Source: SemiAnalysis - The title which names the MI450X instead of the MI400X appears to be a typo, though it's not hard to imagine that the 400 series will have an intermediate refresh before the 500 releases. In fact, the 450 might be the rack-scale version of the 400, designed for DLC in very dense setups.*
 
-The much more interesting part of the future begins in 2H26 with what AMD call the "Helios" architecture. According to [SemiAnalysis' estimates](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#introducing-the-mi400-helios-rack), this will be a double-width rack supporting 72 MI400X or MI450X GPUs and 18 7th Gen. "Venice" CPUs over 18 compute trays, as well as 6 scale-up trays containing two 102.4T ASICs each, and 6 scale-out trays with one 51.2T ASIC each. This implies the following specs:
-- 720 PFLOPs at FP16
-- 31.1 TB/s of HBM4 @ 1.4
-
-This 
+Below is SemiAnalysis' (estimated) diagram of the compute tray architecture:
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_block_diagram2.png)
 
 *Source: SemiAnalysis*
 
+This implies the following specs:
 
+- 720 PFLOPs at FP16
+- 31.1 TB/s of HBM4 @ 1.4 PB/s aggregate bandwidth
+- ~130 TB/s all-all scale-up bandwidth
+- ~173 Tb/s (bits, not bytes) uni-directional aggregate scale-out bandwidth
 
-No APU version for the 350 and 355X, possibly do that for MI400 according to semianalysis estimates
+These values are designed to match/surpass not Nvidia's Blackwell Ultra (GB300), but the Rubin's (VR200) expected performance. In terms of scale-up domain, AMD is targeting [NVLink gen. 5](https://www.nvidia.com/en-gb/data-center/nvlink/) (1.8TB/s), and for the scale-out they're pushing past at 2.4Tbps/GPU, 1.5x that of NVidia's plans built around its [upcoming CX-9 NICs](https://www.datacenterdynamics.com/en/news/nvidia-announces-vera-rubin-superchip-for-late-2026/).
 
-The D2D is via AMD's Infinity fabric, a P2P design creating a mesh fabric on the board at 153.6 GB/s. Not a switched design, just over 1 TB/s aggregate bandwidth, not a switched fabric like NVidia's NVLink is.
+The options available for the topologies here are quite interesting. If we assume the SemiAnalysis estimates for the Helios's architecture, then the scale-up will be powered by 12 x 102.4T ASCIs ([Broadcom's Tomahawk 6](https://www.broadcom.com/company/news/product-releases/63146) is the only one available currently) which will present as 512 x 200Gbps ports each, for a total of 6144 x 200Gbps or 85.3 x 1.8TB/s connections. This means that each of the 12 ASICs can take 432 links, 6 from each of the 72 GPUs, and each GPU in turn exposes 72 links to the network. One possible topology is shown below:
 
-Why MI355X has 40% higher TDP than MI350X but not that much more performance on paper?
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_scale_up_topology.png)
 
-OCI (Oracle Cloud Infrastructure) [to deploy 130K](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) (131,072) of MI355X GPUs
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_dual_rack_diagram.png)
+*Source: SixRackUnits*
 
-*Source: SemiAnalysis*
+Similarly for the scale-out, one possible simple topology is given below:
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/june/images/AMD_scale_out_topology.png)
 
-Finally, some stats for all the new reveals ([1](https://www.tomshardware.com/pc-components/gpus/amd-announces-mi350x-and-mi355x-ai-gpus-claims-up-to-4x-generational-gain-up-to-35x-faster-inference-performance) [2](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506130004) [3](https://morethanmoore.substack.com/p/amds-ai-future-is-rack-scale-helios) [4](https://www.amd.com/en/blogs/2025/amd-instinct-mi350-series-and-beyond-accelerating-the-future-of-ai-and-hpc.html) [5](https://www.amd.com/en/blogs/2025/amd-delivering-open-rack-scale-ai-infrastructure-to-unlock-agentic-ai.html) [6](https://x.com/Jukanlosreve/status/1933729517937569954)):
+*Source: SixRackUnits - I doubt this is the best possible setup, but it's the simplest one that I could think of.*
 
-### MI350X :
+In both cases, we assume that the Vulcano 800G NICs would present dual 400G ports each, which would have the primary benefit of allowing for a wider range of OSFP or QSFP/QSFP-DD optics rather than 800G OSFP or other niche form factors albeit at the cost of additional parts and perhaps more energy consumption. In the case that NICs adopt CPO (Co-Packaged Optics) technology (though there isn't any information on this), then optics wouldn't be a factor but multiple ports would still be better in terms of redundancy and perhaps even performance.
+
+*Speculation:*
+It's possible, but not supported by any sources yet, that AMD could move towards a dual (or even triple) plane architecture such as [Alibaba's HPN](https://ennanzhai.github.io/pub/sigcomm24-hpn.pdf). In this design, two identical versions of a 400G network connect to the same endpoints providing additional paths and hence more options for the network management algorithms to keep performance high under heavy, chaotic traffic patterns. In this case, it could mean that that each scale-out switch contains two 25.6T switch ASICs for physical separation of the planes, or that only three or two of the 6 switches are used per plane. Diagrams not provided.
+
+Finally, some stats for all the new reveals, including both confirmed and estimated values ([1](https://www.tomshardware.com/pc-components/gpus/amd-announces-mi350x-and-mi355x-ai-gpus-claims-up-to-4x-generational-gain-up-to-35x-faster-inference-performance) [2](https://www.kedglobal.com/korean-chipmakers/newsView/ked202506130004) [3](https://morethanmoore.substack.com/p/amds-ai-future-is-rack-scale-helios) [4](https://www.amd.com/en/blogs/2025/amd-instinct-mi350-series-and-beyond-accelerating-the-future-of-ai-and-hpc.html) [5](https://www.amd.com/en/blogs/2025/amd-delivering-open-rack-scale-ai-infrastructure-to-unlock-agentic-ai.html) [6](https://x.com/Jukanlosreve/status/1933729517937569954)):
+
+### MI350X:
+
 - 288GB HBM3E 12Hi @ 8TB/s: 8 stacks of 36GB each (Samsung + Micron)
 - ~4.6/9.3/18.5 PFLOPs @ FP16/8/4, ~72/144 TFLOPs @ FP64/32
 - 1000W TBP (Total Board Power)
 - Using TSMCs "N3P" 3nm and "N6" 6nm processes
+- Shipping 2H25
 - 256MB AMD "Ininifity Cache" (sort of similar to L3 cache)
 - PCIe 5.0 x16 H2D interconnect
-- Shipping 2H25
 - 1/2.2 GHz Base/Boost clock
 - Focusing on air-cooled deployments
 
-
 ### MI355X:
+
 - 288GB HBM3E 12Hi @ 8TB/s: 8 stacks of 36GB each (Samsung + Micron)
 - ~5.0/10.1/20.1 PFLOPs @ FP16/8/4, ~79/158 TFLOPs @ FP64
 - 1400W TBP (Total Board Power)
 - Using TSMCs "N3P" 3nm and "N6" 6nm processes
 - Shipping 2H25
+- 256MB AMD "Ininifity Cache" (sort of similar to L3 cache)*
+- PCIe 5.0 x16 H2D interconnect*
 - 1/2.4 GHz Base/Boost clock
 - Focusing on liquid cooled deployments
 
 ### MI400X:
-- 432 GB HBM4 @ 19.6TB/s:
-- ~10/20/40 PFLOPs @ FP16/8/4, 
-- 300GB/s scale out bandwidth (3 x 800G NICs per GPU)
+
+- 432GB HBM4 @ 19.6TB/s:
+- ~10/20/40 PFLOPs @ FP16/8/4
+- 2300W TDP
+- 1.8TB/s scale-up bandwidth
+- 2400Gb/s scale out bandwidth (3 x 800G NICs per GPU)
 
 ### MI450X:
 
+- Nothing new of significance found yet
+
 ### MI500X:
-- Reportedly using TSMCs "N2P" 2nm process node
+
+- Reportedly either TSMCs "N2P" 2nm process or some 14A process**
+
+*Assuming that the 355 will be very similar to the 350 in terms of architecture and composition.
+**The [source](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/06/12/amd-plots-interception-course-with-nvidia-gpu-and-system-roadmaps/amp/) that claims that the MI500X will use a 14A process node does not provide any justification for this statement.
 
 ---
 
@@ -130,11 +157,6 @@ The customers for the ASIC haven't been made public yet, but it's confirmed that
 
 ---
 
-## Huawei's present and future - mixed reactions from the market
-
-**
-
----
 
 ## 1 PB/s planned for HBM within the next decade, KAIST reveals
 
@@ -172,11 +194,6 @@ The presentation goes further into specifics on current and future research stre
 
 ---
 
-## Meta making merchant silicon? Rumours of MTIA rack-scale in 2027
-
-**
-
----
 
 ## Other notable headlines
 
