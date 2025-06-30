@@ -242,3 +242,5 @@ It should be remarked that very few vendors are open about the power draws of th
 * [Samsung might ship HBM4 12Hi samples in early 3Q25, possibly catching up with other the memory makers](https://x.com/Jukanlosreve/status/1938429838794363266)
 
 ---
+
+[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
