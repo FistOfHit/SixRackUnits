@@ -96,7 +96,8 @@ There's a lot more information currently circulating around the DMR series and t
 * [Intel's next-gen desktop CPUs, "Titan Lake" possibly scrapping P/E-core split, moving to unified cores](https://www.trendforce.com/news/2025/07/18/news-intel-reportedly-drops-hybrid-architecture-for-2028-titan-lake-go-all-in-on-100-e-cores/)
 * [Huawei may move to a more GPU-like architecture for the future of its Ascend series AI accelerators](https://x.com/kyleichan/status/1943879673382867403?t=_jO4qxORFtzyS6FsfP6Zpw&s=09)
 * [AI accelerator startup Furiosa wins a significant customer in Korea - LG Electronics](https://www.theregister.com/2025/07/22/sk_furiosa_ai_lg/)
-* []()
+* [SK-Hynix confirms 3GB GDDR7 modules in development](https://www.tomshardware.com/pc-components/gpus/sk-hynix-confirms-3gb-gddr7-memory-modules-are-in-the-works-higher-capacity-could-pave-the-way-for-fabled-rtx-50-series-super-cards-with-24gb-vram)
+* [Samsung awared $16B contract for Tesla's AI6 2nm chips over 8 years](https://www.theregister.com/2025/07/22/tesla_ai6_2nm_chip_contract/)
 
 ---
 
