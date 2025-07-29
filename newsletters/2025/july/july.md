@@ -50,20 +50,26 @@ These dramatic performance improvements mean that the architecture of the chip h
 ---
 
 ## The surprising mystery of Diamond rapids' leaked TDP
- [](https://www.techpowerup.com/338664/intel-diamond-rapids-xeon-cpu-to-feature-up-to-192-p-cores-and-500-w-tdp)
-- DMR doesnt have SMT [source](https://x.com/InstLatX64/status/1948734994798567678)
-- 500W TDP seems suspiciously low, unsure if thats for a mid-spec version or for the 192 core version
-- Granite rapids reaches 500W TDP, peaks at 128 cores at 2.0GHz [](https://en.wikipedia.org/wiki/Granite_Rapids), and is restricted to a two socket version. This one says a 4s version. There must be some caveats here or restrictions for being only 500W TDP. 
-- In comparison AMD TUrin CPUs hit 192 cores already within a 500W envelope [](https://en.wikipedia.org/wiki/Epyc), and rumours are that Venice will hit 600W at a much lower core count [](https://wccftech.com/amd-zen-6-epyc-venice-zen-6-cpus-256-cores-2026-epyc-verano-zen-7-instinct-mi500-gpus-2027/)
-- Supports up to 16 channels of DDR5, and can also support MRDIMMs, a new form factor that is more dense and high bandwidth. 
-- Also PCIe 6.0 and CXL 3.0. 
 
-- Interesting they come in 4 socket configs, which are quite rare in practice. Given the core counts, 2 socket servers will remain the primary choice for high-performance deployments in both CPU management or virtualisation servers and for accelerator-focused servers like HGX-like deployments. 
-- 4s version implies up to 768 cores per server in a 2kW envelope, great for consolidation and upgrades - for example, if you had to replace all of your ~1500 cores in a CPU rack containing older emeralds rapids [](https://en.wikipedia.org/wiki/Emerald_Rapids), youd have to replace 12 servers of 2 x 64-core of high end 8592+s, using a total power of 8.4kW, with 4 servers of 2 x 192-core DMRs, which use a total of 4kW. Instantly creating 4.4kW out of nowhere for other new equipment.
-
-- comments on the post say it'll be higher TDPs like 750w but this also might be a but much. AMD venice 256 core might not even reach that high
+[The first leak](https://x.com/x86deadandback/status/1941808014865899878) was posted early this month on X from the account @x86deadandback, and drew mixed reactions from the hardware community. It provided some specs of Intel's upcoming server-grade CPU series, Diamond Rapids (DMR) (successor to the current gen. Granite rapids (GNR) series), which is expected to be formally announced in the next few months. The source themselves isn't a well established industry leaker, but the numbers given for the are believable and match expectations.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/intel_specs.jpeg)
+
+*Source: @x86deadandback on X*
+
+For context, the [highest performing Intel GNR SKU](https://www.intel.com/content/www/us/en/products/sku/240777/intel-xeon-6980p-processor-504m-cache-2-00-ghz/specifications.html) is advertised at 500W for 128 cores running at 2GHz base clock, and rumours suggest AMD's nex gen. ["Venice" 192 (virtual) core CPU](https://www.guru3d.com/story/amd-6thgen-epyc-venice-ccd-configuration-and-thread-performance-spotted/) will reach 600W. If the higher end AI/HPC server Intel CPUs reach 192 cores, then they will still be very competitive with their counterparts from AMD in 2026. [An earlier leak](https://x.com/x86deadandback/status/1937563563935084826) from the same source showed what appeared to be a product page or documentation specifying heat-sinks for DMR CPUs, peaking at 660W. Heat-sinks typically are rated for significantly higher output than the heat source is capable of to manage temporary performance boosts or cooling system failures, and so this specification supports the later leak.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/intel_heatsink.jpeg)
+
+*Source: @x86deadandback on X*
+
+To demonstrate why a 500W TDP would be so surprising, lets walk through an example server upgrade process. Even without the leak, its certain that a four-socket version of DMR will be available for CPU-dense datacentres running in-memory databases, high-performance scientific workloads, or financial transaction processing. For a site using 4096 cores spread over 64 older 64-core 350W [Emeralds rapids CPUs](https://en.wikipedia.org/wiki/Emerald_Rapids), their power usage would be 22.4kW spread over 16 quad-socket servers in two 12kW racks. To keep the minimum core count after an upgrade to DMR CPUs, that site could now buy just 22 new 192-core 500W CPUs in 6 servers, using a total of 11kW only. This could now fit into one of their 12kW racks, with capacity left for a switch or two, and the site overall has now reduced its total power usage by 11.4kW.
+
+The example is oversimplified of course but the concept remains true: newer CPUs are generally more power efficient, and a lower TDP for the same core count can result in power, space, and cost savings if the short-term tradeoffs are acceptable. This decision is a lot easier to make when the TDP of a 192-core CPU is 500W rather than 650W. Combining this with PCIe 6.0 and CXL 3.0 support, variants with 16 memory channels, and upgraded AMX (Advanced Matrix Extensions) support [1](https://www.techradar.com/pro/want-a-quad-socket-server-with-768-cores-sure-intels-192-core-diamond-rapids-xeon-cpu-will-deliver-that-in-2026-but-i-wonder-whether-it-will-be-too-little-too-late), Intel CPUs may soon halt AMDs aggressive takeover of the server CPU market.
+
+There's a lot more information currently circulating around the DMR series and the future of Intel CPUs in general, but they are beyond the scope of this article. For more information, see the following (perhaps more reliable) sources:
+- [Discussions around Intel's statement on returning to SMT, and if DMR will also not have it](https://morethanmoore.substack.com/p/intel-ceo-letter-to-employees)
+- [Another leak alleging that the DMR architecture will have shared L2 caches per core pairs](https://x.com/InstLatX64/status/1948734994798567678)
 
 ---
 
