@@ -78,9 +78,40 @@ There's a lot more information currently circulating around the DMR series and t
 - H20 has started selling in china again
 - Specs:
 
+- Huang visits china multiple times this year, 
 
-- AMD also got approval for the MI308 for china
-- Specs: 
+- China's demand for AI accelerators will total at ~$40B by end of this year. $ companies: ByteDance, Tencent, Alibaba, Baidu account for over 80% of H20 demand. H20 still better than Ascend 910C on a chip level but its yet to be seen how the CloudMatrix384 compares in the market against H20-powered clusters. 
+
+- Chinese AI labs will love this though, usually they run at much lower supply and tokens per second because of less infrence capacity. China is working on their own nation-spanning high-bandwdith network to help this though. Jeffereis fiance comp predicts once Nvidia sell off thier existing inventory of H20s (previously written off as ~$10B loss) then they will release a downgraded version with GDDR6 instead of HBM3. it seems Nvidia has already placed an order wtih TSMC for [more H20 units](https://www.reuters.com/world/china/nvidia-orders-300000-h20-chips-tsmc-due-robust-china-demand-sources-say-2025-07-29/), and its yet unclear if this will be packaged with HBM or GDDR. There was some drama recently with SK-hynix and nvidia talking about HBM not out of stock etc. what as this about?
+
+
+- AMD also got approval for the MI308 for china. Specs as of yet unconfirmed but it may be like the H20 in that it has reduced compute to meet the second wave of AI export controls but may have newer HBM than the MI300 too, higher bandwidth!
+
+- 5090Dv2 exists - cut down version of 5090D which was already cut down. offering 24GB of VRAM in a 600W profile, made for china. Commericial card through for retail and gamers, but needs to be under control still like the 4090s did. 
+- B30 (RTX Pro 6000D) also launching in China, slower and less capable than the H20 but significantly cheaper. Given Chinese SOTA models being MoE, it seems band2idth requirements arent so crazy high and instead these cheaper multi-card systems might be quite appropriate for cheap inferencing. Supply seems to be confirmed and purchases appear to be made. GDDR7.
+- China has not just acess to GPUs, but access to a diverse set of Nvidia GPUs - They are retaking the chinese market, leaving little space for domestic competitors.
+
+Tuesday 15th July marked Jensen Huang's third visit to China in a very short span of time. Discussions on plans to sell in china as export restrictions are eased, allowing Nvidia's H20s to be sold in China again. H20s are the second generation of watered down H100 chips, to meet the restrictions imposed on compute capability and bandwidth. When the H20s were banned for sale in <DATE?> NVidia had to write off its existing inventory as a loss of ~$10.5B. 
+
+However now with the xport controls eased, Nvidia expects to ship X units per quarter in 2025, and when supply runs out, it seems NVidia has contracted TSMC for additional units. Though these may end up using GDDR6 instead of HBM3, lowering the performance possibly. 
+
+But given what chinese labs need, they may still be a very attractive options. Currently struggling to get inferencing speeds for their models up, need supply of any GPUs badly. B30s will also fill gaps for lower perf but better cost. AMD MI308 is also shipping to select customers but in much lower volumes due to the dominance of CUDA in china still. Perf unknown but given the limits applied to H20 in bw and perf, we can expect something similar. Nvidia also aiming at commercial cards with 5090Dv2. 
+
+This fiversity of newly available GPUs across the performance vs cost space now hurts many domestic competitors and manufacturers like Huawei and others. Though its yet to be seen how their cluster-solutions match against what will be available in china which wont be NVLs but relatively weakly networked servers. 
+
+
+
+[5090Dv2](https://www.tweaktown.com/news/106572/nvidias-new-geforce-rtx-5090-v2-launches-in-china-on-august-12-24gb-vram-600w-tdp/index.html?utm_source=newsletter&utm_campaign=newsletter)
+[b30 shipping Q4, slower but cheaper](https://www.tweaktown.com/news/106517/nvidias-new-b30-ai-gpu-planned-to-ship-in-q4-10-20-slower-than-h20-but-30-40-cheaper/index.html?utm_source=newsletter&utm_campaign=newsletter)
+[bernstein chip demand, main 4 buyers in china](https://x.com/Jukanlosreve/status/1947075312694722707?t=syNSPYJTvzyoZZ6IcXFz9w&s=09)
+[Chinese labs server slower speeds, now exanpd with H20s](https://techzephyr.substack.com/p/implications-of-h20-coming-back?triedRedirect=true)
+[Nvidia to sell existing h20s first, then GDDR6 version. Demand could reach 1 million units per quarter](https://x.com/Jukanlosreve/status/1945652728795136033?t=9lBAsHca2W5IssU0XtQVAw&s=0)
+[Huang third visit to china, 2 million 6000Ds](https://www.digitimes.com/news/a20250715PD201/nvidia-jensen-huang-rtx-us-china-trade-war-2025.html?chid=10)
+[TSMC new 300000 H20s](https://www.reuters.com/world/china/nvidia-orders-300000-h20-chips-tsmc-due-robust-china-demand-sources-say-2025-07-29/)
+[H20 specs](https://mp.weixin.qq.com/s?__biz=MzkxMDIzMDMzNQ==&mid=2247483902&idx=1&sn=cc8b29b41c6ba920abe59eb669054f30&chksm=c0cab17d69f45c8b36c37227346061e559685bbd2c34692c157e140067f28b0a5f96ea408c1d&xtrack=1&scene=90&subscene=93&sessionid=1752602682)
+[mi308 approved](https://www.bloomberg.com/news/articles/2025-07-15/amd-says-it-will-restart-mi308-sales-to-china-after-us-review?embedded-checkout=true)
+[6000D using GDDR7, samsung supplying HBM3 for H20s](https://www.trendforce.com/news/2025/07/15/news-nvidias-china-h20-sales-to-resume-after-u-s-commitment-samsung-poised-to-gain-from-hbm3-supply/)
+
 
 ---
 
