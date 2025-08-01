@@ -2,9 +2,9 @@
 
 # July 2025
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/title.jpg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/title.jpeg)
 
-**
+*How would we even measure the compute speed of something like this? Even for modern digital processors, measuring actual INTOPS or FLOPS is difficult and sometimes meaningless.*
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top and even summarising all the material available can be difficult - so we do it for you.
 
@@ -12,6 +12,10 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 [**This month's updates:**](#this-months-updates)
   - [**Broadcom's inevitable yet surprising new chip - Tomahawk Ultra**]()
+  - [**GB300 servers possibly shipping before 4Q25, "no major issues" allegedly**]()
+  - [**The surprising mystery of Diamond rapids' leaked TDP**]()
+  - [**H20 GPU orders pile in - Nvidia (and AMD) gains access to China again**]()
+  - [**Other notable headlines**]()
 
 ---
 
@@ -43,9 +47,38 @@ These dramatic performance improvements mean that the architecture of the chip h
 
 ## GB300 servers possibly shipping before 4Q25, "no major issues" allegedly
 
----
+- Nvidia keeping the same motherboard design from GB200s (Bianca) after numerous issues with rushing the new design
+- Original Cordelia board design was 4 B300 ultras with 2 Grace, but there were persistent issues signal loss traced back to the SXM socket interface. Now using bianca sxm puck instead, they can reuse the supply chain and experience. 
+- GB300 can now be adopted and made faster as they are re-using existing components
+- Nvidia no longer supplying the full board themselves, instead  
+- there have been reports of liquid cooling system issues with leaks with the GB200s so far
+- worst part are the quick connect fittings
+- B300 itself will be in the SXM puck (easily replaceable) and the grace CPU will still come in a seperate BGA package
+- Ball grid array soldering vs SXM puck style
+- VR upgrade will be in two parts - not stressing the supply chain and customers too much: VR inside Oberon NVL144, then VR inside Kyber NVL576
 
-## JEDEC releases the LPDDR6 standards, samples potentially out by 4Q25
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/gb300_rack.jpg)
+
+*Source: ServeTheHome*
+
+Mass production is now underway for GB300 servers with [initial shipments expected in September](https://money-udn-com.cdn.ampproject.org/c/s/money.udn.com/money/amp/story/5612/8839283) for some of the largest customers. Volumes will peak in 4Q25 and continue into 2026, with Foxconn being the primary supplier and Wiwynn, Inventec, and Wistron being the others - All of which are Taiwanese. These aren't the first Blackwell Ultra systems in deployment though, as [CoreWeave and Dell](https://www.servethehome.com/dell-and-coreweave-show-off-first-nvidia-gb300-nvl72-rack/) famously deployed the worlds first GB300 NVL72 at the start of this month, likely the first sample version publicly announced.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/gb300_boards.jpg)
+
+*Source: Alethia Capital*
+
+This timely ramp up of shipments comes as news to some because in Q2 it was reported that there may be delays in GB300 shipments due to technical issues with the memory and 
+
+There hasn't been any update on what, if anything, Nvidia and their supply chain have done to address the liquid cooling issues that have been [rumoured in the GB200s](https://mp.weixin.qq.com/s?chksm=fbc55528ccb2dc3e97dbf3ac94f65e3f0065a467d80a2bb8dc0fa3128f0d2f3207b8d5326653&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1752912746_1&mid=2247486037&sn=c25851920d412e008b1ed65d22e9c3ff&idx=1&__biz=MzU1NjUwMTUyMg%3D%3D&scene=169&subscene=200&sessionid=1752912745&flutter_pos=13&clicktime=1752912771&enterid=1752912771&finder_biz_enter_id=5&jumppath=20020_1752912748097%2CWebViewStubProxyUI_1752912749788%2C20020_1752912749904%2C50094_1752912758176&jumppathdepth=4&ascene=56&fasttmpl_type=0&fasttmpl_fullversion=7825680-en_US-zip&session_us=gh_6c32bda7f91f) in deployment currently. It seems that the quick connect fittings used to speed up the deployment and maintenance of the servers have been the primary cause .
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/gb300_tray.png)
+
+*Source: Asus*
+
+
+
+
+
 
 ---
 
