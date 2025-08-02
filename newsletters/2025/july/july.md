@@ -8,7 +8,7 @@
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top and even summarising all the material available can be difficult - so we do it for you.
 
-For a space to share sources and news/updates, join our telegram channel <a href="https://t.me/aihpc_infra_fans">here</a> or if you like short form posts on similar topics,check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a>.
+For a space to share sources and news/updates, join our telegram channel <a href="https://t.me/aihpc_infra_fans">here</a> or if you like short form posts on similar topics, check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a>.
 
 [**This month's updates:**](#this-months-updates)
   - [**Broadcom's inevitable yet surprising new chip - Tomahawk Ultra**]()
@@ -33,7 +33,7 @@ Announced just weeks after the 102.4T Tomahawk 6, the [new Tomahawk Ultra ASIC](
 
 *Source: Broadcom (via WeChat)*
 
-The key number that marketing have decided to lead with is the switching latency - 250ns. It's an impressive number considering that for Tomahawk 5, this latency may have been [double that](https://www.wheelersnetwork.com/2025/07/broadcom-adds-new-architecture-with.html?m=1). It should be noted however that this is purely the latency incurred from when a unit of data enters the ASIC to when it exits, and not the more wholistic and useful latency of getting a message from one device to another. That number still relies on other factors such as the size and priority of the message being sent, the design of the rest of the switch chassis, and any intermediate hardware such as NICs, PCIe switches, and cables (particularly for long connections). This means that in or near the worst cases for latency (usually the bottlenecks for real workloads), even on the highest performing clusters, this reduction in switching latency might not make a significant difference.
+The key number that marketing have decided to lead with is the switching latency - 250 ns. It's an impressive number considering that for Tomahawk 5, this latency may have been [double that](https://www.wheelersnetwork.com/2025/07/broadcom-adds-new-architecture-with.html?m=1). It should be noted however that this is purely the latency incurred from when a unit of data enters the ASIC to when it exits, and not the more wholistic and useful latency of getting a message from one device to another. That number still relies on other factors such as the size and priority of the message being sent, the design of the rest of the switch chassis, and any intermediate hardware such as NICs, PCIe switches, and cables (particularly for long connections). This means that in or near the worst cases for latency (usually the bottlenecks for real workloads), even on the highest performing clusters, this reduction in switching latency might not make a significant difference.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/july/images/broadcom_latency.png)
 
@@ -138,7 +138,7 @@ What the locals can do though is focus on systems-level solutions, a space that 
 * [Huawei may move to a more GPU-like architecture for the future of its Ascend series AI accelerators](https://x.com/kyleichan/status/1943879673382867403?t=_jO4qxORFtzyS6FsfP6Zpw&s=09)
 * [AI accelerator startup Furiosa wins a significant customer in Korea - LG Electronics](https://www.theregister.com/2025/07/22/sk_furiosa_ai_lg/)
 * [SK-Hynix confirms 3GB GDDR7 modules in development](https://www.tomshardware.com/pc-components/gpus/sk-hynix-confirms-3gb-gddr7-memory-modules-are-in-the-works-higher-capacity-could-pave-the-way-for-fabled-rtx-50-series-super-cards-with-24gb-vram)
-* [Samsung awared $16B contract for Tesla's AI6 2nm chips over 8 years](https://www.theregister.com/2025/07/22/tesla_ai6_2nm_chip_contract/)
+* [Samsung awarded $16B contract for Tesla's AI6 2nm chips over 8 years](https://www.theregister.com/2025/07/22/tesla_ai6_2nm_chip_contract/)
 
 ---
 
