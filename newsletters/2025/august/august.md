@@ -4,9 +4,9 @@
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/title.jpeg)
 
-**
+*Is a material form a requirement for true intelligence? Does being limited to certain modalities of input result in less capability within those modalities than an intelligence that can handle more modalities of input? If so, will achieving human-level intelligence require AI models to have humanoid robotic bodies?*
 
-This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top and even summarising all the material available can be difficult - so we do it for you.
+This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so we do it for you.
 
 For a space to share sources and news/updates, join our telegram channel <a href="https://t.me/aihpc_infra_fans">here</a> or if you like short form posts on similar topics,check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a>.
 
@@ -19,15 +19,23 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ---
 
-# This month's updates:
+# This month's updates
 
 ## HotChips 25 - everything of note
 
 ## Yet another switch from Broadcom - scaling across with Jericho4
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_chip.png)
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_lineup.jpeg)
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_scaleacross.png)
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_ports.jpeg)
+
 ## B30, a Datacentre-class GPU for China - but is the door closed to deliveries?
 
-## PCIe 8.0 in the works, and we don't even have PCIe 6.0 CPUs yet.
+## PCIe 8.0 in the works, and we don't even have PCIe 6.0 CPUs yet
 
 ---
 
