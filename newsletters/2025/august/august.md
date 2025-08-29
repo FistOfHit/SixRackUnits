@@ -23,11 +23,37 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## HotChips 25! - everything of note
 
-HotChips is the annual industry event for high-performance silicon, with both the big and small names showcasing their advancements and plans  
+HotChips is the annual industry event for high-performance silicon, with both the big and small names showcasing their advancements in the field. This year's event seemed dominated by relatively few players, Nvidia, Meta, and Google stealing much of the spotlight. Between all the analysts and media that attended the event, there are too many updates to cover here comprehensively, but instead we'll present some of the highlights.
+
+### Nvidia: Spectrum-X switches and a scale-across fabric
+
+Spectrum-X was originally Nvidia's reaction to Ethernet gaining traction after the market showed strong signs of InfiniBand lock-in fatigue. Now, rivalling InfiniBand in its adoption among Nvidia's largest customers, Spectrum-X is innovating in two key areas: massive 512-port 400T switches, and expanding beyond the confines of a datacentre.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_nvidia_3.png)
+
+*Source: Nvidia*
+
+On the first item, a lot was already revealed back in GTC25 in March, see [our article on this](https://sixrackunits.substack.com/i/160297922/nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics) from then detailing almost exactly the same information. The only new information is some more detail on the observed performance (according to Nvidia) of the 102T switch, and pictures of the switch that uses optical transceivers rather than the CPO version that was shown back then.
+
+
+### Google: TPUv7 and TPU racks
+
+### AMD: Scale-up fabrics and the MI350X
+
+### Meta: NVL36x2
+
+### Intel: Clearwater Forest CPU
 
 ## B300 GPU finally detailed
 
 ## Yet another switch from Broadcom - scaling across with Jericho4
+
+Scale-up and scale-out are both rapidly developing dimensions for device-device communications still, though now we are beginning to see their limits. Limits enforced not by the technology itself, but from cooling, power, and space constraints.
+
+Racks and even rows of racks can only get so big before the distance is too great for a larger scale out domain - signal integrity and power become too difficult to manage beyond a few meters and taking scale-up to the optical domain is incredibly expensive. Though in certain markets like China, Huawei is showing that this might not be a roadblock to adoption.
+
+Beyond that, scale-out can cover the span of a whole datacentre, supporting distances of up to 500m or perhaps more over optical connections but after a certain scale, switch and optics costs become difficult to justify.
+
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_chip.png)
 
@@ -37,15 +63,12 @@ HotChips is the annual industry event for high-performance silicon, with both th
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_ports.jpeg)
 
-## B30, a Datacentre-class GPU for China - but is the door closed to deliveries?
-
 ## PCIe 8.0 in the works - but we don't even have PCIe 6.0 CPUs yet
 
-Intel and AMD's next generation CPUs - supporting PCIe 6.0 - are expected to ship in 2H26, likely being followed closely by PCIe 6.0 SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, a gap in the market for over 4.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations might seem likely to take just as long to reach the markets, but there has been one major change: AI.
+Intel and AMD's next generation CPUs - supporting PCIe 6.0 - are expected to ship in 2H26, likely being followed closely by PCIe 6.0 SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, a gap in the market for over 3.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations would appear likely to take just as long to reach the market if not for one major change in the world: LLMs.
 
-Keeping to their commitment to doubling bandwidth every 3 years PCI-SIG (Special Interest Group) has announced PCIe 8.0, aiming for up to 1TB/s bi-directional bandwidth over a x16 connection. Version 1.0 of the specification is expected to be released in 2028, with the first devices expected to ship in 2029/30, 
+Keeping to their commitment to doubling bandwidth every 3 years PCI-SIG (Special Interest Group) has announced PCIe 8.0, aiming for up to 1TB/s bi-directional bandwidth over a x16 connection. Version 1.0 of the specification is expected to be released in 2028, with the first devices possibly shipping in 2029/30. 
 
-Intel and AMDs upcming cpus will have PCIe 6.0 in 4Q25 or something, but PCIe 8.0 has just been announced for a 2028 release, bringing up to 1TB/s bi-directional bandwidth to PCIe connections.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/pcie8_speeds.jpg)
 
