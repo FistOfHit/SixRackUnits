@@ -33,59 +33,99 @@ Spectrum-X was originally Nvidia's reaction to Ethernet gaining traction after t
 
 *Source: Nvidia*
 
-On the first item, a lot was already revealed back in GTC25 in March, see [our article on this](https://sixrackunits.substack.com/i/160297922/nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics) from then detailing almost exactly the same information. The only new information is some more detail on the observed performance (according to Nvidia) of the 102T switch, and pictures of the switch that uses optical transceivers rather than the CPO version that was shown back then.
+On the first item, a lot was already revealed back in GTC25 in March, see [our article on this](https://sixrackunits.substack.com/i/160297922/nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics) from then detailing almost exactly the same information. The only [new content](https://www.tweaktown.com/news/107372/nvidias-new-spectrum-x-ethernet-silicon-photonics-enters-the-chat-a-game-changer-for-ai/index.html) is some more detail on the observed (we assume) performance (according to Nvidia) of the 102T switch, and pictures of the switch that uses optical transceivers rather than the CPO version that was shown back then.
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_nvidia_spectrumxgs.png)
+
+*Source: Nvidia*
+
+The other major reveal was the [Spectrum-XGS](https://nvidianews.nvidia.com/news/nvidia-introduces-spectrum-xgs-ethernet-to-connect-distributed-data-centers-into-giga-scale-ai-super-factories) add-on to Nvidia's ethernet fabric technology, a "scale-across" stack designed to connect multiple scale-out domains (datacentres) together. More on the meaning of scale-across in our article later in this post. Spectrum-XGS claims to expand telemetry, congestion control, and load-balancing all indefinitely with respect to the number of devices, and should be a lot better at reducing cross-datacentre latency where connections can be an order of magnitude or two longer than those within a datacentre.
 
 ### Google: TPUv7 and TPU racks
 
 ### AMD: Scale-up fabrics and the MI350X
 
-### Meta: NVL36x2
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_mi350x.png)
+
+*Source: AMD*
+
+
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_scaleup.png)
+
+*Source: AMD*
+
+Their more scientific session was on the design of scale-up fabrics
+
+### Meta: Catalina (NVL36x2)
+
+
 
 ### Intel: Clearwater Forest CPU
+
+Earlier this year [we reported](https://sixrackunits.substack.com/i/169948586/the-surprising-mystery-of-diamond-rapids-leaked-tdp) on leaks regarding Intel's upcoming Diamond Rapids CPU, their "P-core" only CPU aimed at high performance AI/HPC clusters. The counterpart to the "rapids" series of CPU is the "forest" series, aimed at more scalable and less intensive workloads like virtualisation, hosting, databases and so on. For their upcoming Clearwater Forest CPU, Intel decided to go with an official reveal.
+
+The below image summarises the specs for a dual-socket setup, so halve the quantities (except the UPI) for a single-socket setup. Though knowing the target market of these CPUs, a single-socket setup may be unlikely, as virtualisation and web/app hosting servers are supposed to be as core-dense and energy efficient as possible.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_intel_cpu.png)
+
+*Source: Intel*
+
+For more information, [Zartbot's article](https://mp.weixin.qq.com/s?__biz=MzUxNzQ5MTExNw==&mid=2247495152&idx=2&sn=d7e5c25374bcddaf3e302c27d7436dee&chksm=f882c3aebffeb63a3e0950965af5cdee93f030fc7958cfa650daf449e5954dcfc2ef887013d2&xtrack=1&scene=90&subscene=93&sessionid=1756236875) on WeChat and [Andreas Schilling's article](https://www.hardwareluxx.de/index.php/news/hardware/prozessoren/66880-hot-chips-2025-intel-nennt-weitere-details-zur-clearwater-forest.html) on HardwareLUXX are very detailed.
 
 ## B300 GPU finally detailed
 
 ## Yet another switch from Broadcom - scaling across with Jericho4
 
-Scale-up and scale-out are both rapidly developing dimensions for device-device communications still, though now we are beginning to see their limits. Limits enforced not by the technology itself, but from cooling, power, and space constraints.
+Scale-up and scale-out are both rapidly developing dimensions for device-device communications, though now we're beginning to see the limits of how far they can actually scale. Limits enforced not by the technology itself, but from cooling, power, and space constraints.
 
-Racks and even rows of racks can only get so big before the distance is too great for a larger scale out domain - signal integrity and power become too difficult to manage beyond a few meters and taking scale-up to the optical domain is incredibly expensive. Though in certain markets like China, Huawei is showing that this might not be a roadblock to adoption.
+Racks and even rows of racks can only get so big before the distance is too great for a larger scale out domain - [signal integrity and power](https://www.silicon-line.com/copper-cable-limitations/) become too difficult to manage beyond a few meters and taking scale-up to the optical domain is incredibly expensive. Though in certain markets like China, [Huawei is showing](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/#scale-up-optics-and-no-copper) that this might not be a roadblock to adoption.
 
-Beyond that, scale-out can cover the span of a whole datacentre, supporting distances of up to 500m or perhaps more over optical connections but after a certain scale, switch and optics costs become difficult to justify.
-
+Beyond that, scale-out can cover the span of a whole datacentre with a relatively high-bandwidth fabric, but after a certain scale, switch and optics costs become difficult to justify. Clusters like [xAI's Colossus](https://www.theregister.com/2024/10/29/xai_colossus_networking/) are pushing that boundary by doubling the size of their cluster to 200,000 GPUs whilst keeping everything under a single scale-out ethernet fabric.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_chip.png)
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_lineup.jpeg)
+*Source: Broadcom*
+
+Enter Broadcom, with the 51.2T [Jericho4](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-jericho4-enabling-distributed-ai-computing-across) "Across DC scale-out" ASIC. Aimed at long-range connections between scale-out fabrics (used synonymously with datacentre here), the Jericho4 includes many features that optimise for transport at these distances whilst maintaining a secure and lossless fabric. Fabricated with TSMC's 3nm process and using 200G SERDES
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_scaleacross.png)
 
+*Source: Broadcom*
+
+The main standout innovation that Broadcom advertise is the Hyperport - 4 x 800G links combined at the hardware-level into a single logical 3.2T port. This then reduces the associated overheads of managing 4 distinct ports too. This functionality has already existed for a while at the software layer with link aggregation (LAG) but Hyperport implements it lower in the stack, optimising the load balancing, congestion control, utilisation, and more.
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_ports.jpeg)
 
-## PCIe 8.0 in the works - but we don't even have PCIe 6.0 CPUs yet
+*Source: Broadcom*
 
-Intel and AMD's next generation CPUs - supporting PCIe 6.0 - are expected to ship in 2H26, likely being followed closely by PCIe 6.0 SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, a gap in the market for over 3.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations would appear likely to take just as long to reach the market if not for one major change in the world: LLMs.
+In addition, the Jericho4:
 
-Keeping to their commitment to doubling bandwidth every 3 years PCI-SIG (Special Interest Group) has announced PCIe 8.0, aiming for up to 1TB/s bi-directional bandwidth over a x16 connection. Version 1.0 of the specification is expected to be released in 2028, with the first devices possibly shipping in 2029/30. 
+- Has deep buffers to absorb bursty traffic from AI workloads
+- Supports lossless connections for over 100km distances
+- Provides MACsec at line rate, necessary for long-distance traffic
 
+And just to future proof it for use in 2027/28, the Jericho4 is also UEC compliant - interoperable with all other UEC switches and NICs from any vendor.
+
+This then "completes" Broadcom's lineup of high-performance AI cluster switch ASICs, with this chip joining the Tomahawk 6 and Tomahawk Ultra to cover all three dimensions of network scaling: up, out, and across. For more information on the Tomahawk series, see our [June](https://sixrackunits.substack.com/i/167217145/broadcom-shows-the-world-a-terabit-switch-asic-tomahawk) and [July](https://sixrackunits.substack.com/i/169948586/broadcoms-inevitable-yet-surprising-new-chip-tomahawk-ultra) editions.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_lineup.jpeg)
+
+*Source: Broadcom*
+
+PS: It seems they'll do anything to avoid just saying "scale-across", perhaps to avoid association with Nvidia's Spectrum-XGS announcement (more on that just above)? Or maybe they were just a few days short to coining the term?
+
+## PCIe 8.0 announced
+
+Intel and AMD's next generation CPUs - supporting PCIe (Peripheral Component Interconnect express) 6.0 - are [expected to ship](https://www.pcworld.com/article/2805679/pci-express-6-products-might-finally-ship-in-2025.html) in between 4Q25 and 4Q26, likely being followed closely by the corresponding SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, a wait for over 3.5 to 4.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations should take just as long to reach the market from their reveal. But there's been one fundamental addition to the world driving hardware progression to speeds not seen before: LLMs.
+
+Keeping to their commitment to doubling bandwidth every 3 years, the PCI-SIG (Special Interest Group) [has announced PCIe 8.0](https://pcisig.com/pci-sig-announces-pcie-80-specification-targeted-release-2028), aiming for up to 1TB/s bi-directional bandwidth over a full x16 connection. Version 1.0 of the specification is expected to be released in 2028, with the first devices hopefully shipping before 2032. In comparison, [PCIe 7.0](https://pcisig.com/pcie-70-specification-now-available-pci-sig-members) was announced in 2022, aims to have it's version 1.0 ratified at the end of 2025, and may see adoption in devices as soon as 4Q26. Certainly not CPUs, but possibly in NICs (already reaching 800G and soon 1.6T), and just maybe in SSDs (if storage arrays and controllers reach those speeds in time).  
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/pcie8_speeds.jpg)
 
-PCIe is the protocol used for various components in a server to communicate with each other. Widely used between the CPU, AI accelerators, network cards, storage, and more.
+*Source: PCI-SIG*
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/pcie8_doubling.jpg)
-
-
-PCIe 8.0 doubles the data rate of 7.0, reaching 256GT/s per lane. 
-* 256GT/s per lane
-*   A lane is four wires, two each for transmitting (Tx) and receiving (Rx). GT/s is Gigatransfers per second, each transfer is 1 bit.
-Almost certainly over optical, as they'll be using PAM4 signalling instead of NRZ which is reaching its limits. PAM4 is pulse amplitude modulation, using 4 levels of voltage to represent 2 bits - 2 bits can be sent within a single sybmol, which means the transfer rate required to reach the same bandwidth is halved, reducing strain on the signal generators and error rates. 
-
-
-
-
-PCIe 6.0 announced in 2021, but no devices even yet. 
+To summarise what these speeds mean, PCIe 8.0 is targeting 256GT/s (Giga Transfers per second) bidirectional (both transmitting and receiving simultaneously) per lane. [A lane](https://www.techradar.com/computing/computing-components/pcie-lanes-explained) is four wires, two each for transmitting (Tx) and receiving (Rx) and each pair is a [differential pair](https://en.wikipedia.org/wiki/Differential_signalling). A transfer is 2 bits, since PCIe 8.0 will use [PAM4](https://blog.samtec.com/post/understanding-nrz-and-pam4-signaling/) (pulse amplitude modulation with 4 levels) signalling. This means 512Gb/s per lane, or 64GB/s per lane, and therefore a x16 (full width) connection can support 16 x 64GB/s = ~1TB/s bi-directional bandwidth.
 
 ---
 
@@ -102,6 +142,9 @@ PCIe 6.0 announced in 2021, but no devices even yet.
 * [Delays in DeepSeek's R2 model allegedly due to pressure from Chinese government, being forced to use Huawei's "unstable" AI accelerators instead of Nvidia GPUs](https://www.tweaktown.com/news/107116/huawei-pressure-blamed-for-deepseeks-next-gen-ai-model-delay/index.html)
 * [Kioxia confirms that they are also in the race to HBF with their prototype: 5TB capacity @ 64GB/s per "module"...](https://www.kioxia.com/en-jp/about/news/2025/20250820-1.html)
 * [...But SanDisk keep up the pace by teaming up with SK-Hynix to work on standarising HBF first](https://mp.weixin.qq.com/s?chksm=c2649258f5131b4e3fa13fdac3fe6d57db83ce5e0c0a34af6ad4da969da2e1ef27add8bf5c24&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1754993167_1&mid=2247526353&sn=c8250c005cc42ad5f79a630f6a1115c6&idx=3&__biz=MzkzMTcxODM3NA%3D%3D&scene=169&subscene=200&sessionid=1754993168)
+* [Meta working with Broadcom to get "Santa barbara" codenamed MTIA servers into production by end of 2025](https://www.datacenterdynamics.com/en/news/meta-places-order-for-its-next-gen-asic-powered-ai-servers-partners-with-broadcom-and-quanta-computer/)
+* [Leaks of a possible Jaguar shores thermal test vehicle reveal a possible quad-die arrangement for Intel's last chance at the GPU market](https://wccftech.com/intel-next-gen-ai-chip-jaguar-shores-test-vehicle-surfaces-online/)
+* [Japan's FugakuNEXT Supercomputer will use upcoming Fujitsu Monaka CPUs with Nvidia GPUs, adopting NVFusion tech](https://blogs.nvidia.com/blog/fugakunext/)
 
 ---
 
