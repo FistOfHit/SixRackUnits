@@ -143,6 +143,28 @@ There were also great sessions from names like d-Matrix, Rebellions, Marvell, Hu
 
 ## B300 GPU finally detailed
 
+Also unveiled at HotChips 25 but given its own segment here, the [B300 "Blackwell Ultra" GPU](https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/) makes headlines even though most of the information given here was already known for months. We have a few details now though worth noting:
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/b300_arch.png)
+
+*Source: Nvidia*
+
+- 288GB HBM3E is implemented as 8 stacks, probably at 12hi, totalling 8TB/s
+- 20,480 CUDA cores, and 160 streaming multiprocessors (SMs), which total to 640 5th gen Tensor cores
+- Over 160MB of tensor memory (TMEM), the same volume of L1 data cache (shared mem), and L2 cache size unknown
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/b300_sm.webp)
+
+*Source: Nvidia*
+
+For more practical-minded people, the B300 sticks to the current generations 128GB/s unidirectional PCIe 6.0 x16 H2D connection, even though PCIe 6.0 CPUs or SSDs don't exist yet. PCIe 6.0 NICs, however, do exist, such as the [ConnectX-8 SuperNIC](https://resources.nvidia.com/en-us-accelerated-networking-resource-library/connectx-datasheet-c) with an integrated PCIe 6.0 switch. This marks a [fundamental change](https://developer.nvidia.com/blog/nvidia-connectx-8-supernics-advance-ai-platform-architecture-with-pcie-gen6-connectivity/) in the server architecture for HGX's going forward, as GPUs now connect to the NICs at a 2:1 ratio instead of to discrete PCIe switches. This makes their connection to the scale-out network 1 hop shorter and also gives the GPUs a real chance to saturate the 800G uplinks. As for TDP, the peak of 1400W remains the same.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/b300_server.png)
+
+*Source: Nvidia*
+
+Earlier this year, Nvidia developed the [NVFP4 floating point format](https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/) for efficient, stable, and accurate FP4 inference. The B300 delivers up to 1.5x the performance of the B200 for this format, but this is likely theoretical as actual NVFP4 quantised model inferencing numbers (tokens or samples per second) haven't been given yet. The majority of inferencing provided by foundation model labs as AI models or wrapped text or image generation services in other products may still happen on H100s and H200s though for a while. B300 customers investing in this hardware may do so for inferencing the largest models or for future proofing for the next year or two, or, most likely, training. This means that for many, NVFP4 performance numbers are irrelevant.
+
 ## Yet another switch from Broadcom - scaling across with Jericho4
 
 Scale-up and scale-out are both rapidly developing dimensions for device-device communications, though now we're beginning to see the limits of how far they can actually scale. Limits enforced not by the technology itself, but from cooling, power, and space constraints.
