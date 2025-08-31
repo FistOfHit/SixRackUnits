@@ -23,7 +23,7 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## HotChips 25! - everything of note
 
-HotChips is the annual industry event for high-performance silicon, with both the big and small names showcasing their advancements in the field. This year's event seemed dominated by relatively few players, Nvidia, Meta, and Google stealing much of the spotlight. Between all the analysts and media that attended the event, there are too many updates to cover here comprehensively, but instead we'll present some of the highlights.
+HotChips is the annual industry event for high-performance silicon, with both the big and small names showcasing their advancements in the field. This year's event seemed dominated by relatively few players, Nvidia, Meta, and Google stealing much of the spotlight. Between all the announcements and reveals made at the event, there were just too many updates to cover here comprehensively. Instead, we'll present some of the highlights that we think are the most important and interesting.
 
 ### Nvidia: Spectrum-X switches and a scale-across fabric
 
@@ -33,7 +33,7 @@ Spectrum-X was originally Nvidia's reaction to Ethernet gaining traction after t
 
 *Source: Nvidia*
 
-On the first item, a lot was already revealed back in GTC25 in March, see [our article on this](https://sixrackunits.substack.com/i/160297922/nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics) from then detailing almost exactly the same information. The only [new content](https://www.tweaktown.com/news/107372/nvidias-new-spectrum-x-ethernet-silicon-photonics-enters-the-chat-a-game-changer-for-ai/index.html) is some more detail on the observed (we assume) performance (according to Nvidia) of the 102T switch, and pictures of the switch that uses optical transceivers rather than the CPO version that was shown back then.
+On the first item, a lot was already revealed back in GTC25 in March, see [our article](https://sixrackunits.substack.com/i/160297922/nvidia-and-partners-announce-next-gen-datacentre-switches-with-co-packaged-optics) from back then detailing almost exactly the same information. The only [new content](https://www.tweaktown.com/news/107372/nvidias-new-spectrum-x-ethernet-silicon-photonics-enters-the-chat-a-game-changer-for-ai/index.html) is some more detail on the observed (we assume) performance (according to Nvidia) of the 102T switch, and pictures of the switch that uses optical transceivers rather than the CPO version that was shown back then.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_nvidia_spectrumxgs.png)
 
@@ -41,15 +41,15 @@ On the first item, a lot was already revealed back in GTC25 in March, see [our a
 
 The other major reveal was the [Spectrum-XGS](https://nvidianews.nvidia.com/news/nvidia-introduces-spectrum-xgs-ethernet-to-connect-distributed-data-centers-into-giga-scale-ai-super-factories) add-on to Nvidia's ethernet fabric technology, a "scale-across" stack designed to connect multiple scale-out domains (datacentres) together. More on the meaning of scale-across in our article later in this post. Spectrum-XGS claims to expand telemetry, congestion control, and load-balancing all indefinitely with respect to the number of devices, and should be a lot better at reducing cross-datacentre latency where connections can be an order of magnitude or two longer than those within a datacentre.
 
-### Google: TPUv7 and TPU racks
+### Google: Ironwood TPUv7 and TPU racks
 
-We shared everything that was available on the TPUv7 back in [April](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu) when it was announced, and a lot of things remain unchanged. We made a mistake in thinking it would be six stacks of 12hi HBM3E, when we now see it'll be eight stacks instead. Capacity and bandwidth remain unchanged. At 4.5 PFLOPs of FP8, it brings the same amount of inference performance as the B200/300 and the MI350X. It seems the TDP hasn't yet been confirmed but anything below 1kW would be surprising.
+We shared everything that was available on the TPUv7 back in [April](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu) when it was announced, and a lot of this remain unchanged. We made a mistake in thinking it would be six stacks of 12hi HBM3E, and we now see it'll be eight stacks instead. Memory capacity and bandwidth remain unchanged thankfully. The compute capacity is interesting though, since at 4.5 PFLOPs of FP8, the TPUv7 brings the same amount of inference performance as the B200/300 and the MI350X. It seems the TDP hasn't yet been confirmed but anything below 1kW would be surprising.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpuv7.webp)
 
 *Source: Google*
 
-But Google's session was useful as they showed much more on how the TPU scales to the server and rack level. We saw earlier that they were aiming for 4 chips per board, but now its confirmed. They're also sticking to PCIe 5.0 for the H2D, unsurprising given that TPUs rely entirely on their mesh scale-up for D2D, for which they'll have an incredible 18 OSFP (800G) ports per board. So many ports actually, that they couldn't even fit all 18 on one side of the board, and have to put 2 underneath.  
+But Google's session was still very revealing, as they showed much more on how the Ironwood scales to the server and rack level. We saw earlier that they were aiming for 4 chips per board, but now its been confirmed in their slides. They're sticking to PCIe 5.0 for the H2D, which is unsurprising given that TPUs rely entirely on their mesh scale-up for D2D. For this purpose, they'll have an incredible 18 OSFP (800G) ports per board, so many ports actually, that they couldn't even fit all 18 on one side of the board and instead had to put 2 underneath on the other side.  
 
 It was also really interesting to hear them talk about the per-chip variable flow rates for the liquid cooling step. Having a constant and equal flow rate was just assumed to be the sensible idea, but different chips on the same board could be doing very different things in theory, and hence will need different coolant flow rates.
 
@@ -57,7 +57,7 @@ It was also really interesting to hear them talk about the per-chip variable flo
 
 *Source: Google*
 
-We knew they'd be aiming for clusters (or "pods") of up to 9216 devices in a single ICI (Inter-Chip-Interconnect) domain and [predicted two topologies](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu): a 96x96 2D torus, or a 32x32x9 3D torus. But now we see exactly how they'll be doing this - a 64 x 16 x 9 3D torus. This makes sense, though, as their chosen rack design fits 64 TPUs in 16 trays of 4 chips (one board) perfectly. This lets them keep the pod of 64 connected by copper and letting them use their [OCS](https://www.datacenterdynamics.com/en/analysis/mission-apollo-behind-googles-optical-circuit-switching-revolution-mag/) (Optical Circuit Switching) technology to extend ICI to the 144 racks in the superpod.  
+We knew they'd be aiming for clusters (or "pods") of up to 9216 devices in a single ICI (Inter-Chip-Interconnect) domain and [predicted two topologies](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu): a 96x96 2D torus, or a 32x32x9 3D torus. But now we see exactly how they'll implement this - a 64 x 16 x 9 3D torus. This makes sense, as their chosen rack design still fits 64 of these huge TPUs in 16 trays of 4 chips (one board) perfectly well. This lets them keep the pod of 64 connected by copper and lets them use their [OCS](https://www.datacenterdynamics.com/en/analysis/mission-apollo-behind-googles-optical-circuit-switching-revolution-mag/) (Optical Circuit Switching) technology to extend ICI to 144 racks in the superpod.  
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpu_rack.webp)
 
@@ -69,13 +69,13 @@ We knew they'd be aiming for clusters (or "pods") of up to 9216 devices in a sin
 
 ### AMD: Scale-up fabrics and the MI350X
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_mi350x.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_mi350.png)
 
 *Source: AMD*
 
-AMD detailed the their two upcoming Instinct series GPUs, the MI - 350 and 355 - X. As we detailed back in [June](https://sixrackunits.substack.com/i/167217145/amd-delivers-a-roadmap-to-defeat-nvidia), the two are almost identical in their memory and compute system designs. The only real difference of relevance to customers will be the TDP: the 350 at 1kW and the 355 at 1.4kW. The first is aimed at 8-GPU air cooled servers where datacentres prefer to stick to ~10kW per 6-8U of rack space, and the second is aimed at 4 or 8 GPU liquid cooled servers, where the power can reach 15 or even 18kW per 4-6U of space. For more info on the rack-scale setups and topologies, see Semianalysis' excellent [article](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/).
+AMD detailed the their two upcoming Instinct series GPUs, the MI350X and the MI355X. As we detailed back in [June](https://sixrackunits.substack.com/i/167217145/amd-delivers-a-roadmap-to-defeat-nvidia), the two are almost identical in their memory and compute system designs. The only real difference of relevance to customers will be the TDP: the 350 at 1kW and the 355 at 1.4kW. The first is aimed at 8-GPU air cooled servers where datacentres prefer to stick to ~10kW per 6-8U of rack space, and the second is aimed at 4 or 8-GPU liquid cooled servers, where the power can reach 15 or even 18kW per 4-6U of space. For more info on the rack-scale setups and topologies, see Semianalysis' excellent [article](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/).
 
-Oracle has already announced an [order of over 130K MI355X GPUs](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) for their upcoming zettascale AMD cluster, and other AMD-centric neoclouds and hyperscalers will no doubt be placing smaller orders. We could very well be seeing AMD taking a double digit market share from Nvidia soon if their [software can improve](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#rocm-software-improvements) fast enough to avoid the issues that hurt the adoption of the MI250X and even MI300X GPUs.
+Oracle has already announced an [order of over 130K MI355X GPUs](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) for their upcoming zettascale AMD cluster, and other Hyperscalers and the AMD-centric neoclouds will no doubt be placing smaller orders. We could very well be seeing AMD taking a double digit market share from Nvidia soon if their [software can improve](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#rocm-software-improvements) fast enough to avoid the issues that prevented the rise of MI250X and MI300X GPUs.
 
 To compare to the Blackwell series ([1](https://resources.nvidia.com/en-us-dgx-systems/dgx-b200-datasheet) [2](https://resources.nvidia.com/en-us-dgx-systems/dgx-b300-datasheet?ncid=no-ncid) [3](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/product-briefs/amd-instinct-mi350x-gpu-brochure.pdf) [4](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/product-briefs/amd-instinct-mi355x-gpu-brochure.pdf)):
 
@@ -96,7 +96,7 @@ Memory capacity and bandwidth will now be on par, and compute numbers seem sligh
 
 *Source: AMD*
 
-Their more scientific session was on the design of scale-up fabrics, where they discussed the effects of scale-up switch radix and device lane counts have on the size of the scale-up domain and its bandwidth. Of course, anyone can deduce that more links is better but AMD stressed that scale-up domains should be kept as a single-tier network. They proposed a 1.5 layer network that mitigates some of the issues described in the slides below too, which was quite interesting. More details in [Zartbot's article](https://mp.weixin.qq.com/s?__biz=MzUxNzQ5MTExNw==&mid=2247494795&idx=1&sn=7d61581ee737601bbfd8c5669c15873d&chksm=f849b6ffdd62bb7a24d5265998bebc65559c2d7a8a0ec18dc76ebe51b344c26c0251a423617b&xtrack=1&scene=90&subscene=93&sessionid=1756156201) on day 0 of HotChips 25.
+Their more scientific session was on the design of scale-up fabrics, where they discussed the effects that scale-up switch radix and device lane counts have on the size of the scale-up domain and its bandwidth. Of course, anyone can deduce that more links is better but AMD stressed that scale-up domains should be kept as a single-tier network. They proposed a 1.5 layer network that mitigates some of the issues described in the slides below too, which was quite interesting. More details in [Zartbot's article](https://mp.weixin.qq.com/s?__biz=MzUxNzQ5MTExNw==&mid=2247494795&idx=1&sn=7d61581ee737601bbfd8c5669c15873d&chksm=f849b6ffdd62bb7a24d5265998bebc65559c2d7a8a0ec18dc76ebe51b344c26c0251a423617b&xtrack=1&scene=90&subscene=93&sessionid=1756156201) on day 0 of HotChips 25.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_1.5tier.png)
 
@@ -104,15 +104,15 @@ Their more scientific session was on the design of scale-up fabrics, where they 
 
 ### Meta: Catalina pod (NVL36x2)
 
-One of the major issues with NVL72 systems when they were first announced was how few datacentres could already support such high power racks and how few could ever even adapt their infrastructure to support them in the future. The NVL72 rack-scale form factor remains a non-starter for almost all datacentres around the world, as most places support between 12 or 20kW per rack. This includes Meta, who have a lot of datacentre space designed for CPU servers and low-power MTIA accelerators.
+One of the major issues with NVL72 systems when they were first announced was how few datacentres could at the time support such high power racks and how few could ever even hope to adapt their infrastructure to support them in the future. The NVL72 rack-scale form factor remains a non-starter for the majority of datacentres around the world, as most places support between 12 or 20kW per rack. This includes Meta, who have a lot of datacentre space designed for CPU servers and low-power MTIA accelerators.
 
-But for training their foundation models, Meta would prefer the raw bandwidth of the 72-GPU NVLink scale-up domain instead of the 8-GPU domain bounded by a chassis for HGX type servers, and so decided to customise the rack to the extent that it became six racks. The ["Catalina" pod](https://wccftech.com/meta-catalina-pod-couples-nvidia-blackwell-gb200-nvl72-open-rack-v3-liquid-cooling/) - a [six-rack system](https://www.datacenterdynamics.com/en/news/how-meta-acheives-120kw-a-rack-in-20kw-air-cooled-data-centers/) designed to support 120kW of TDP over 6 x 20kW racks - brings 2 racks of 18 custom GB200 trays together with 18 NVLink switch trays to form a single 72-GPU domain. Four of the six racks are dedicated just to the cooling systems: air-assisted liquid cooling, using the large volume available of four standard width racks to keep liquid coolant temperatures down using fans.
+But for training their foundation models, Meta would prefer the raw bandwidth of the 72-GPU NVLink scale-up domain instead of the 8-GPU domain bounded by a chassis for HGX type servers. This, as well as other reasons, led them to customise the system to the extent that it became six racks. The ["Catalina" pod](https://wccftech.com/meta-catalina-pod-couples-nvidia-blackwell-gb200-nvl72-open-rack-v3-liquid-cooling/) - a [six-rack system](https://www.datacenterdynamics.com/en/news/how-meta-acheives-120kw-a-rack-in-20kw-air-cooled-data-centers/) designed to support 120kW of TDP over 6 x 20kW racks - brings 2 racks of 18 custom GB200 trays together with 18 NVLink switch trays to form a single 72-GPU domain. Four of the six racks are dedicated just to the cooling systems: air-assisted liquid cooling, using the large volume available of four standard width racks to keep liquid coolant temperatures down using fans.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_meta_rack.png)
 
 *Source: Meta*
 
-To this extent, they had to customise the trays to have 2 GPUs per tray instead of the usual 4 in a GB200 compute tray, making the CPU:GPU = 1:1. They double the number of CX-7 NICs and Grace CPUs per GPU, leading to some very interesting specs:
+To this extent, they had to customise the trays to have 2 GPUs per tray instead of the usual 4 in a GB200 compute tray, making the ratio of CPU:GPU = 1:1. This then doubles the number of CX-7 NICs and Grace CPUs per GPU, leading to some very interesting specs:
 
 - 72 B200 GPUs and 72 Grace CPUs
 - 34.6TB aggregate LPDDR5X memory
@@ -127,7 +127,7 @@ One issue we believe Meta works around is the lack of power headroom here, with 
 
 ### Intel: Clearwater Forest CPU
 
-Earlier this year [we reported](https://sixrackunits.substack.com/i/169948586/the-surprising-mystery-of-diamond-rapids-leaked-tdp) on leaks regarding Intel's upcoming Diamond Rapids CPU, their "P-core" only CPU aimed at high performance AI/HPC clusters. The counterpart to the "rapids" series of CPU is the "forest" series, aimed at more scalable and less intensive workloads like virtualisation, hosting, databases and so on. For their upcoming Clearwater Forest CPU, Intel decided to go with an official reveal.
+Earlier this year [we reported](https://sixrackunits.substack.com/i/169948586/the-surprising-mystery-of-diamond-rapids-leaked-tdp) on leaks regarding Intel's upcoming Diamond Rapids CPU, their "P-core" only processor aimed at high performance AI/HPC clusters. The counterpart to the "rapids" series of CPU is the "forest" series, aimed at more scalable and less intensive workloads like virtualisation, hosting, databases and so on. For their upcoming Clearwater Forest CPU, Intel decided to go with an official reveal.
 
 The below image summarises the specs for a dual-socket setup, so halve the quantities (except the UPI) for a single-socket setup. Though knowing the target market of these CPUs, a single-socket setup may be unlikely, as virtualisation and web/app hosting servers are supposed to be as core-dense and energy efficient as possible.
 
@@ -145,7 +145,7 @@ There were also great sessions from names like d-Matrix, Rebellions, Marvell, Hu
 
 Also unveiled at HotChips 25 but given its own segment here, the [B300 "Blackwell Ultra" GPU](https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/) makes headlines even though most of the information given here was already known for months. We have a few details now though worth noting:
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/b300_arch.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/b300_arch.jpg)
 
 *Source: Nvidia*
 
@@ -169,15 +169,15 @@ Earlier this year, Nvidia developed the [NVFP4 floating point format](https://de
 
 Scale-up and scale-out are both rapidly developing dimensions for device-device communications, though now we're beginning to see the limits of how far they can actually scale. Limits enforced not by the technology itself, but from cooling, power, and space constraints.
 
-Racks and even rows of racks can only get so big before the distance is too great for a larger scale out domain - [signal integrity and power](https://www.silicon-line.com/copper-cable-limitations/) become too difficult to manage beyond a few meters and taking scale-up to the optical domain is incredibly expensive. Though in certain markets like China, [Huawei is showing](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/#scale-up-optics-and-no-copper) that this might not be a roadblock to adoption.
+Racks, and even rows of racks can only get so big before the distance is too great for a larger scale out domain. [Signal integrity and power](https://www.silicon-line.com/copper-cable-limitations/) become too difficult to manage beyond a few meters and taking scale-up to the optical domain is incredibly expensive. Though in certain markets like China, [Huawei is showing](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/#scale-up-optics-and-no-copper) that this might not be a roadblock to adoption.
 
-Beyond that, scale-out can cover the span of a whole datacentre with a relatively high-bandwidth fabric, but after a certain scale, switch and optics costs become difficult to justify. Clusters like [xAI's Colossus](https://www.theregister.com/2024/10/29/xai_colossus_networking/) are pushing that boundary by doubling the size of their cluster to 200,000 GPUs whilst keeping everything under a single scale-out ethernet fabric.
+Beyond that, scale-out can cover the span of a whole datacentre with a relatively high-bandwidth fabric, but after a certain scale, switch and optics costs become difficult to justify. Clusters like [xAI's Colossus](https://www.theregister.com/2024/10/29/xai_colossus_networking/) are pushing that boundary by doubling the size of the domain to 200,000 GPUs whilst keeping everything under a single scale-out ethernet fabric.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_chip.png)
 
 *Source: Broadcom*
 
-Enter Broadcom, with the 51.2T [Jericho4](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-jericho4-enabling-distributed-ai-computing-across) "Across DC scale-out" ASIC. Aimed at long-range connections between scale-out fabrics (used synonymously with datacentre here), the Jericho4 includes many features that optimise for transport at these distances whilst maintaining a secure and lossless fabric. Fabricated with TSMC's 3nm process and using 200G SERDES
+Enter Broadcom, with the 51.2T [Jericho4](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-jericho4-enabling-distributed-ai-computing-across) "Across DC scale-out" ASIC. Aimed at long-range connections between scale-out fabrics (scale-out used synonymously with datacentre here), the Jericho4 includes many features that optimise for transport at these distances whilst maintaining a secure and lossless fabric.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/jericho_scaleacross.png)
 
@@ -207,7 +207,7 @@ PS: It seems they'll do anything to avoid just saying "scale-across", perhaps to
 
 ## PCIe 8.0 announced
 
-Intel and AMD's next generation CPUs - supporting PCIe (Peripheral Component Interconnect express) 6.0 - are [expected to ship](https://www.pcworld.com/article/2805679/pci-express-6-products-might-finally-ship-in-2025.html) in between 4Q25 and 4Q26, likely being followed closely by the corresponding SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, a wait for over 3.5 to 4.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations should take just as long to reach the market from their reveal. But there's been one fundamental addition to the world driving hardware progression to speeds not seen before: LLMs.
+Intel and AMD's next generation CPUs - supporting PCIe (Peripheral Component Interconnect express) 6.0 - are [expected to ship](https://www.pcworld.com/article/2805679/pci-express-6-products-might-finally-ship-in-2025.html) between 4Q25 and 4Q26, likely being followed closely by the corresponding SSDs, NICs, and more. PCIe 6.0 itself however was announced as early as 1Q22, resulting in a wait of over 3.5 to 4.5 years from announcement to implementation. Based on the pace so far demonstrated, future PCIe generations should take just as long to reach the market from their reveal. But there's been one fundamental addition to the world driving hardware progression to speeds not seen before: LLMs.
 
 Keeping to their commitment to doubling bandwidth every 3 years, the PCI-SIG (Special Interest Group) [has announced PCIe 8.0](https://pcisig.com/pci-sig-announces-pcie-80-specification-targeted-release-2028), aiming for up to 1TB/s bi-directional bandwidth over a full x16 connection. Version 1.0 of the specification is expected to be released in 2028, with the first devices hopefully shipping before 2032. In comparison, [PCIe 7.0](https://pcisig.com/pcie-70-specification-now-available-pci-sig-members) was announced in 2022, aims to have it's version 1.0 ratified at the end of 2025, and may see adoption in devices as soon as 4Q26. Certainly not CPUs, but possibly in NICs (already reaching 800G and soon 1.6T), and just maybe in SSDs (if storage arrays and controllers reach those speeds in time).  
 
