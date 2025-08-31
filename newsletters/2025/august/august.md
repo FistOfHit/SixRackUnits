@@ -13,8 +13,8 @@ For a space to share sources and news/updates, join our telegram channel <a href
 [**This month's updates:**](#this-months-updates)
   - [**HotChips 25! - everything of note**](#hotchips-25-everything-of-note)
   - [**Yet another switch from Broadcom - scaling across with Jericho4**](#yet-another-switch-from-broadcom-scaling-across-with-jericho4)
-  - [**B30, a Datacentre-class GPU for China - but is the door closed to deliveries?**](#b30-a-datacentre-class-gpu-for-china-but-is-the-door-closed-to-deliveries)
-  - [**PCIe 8.0 in the works, and we don't even have PCIe 6.0 CPUs yet.**](#pcie-80-in-the-works-and-we-dont-even-have-pcie-60-cpus-yet)
+  - [**B300 GPU finally detailed**](#b300-gpu-finally-detailed)
+  - [**PCIe 8.0 announced**](#pcie-80-in-the-works-and-we-dont-even-have-pcie-60-cpus-yet)
   - [**Other notable headlines**](#other-notable-headlines)
 
 ---
@@ -29,7 +29,7 @@ HotChips is the annual industry event for high-performance silicon, with both th
 
 Spectrum-X was originally Nvidia's reaction to Ethernet gaining traction after the market showed strong signs of InfiniBand lock-in fatigue. Now, rivalling InfiniBand in its adoption among Nvidia's largest customers, Spectrum-X is innovating in two key areas: massive 512-port 400T switches, and expanding beyond the confines of a datacentre.
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_nvidia_3.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_nvidia_switches.png)
 
 *Source: Nvidia*
 
@@ -43,23 +43,87 @@ The other major reveal was the [Spectrum-XGS](https://nvidianews.nvidia.com/news
 
 ### Google: TPUv7 and TPU racks
 
+We shared everything that was available on the TPUv7 back in [April](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu) when it was announced, and a lot of things remain unchanged. We made a mistake in thinking it would be six stacks of 12hi HBM3E, when we now see it'll be eight stacks instead. Capacity and bandwidth remain unchanged. At 4.5 PFLOPs of FP8, it brings the same amount of inference performance as the B200/300 and the MI350X. It seems the TDP hasn't yet been confirmed but anything below 1kW would be surprising.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpuv7.webp)
+
+*Source: Google*
+
+But Google's session was useful as they showed much more on how the TPU scales to the server and rack level. We saw earlier that they were aiming for 4 chips per board, but now its confirmed. They're also sticking to PCIe 5.0 for the H2D, unsurprising given that TPUs rely entirely on their mesh scale-up for D2D, for which they'll have an incredible 18 OSFP (800G) ports per board. So many ports actually, that they couldn't even fit all 18 on one side of the board, and have to put 2 underneath.  
+
+It was also really interesting to hear them talk about the per-chip variable flow rates for the liquid cooling step. Having a constant and equal flow rate was just assumed to be the sensible idea, but different chips on the same board could be doing very different things in theory, and hence will need different coolant flow rates.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpu_server.webp)
+
+*Source: Google*
+
+We knew they'd be aiming for clusters (or "pods") of up to 9216 devices in a single ICI (Inter-Chip-Interconnect) domain and [predicted two topologies](https://sixrackunits.substack.com/i/162620183/ironwood-googles-seventh-gen-tpu): a 96x96 2D torus, or a 32x32x9 3D torus. But now we see exactly how they'll be doing this - a 64 x 16 x 9 3D torus. This makes sense, though, as their chosen rack design fits 64 TPUs in 16 trays of 4 chips (one board) perfectly. This lets them keep the pod of 64 connected by copper and letting them use their [OCS](https://www.datacenterdynamics.com/en/analysis/mission-apollo-behind-googles-optical-circuit-switching-revolution-mag/) (Optical Circuit Switching) technology to extend ICI to the 144 racks in the superpod.  
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpu_rack.webp)
+
+*Source: Google*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_google_tpu_ici.png)
+
+*Source: Google*
+
 ### AMD: Scale-up fabrics and the MI350X
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_mi350x.png)
 
 *Source: AMD*
 
+AMD detailed the their two upcoming Instinct series GPUs, the MI - 350 and 355 - X. As we detailed back in [June](https://sixrackunits.substack.com/i/167217145/amd-delivers-a-roadmap-to-defeat-nvidia), the two are almost identical in their memory and compute system designs. The only real difference of relevance to customers will be the TDP: the 350 at 1kW and the 355 at 1.4kW. The first is aimed at 8-GPU air cooled servers where datacentres prefer to stick to ~10kW per 6-8U of rack space, and the second is aimed at 4 or 8 GPU liquid cooled servers, where the power can reach 15 or even 18kW per 4-6U of space. For more info on the rack-scale setups and topologies, see Semianalysis' excellent [article](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/).
 
+Oracle has already announced an [order of over 130K MI355X GPUs](https://www.datacenterdynamics.com/en/news/oracle-to-deploy-cluster-of-more-than-130000-amd-mi355x-gpus/) for their upcoming zettascale AMD cluster, and other AMD-centric neoclouds and hyperscalers will no doubt be placing smaller orders. We could very well be seeing AMD taking a double digit market share from Nvidia soon if their [software can improve](https://semianalysis.com/2025/06/13/amd-advancing-ai-mi350x-and-mi400-ualoe72-mi500-ual256/#rocm-software-improvements) fast enough to avoid the issues that hurt the adoption of the MI250X and even MI300X GPUs.
+
+To compare to the Blackwell series ([1](https://resources.nvidia.com/en-us-dgx-systems/dgx-b200-datasheet) [2](https://resources.nvidia.com/en-us-dgx-systems/dgx-b300-datasheet?ncid=no-ncid) [3](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/product-briefs/amd-instinct-mi350x-gpu-brochure.pdf) [4](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/product-briefs/amd-instinct-mi355x-gpu-brochure.pdf)):
+
+| Feature                | AMD MI350X      | AMD MI355X      | NVIDIA B200         | NVIDIA B300         |
+|------------------------|-----------------|-----------------|---------------------|---------------------|
+| Memory Capacity        | 288 GB HBM3e    | 288 GB HBM3e    | 180 GB HBM3e        | 288 GB HBM3e        |
+| Memory Bandwidth       | 8 TB/s          | 8 TB/s          | 8 TB/s              | 8 TB/s              |
+| Form Factor            | OAM             | OAM             | SXM6                | SXM6                |
+| TDP                    | 1000 W          | 1400 W          | 1000 W              | 1300 W              |
+| FP32 FLOPs             | 144 TFLOPS      | 157.3 TFLOPS    | 80 TFLOPS           | —                   |
+| FP16 FLOPs             | 2.3 PFLOPS      | 2.5 PFLOPS      | 2.25 PFLOPS         | 2.25 PFLOPS         |
+
+*All FLOPs are given without sparsity - no idea why these vendors insist on giving 2:1 sparsity figures.*
+
+Memory capacity and bandwidth will now be on par, and compute numbers seem slightly better for FP16.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_scaleup.png)
 
 *Source: AMD*
 
-Their more scientific session was on the design of scale-up fabrics
+Their more scientific session was on the design of scale-up fabrics, where they discussed the effects of scale-up switch radix and device lane counts have on the size of the scale-up domain and its bandwidth. Of course, anyone can deduce that more links is better but AMD stressed that scale-up domains should be kept as a single-tier network. They proposed a 1.5 layer network that mitigates some of the issues described in the slides below too, which was quite interesting. More details in [Zartbot's article](https://mp.weixin.qq.com/s?__biz=MzUxNzQ5MTExNw==&mid=2247494795&idx=1&sn=7d61581ee737601bbfd8c5669c15873d&chksm=f849b6ffdd62bb7a24d5265998bebc65559c2d7a8a0ec18dc76ebe51b344c26c0251a423617b&xtrack=1&scene=90&subscene=93&sessionid=1756156201) on day 0 of HotChips 25.
 
-### Meta: Catalina (NVL36x2)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_amd_1.5tier.png)
 
+*Source: AMD*
 
+### Meta: Catalina pod (NVL36x2)
+
+One of the major issues with NVL72 systems when they were first announced was how few datacentres could already support such high power racks and how few could ever even adapt their infrastructure to support them in the future. The NVL72 rack-scale form factor remains a non-starter for almost all datacentres around the world, as most places support between 12 or 20kW per rack. This includes Meta, who have a lot of datacentre space designed for CPU servers and low-power MTIA accelerators.
+
+But for training their foundation models, Meta would prefer the raw bandwidth of the 72-GPU NVLink scale-up domain instead of the 8-GPU domain bounded by a chassis for HGX type servers, and so decided to customise the rack to the extent that it became six racks. The ["Catalina" pod](https://wccftech.com/meta-catalina-pod-couples-nvidia-blackwell-gb200-nvl72-open-rack-v3-liquid-cooling/) - a [six-rack system](https://www.datacenterdynamics.com/en/news/how-meta-acheives-120kw-a-rack-in-20kw-air-cooled-data-centers/) designed to support 120kW of TDP over 6 x 20kW racks - brings 2 racks of 18 custom GB200 trays together with 18 NVLink switch trays to form a single 72-GPU domain. Four of the six racks are dedicated just to the cooling systems: air-assisted liquid cooling, using the large volume available of four standard width racks to keep liquid coolant temperatures down using fans.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_meta_rack.png)
+
+*Source: Meta*
+
+To this extent, they had to customise the trays to have 2 GPUs per tray instead of the usual 4 in a GB200 compute tray, making the CPU:GPU = 1:1. They double the number of CX-7 NICs and Grace CPUs per GPU, leading to some very interesting specs:
+
+- 72 B200 GPUs and 72 Grace CPUs
+- 34.6TB aggregate LPDDR5X memory
+- 48TB aggregate cache-coherent memory (CPU-GPU unified memory)
+- 14.4TB/s aggregate Scale-out bandwidth
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/august/images/hotchips_meta_tray.png)
+
+*Source: Meta*
+
+One issue we believe Meta works around is the lack of power headroom here, with the total system being restricted to 120kW with little or no push beyond that. Combined with the fact that the number of CPUs, NICs, NVLink switches, and many other components have actually increased in number due to this setup, this will likely lead to throttling of the GPUs clock rates to stay within the 120kW envelope.
 
 ### Intel: Clearwater Forest CPU
 
@@ -72,6 +136,10 @@ The below image summarises the specs for a dual-socket setup, so halve the quant
 *Source: Intel*
 
 For more information, [Zartbot's article](https://mp.weixin.qq.com/s?__biz=MzUxNzQ5MTExNw==&mid=2247495152&idx=2&sn=d7e5c25374bcddaf3e302c27d7436dee&chksm=f882c3aebffeb63a3e0950965af5cdee93f030fc7958cfa650daf449e5954dcfc2ef887013d2&xtrack=1&scene=90&subscene=93&sessionid=1756236875) on WeChat and [Andreas Schilling's article](https://www.hardwareluxx.de/index.php/news/hardware/prozessoren/66880-hot-chips-2025-intel-nennt-weitere-details-zur-clearwater-forest.html) on HardwareLUXX are very detailed.
+
+### Others
+
+There were also great sessions from names like d-Matrix, Rebellions, Marvell, Huawei, and more, but we wont cover them in this newsletter.
 
 ## B300 GPU finally detailed
 
@@ -136,12 +204,12 @@ To summarise what these speeds mean, PCIe 8.0 is targeting 256GT/s (Giga Transfe
 * [Rumours of Nvidia's post-Rubin "Feynman" GPUs needing immersion cooling abound from industry sources](https://zdnet.co.kr/view/?no=20250818162633)
 * [Samsung's HBM4 samples reportedly pass Nvidia's validation! A turnaround for Samsung in the HBM market finally?](https://m.sedaily.com/NewsView/2GWP8QI6ZB)
 * [Huawei allegedly working on "AI SSDs" to reduce pressure on the Chinese HBM supply chain](https://finance.sina.cn/2025-08-25/detail-infnfiew2224904.d.html?vt=4&cid=76524&node_id=76524)
-* [AMD might reveal "Venice" 6th gen CPUs and MI500X at their upcoming financial analyst day in November](https://www.tomshardware.com/pc-components/cpus/amd-to-disclose-roadmaps-in-mid-november-the-future-of-zen-6-rdna-cdna-and-udna-expected)
+* [AMD might reveal "Venice" 6th gen CPUs and the MI500X at their upcoming financial analyst day in November](https://www.tomshardware.com/pc-components/cpus/amd-to-disclose-roadmaps-in-mid-november-the-future-of-zen-6-rdna-cdna-and-udna-expected)
 * [UltraRAM, tech that could store data for up to 1000 years, at DRAM speeds, is progressing towards manufacturing](https://www.tomshardware.com/pc-components/ram/ultraram-scaled-for-volume-production-memory-that-promises-dram-like-speeds-4-000x-the-durability-of-nand-and-data-retention-for-up-to-a-thousand-years-is-now-ready-for-manufacturing)
 * [Nvidia announces the RTX Pro 4000 SFF and RTX Pro 2000 GPUs - Desktop grade, aimed at HPC and visualisation workloads](https://www.tomshardware.com/news/nvidia-announces-rtx-pro-4000-sff-and-rtx-pro-2000-desktop-gpus)
 * [Delays in DeepSeek's R2 model allegedly due to pressure from Chinese government, being forced to use Huawei's "unstable" AI accelerators instead of Nvidia GPUs](https://www.tweaktown.com/news/107116/huawei-pressure-blamed-for-deepseeks-next-gen-ai-model-delay/index.html)
 * [Kioxia confirms that they are also in the race to HBF with their prototype: 5TB capacity @ 64GB/s per "module"...](https://www.kioxia.com/en-jp/about/news/2025/20250820-1.html)
-* [...But SanDisk keep up the pace by teaming up with SK-Hynix to work on standarising HBF first](https://mp.weixin.qq.com/s?chksm=c2649258f5131b4e3fa13fdac3fe6d57db83ce5e0c0a34af6ad4da969da2e1ef27add8bf5c24&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1754993167_1&mid=2247526353&sn=c8250c005cc42ad5f79a630f6a1115c6&idx=3&__biz=MzkzMTcxODM3NA%3D%3D&scene=169&subscene=200&sessionid=1754993168)
+* [...But SanDisk keeps up the pace by teaming up with SK-Hynix to work on standarising HBF first](https://mp.weixin.qq.com/s?chksm=c2649258f5131b4e3fa13fdac3fe6d57db83ce5e0c0a34af6ad4da969da2e1ef27add8bf5c24&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1754993167_1&mid=2247526353&sn=c8250c005cc42ad5f79a630f6a1115c6&idx=3&__biz=MzkzMTcxODM3NA%3D%3D&scene=169&subscene=200&sessionid=1754993168)
 * [Meta working with Broadcom to get "Santa barbara" codenamed MTIA servers into production by end of 2025](https://www.datacenterdynamics.com/en/news/meta-places-order-for-its-next-gen-asic-powered-ai-servers-partners-with-broadcom-and-quanta-computer/)
 * [Leaks of a possible Jaguar shores thermal test vehicle reveal a possible quad-die arrangement for Intel's last chance at the GPU market](https://wccftech.com/intel-next-gen-ai-chip-jaguar-shores-test-vehicle-surfaces-online/)
 * [Japan's FugakuNEXT Supercomputer will use upcoming Fujitsu Monaka CPUs with Nvidia GPUs, adopting NVFusion tech](https://blogs.nvidia.com/blog/fugakunext/)
