@@ -30,129 +30,66 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## Rubin CPX: The GPU no-one saw coming
 
-At the AI Infra summit earlier this month Nvidia took the world by surprise by revealing a new GPU outside of their existing roadmap, the Rubin CPX. unlike the more "general purpose" GPUs (AI accelerators) in their recent mainline such as the H100/200 and B200/300, the CPX is designed specifically for one purpose: prefill.
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/cpx_chip.png)
 
-When inferencing an LLM, there are two distinct stages that occur, differentiated by their memory and compute requirements - prefill and decode. Prefill is the stage where the context window - all of the instructions, AI model memory, and additional pre-token generation information - is loaded onto the GPU, and decode is the stage where the new tokens are generated sequentially. This means that the prefill stage is compute-bound, as all the tokens from the context window are loaded once and can all be processed in parallel, needing much more compute than memory bandwidth.
+*Source: Nvidia*
 
-The decode stage is the opposite, where each new token generated must use all or some of the previous tokens and must load the previously computed products from memory. Since the data computations are much faster than data movement, the decode stage is memory-bound, needing a high memory bandwidth rather than compute to maintain a high throughput.
+At the [AI Infra summit](https://www.ai-infra-summit.com/events/ai-infra-summit) earlier this month Nvidia took the world by surprise by revealing a new GPU outside of their existing roadmap, the [Rubin CPX](https://developer.nvidia.com/blog/nvidia-rubin-cpx-accelerates-inference-performance-and-efficiency-for-1m-token-context-workloads/). Unlike the more "general purpose" GPUs (AI accelerators) in their recent mainline such as the H100/200 and B200/300, the CPX is designed specifically for one purpose: prefill.
 
-The Rubin CPX doesn't optimise for prefill in speed but in cost, both in its purchasing price and its operating cost. To reduce the cost to the buyer, Nvidia replaced the fast but expensive HBM (high-bandwidth memory) with the much cheaper and slower GDDR7 (graphics DDR gen. 7) and moved from a complicated dual-die design to a simpler monolithic single-die design. Fitting in 128GB of memory, the CPX has a bandwidth of ~2 TB/s from a 512-bit bus at 32 Gbps, which is sufficient for prefill workloads. Using GDDR also means that the power draw drops, with some estimates putting it at ~880W, a little higher than the 800W of the H100 NVL variant.
+When inferencing an LLM, there are [two distinct stages](https://www.theregister.com/2025/09/10/nvidia_rubin_cpx/#:~:text=The%20problem%20in%20context) to run, differentiated by their memory and compute requirements: prefill, decode. Prefill is the stage where the context window - all of the instructions, AI model memory, and additional pre-token generation information - is loaded onto the GPU, and decode is the stage where the new tokens are then generated sequentially. This means that the prefill stage is compute-bound, as all the tokens from the context window are loaded once and can all be processed in parallel, needing much more compute than memory bandwidth.
 
-The single GPU die can output 30 PFLOPs of FP4 compute, which now seems to come at a 3:2 sparsity instead of the original 2:1, and Nvidia will defiently find some way to justify this eventually. Regardless, at FP16 and FP8 - which almost everyone actually uses a mixture of for real inference workloads - the CPX might deliver 7.5 and 15 PFLOPs respectively, double what the B200 PCIe variant is rated for. Realistically, 
+The decode stage is the opposite, where each new token generated must use all or some of the previous tokens and must load the previously computed products from memory. Since computations are much faster than data movement, the decode stage is memory-bound, needing a high memory bandwidth rather than compute to maintain a high throughput.
 
-Rubin CPX GPU is a monolithic single-die design, departing from the dual-GPU chiplet architecture of Blackwell and regular Rubin SKUs.
+The Rubin CPX doesn't optimise for prefill in speed but in cost, both in its price and its energy efficiency. To reduce the cost to the buyer, Nvidia replaced the fast but expensive HBM (high-bandwidth memory) with the much [cheaper but slower](https://semianalysis.com/2025/09/10/another-giant-leap-the-rubin-cpx-specialized-accelerator-rack/#:~:text=Switching%20from%20using%20HBM%20to,of%20memory%20bandwidth%20per%20R200.) GDDR7 (graphics DDR gen. 7). Fitting in 128GB of memory, the CPX has a bandwidth of ~2 TB/s from a 512-bit bus at 32 Gbps, which is sufficient for prefill workloads. Using GDDR also means that the power draw drops, with SemiAnalysis' estimates putting it at ~880W, a little higher than the 800W of the H100 NVL variant.
 
-Uses 128GB GDDR7 memory, not HBM; bandwidth ~2 TB/s on a 512-bit bus using 32 Gbps chips, yielding much lower cost than HBM-equipped GPUs.
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/cpx_tray_rack.png)
 
-30 PetaFLOPS of NVFP4 compute precision (dense); ~20 PF (dense) vs. 33 PF (dense) for dual-die R200.
+*Source: Nvidia*
 
-Specialized for the context ("prefill") stage of large-scale AI inference, enabling efficient processing of context windows >1 million tokens.
+As well as the simpler memory, the CPX also uses a simpler design, moving from a complicated dual-die chiplet-based design like the [blackwell series did](https://en.wikipedia.org/wiki/Blackwell_(microarchitecture)) to a simpler monolithic single-die design. In addition, Nvidia also decided to stick to the PCIe gen 6. for the D2D (device-to-device) interconnect instead of the far more expensive NVLink, as a prefill/inferencing focused GPU wouldn't need the higher bandwidth and complexity of NVLink. Both of these decisions make the CPX easier to manufacture and hence cheaper yet.
 
-4 integrated NVENC and NVDEC video engines, enabling long-format media (video) generative and analytic workloads.
+Despite the seemingly light-weight design, there are two significant upgrades: increased video encode/decode capacity and triple the number (or throughput) of transformer engines. NVENC/NVDEC engines handle processing functions for video, an increasingly popular and particularly demanding modality for AI models. The transformer engines handle mixed precision attention operations and accelerate the computationally heavy prefill stage significantly.
 
-Attention processing hardware tripled vs GB300 Blackwell Ultra, enabling up to 3x speedups in context/attention ops.
+All in all, the CPX should output [30 PFLOPs of FP4 compute](https://nvidianews.nvidia.com/news/nvidia-unveils-rubin-cpx-a-new-class-of-gpu-designed-for-massive-context-inference), which now seems to come at a [3:2 sparsity](https://semianalysis.com/2025/09/10/another-giant-leap-the-rubin-cpx-specialized-accelerator-rack/#:~:text=follow%20the%20same-,3%3A2%20sparse,-to%20dense%20ratio) ratio instead of the original 2:1, something Nvidia will definitely find some way to justify eventually. Regardless, at FP16 and FP8 - which almost everyone actually for real inference workloads - the CPX might deliver 7.5 and 15 PFLOPs respectively, double what the B200 PCIe variant is rated for.
 
-PCIe Gen6 (not NVLink) system interconnect; ConnectX-9 NICs for scale-out (1600G), not scale-up.
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/cpx_racks.png)
 
-Estimated TDP per CPX chip/module ~800–880W. Advanced liquid cooling via sandwiched cold plate in each compute tray.
+*Source: SemiAnalysis*
 
-Rack module enables up to 8 CPX per compute tray; NVL144 CPX rack integrates 144 CPX, 72 Rubin, and 36 Vera CPUs.
+Keeping in line with their focus on rack-scale systems, Nvidia also announced [two new rack SKUs](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/09/11/nvidia-disaggregates-long-context-inference-to-drive-bang-for-the-buck/amp/#:~:text=Here%20are%20the%20feeds%20and%20speeds%20for%20the%20Vera%20Rubin%20NVL144%20rackscale%20system%3A), the VR200 NVL144 CPX and the VR CPX. The first builds upon the already announced NVL144 "Oberon" rack design, similar to the existing GB200/300 NVL72 designs, but now adds 8 Rubin CPX GPUs per compute tray, totalling to an 144 additional GPUs in the system. This brings the total estimated power of such a deployment up from ~225kW to ~370kW for a single rack - a number difficult for most datacentres to even imagine.
 
-Rubric Platform System Architecture
-Vera Rubin NVL144 CPX platform features:
+The second, CPX-only rack is a more compact and sensible option, sticking to 144 CPX's per rack but with no R200 GPUs or NVLink spine. This still comes in at ~190kW per rack, but is still more manageable for hyperscalers and research labs that have planned for 200-220kW racks over the comings months. This can act as a sidecar even for the now decode focused HBM-heavy VR200 systems, connected over the CX-9 + 1.6T Ethernet/InfiniBand scale-out fabrics.
 
-144 Rubin CPX GPUs (128GB GDDR7 each)
+There's a lot more to say on this topic around the compute tray architecture and cooling systems too, but for more on this, [SemiAnalysis](https://semianalysis.com/2025/09/10/another-giant-leap-the-rubin-cpx-specialized-accelerator-rack/) is currently the best source.
 
-72 Regular Rubin GPUs (dual-die, 288GB HBM4 each)
-
-36 Vera CPUs (88 ARM cores each)
-
-100TB aggregate fast memory; 1.7 PB/s combined memory bandwidth.
-
-8 ExaFLOPS total AI compute at NVFP4 precision; over 2x Vera Rubin NVL144 and 7.5x Blackwell GB300 NVL72 systems.
-
-Total rack power budget ~370 kW; mandatory full liquid cooling in sandwiched configuration for density/thermal management.
-
-Cableless midplane PCB design (Amphenol B2B connectors, 44-layer PCBs) for reliability, density, and assembly efficiency.
-
-ConnectX-9 cards support 1600G scale-out networking; Spectrum6 switches deliver 102.4T switching and co-packaged optics.
-
-Disaggregated Inference: Prefill vs. Decode
-LLM Inference is split into two distinct hardware-optimized stages:
-
-Prefill/Context: Compute-bound, needs max FLOPS (context ingestion, first token generation, codebase analysis, video analysis). Handled by CPX GPU.
-
-Decode/Generation: Memory-bound, requires bandwidth/density for token generation (with large KV cache). Handled by regular Rubin HBM GPUs.
-
-Disaggregation (PD separation) improves throughput, lowers system TCO, and enables specialized rack designs; throughput up to 6x for long-context workloads.
-
-Technical & Manufacturing Insights
-CPX is manufactured with conventional BGA packaging (no CoWoS, no chiplets), improving supply and BOM cost.
-
-Bill of Materials for CPX is ~25% that of R200; offers ~60% of the compute at a fraction of cost – largely due to GDDR7 and single die.
-
-HBM now accounts for ~51% BOM cost in high-end GPUs (GB300); GDDR7 cuts memory cost by up to 80% compared to HBM chips.
-
-PCB design: 44-layer, PTH midplane PCB; PCB value per GPU increases from ~$400 (GB200) to ~$900 (VR200/CPX).
-
-Advanced cooling hardware and cabinet design to accommodate power and density; industry-leading adoption of direct microchannel and sandwich cold plates.
-
-Rack-level deployment allows for flexible scaling of context vs. decode nodes by adding CPX "sidecar" racks for customer-specific needs.
-
-Full rack designs are mandatory for capable deployment; energy density and cooling requirements drive mandatory liquid cooling adoption worldwide (projected >35% liquid-cooled rack shipment share by 2030).
-
-Industry Impact & Roadmap
-Rubin CPX represents a major leap in specialized inference hardware, shifting economics and efficiency for LLM, code analysis, multimodal, video-gen workloads.
-
-Competitive impact: rivals (AMD, Google TPU, AWS) must now build their own context-specialized CPUs/GPUs, delaying market parity and requiring full roadmap shifts.
-
-CPX likely to be succeeded by future baseband and decode-specialized GPUs (potential for dedicated token-generation chips at extreme memory bandwidth).
-
-GDDR7 demand is expected to surge; Samsung is forecasted to gain 1-2 years’ lead in GDDR7 supply/profit due to CPX and RTX Pro 6000 adoption; Hynix/Micron preoccupied with HBM4/E.
-
-NVIDIA's roadmap, as of Sep 2025: Blackwell Ultra → Rubin/Rubin CPX (2026) → Rubin Ultra (2027, quad-die + HBM4E) → Feynman (2028).
-
-Technical Features & Applications
-NVFP4 format (NVIDIA's custom FP4): delivers ultra-low-precision AI compute, with high accuracy retention (≤1% degradation PTQ from FP8) and up to 2% accuracy gain in key tasks.
-
-Ecosystem: CPX designed for full compatibility with NVIDIA AI Enterprise software stack, Nemotron multimodal inference, Dynamo full-stack orchestration for context/generation split workflows.
-
-Handles: Hour-long 1M+ token video, multimodal and long-context chat, enterprise-scale code analysis, persistent memory agentic AI workloads.
-
-Provides 30–50x ROI per $100M datacenter CAPEX, claimed by NVIDIA to yield $5B token revenue per rack CAPEX.
-
-Power budgets and cabinet density push limits: each 1U compute tray supports 7040W and requires full liquid cooling and sandwich cold plates for reliability and minimal throttling.
-
-| Model                        | Architecture         | Memory         | Bandwidth   | Compute (Dense/Sparse)      | Specialization         | Interconnect   | Power      |
-|------------------------------|----------------------|----------------|-------------|-----------------------------|------------------------|----------------|------------|
-| Rubin CPX                    | Monolithic, BGA      | 128GB GDDR7    | ~2TB/s      | 20PF dense, 30PF sparse     | Prefill (Context)      | PCIe Gen6      | 800–880W   |
-| Rubin R200                   | Dual-die, CoWoS      | 288GB HBM4     | 20.5TB/s    | 33PF dense, 50PF sparse     | Decode/Token Gen       | NVLink 6       | ~1000W     |
-| Blackwell Ultra B300/GB300   | Dual-die, CoWoS      | 288GB HBM3E    | 13TB/s      | 25PF dense, 40PF sparse     | Both (less specialized)| NVLink 5       | ~800–1000W |
-
-Direct microchannel engraving on GPU cover plate, microchannel covers, liquid injection – each tested for Rubin CPX's high power densities (up to 2300W per GPU).
-
-Industry consensus: magnetic levitation compression likely to be mainstream in 3-4 years; key suppliers (Danfoss, Hanbell, Magnetic Valley).
-
-3D printing and biomimetic microchannel heat dissipation modules in prototype testing for packaging and thermal optimization.
-
-Silicone oil immersion cooling now preferred over F-gas/fluorinated coolant in datacenter context; reliability and cost.
-
-Cable-free midplane PCB architecture enables denser tray layouts, board-to-board Amphenol connectors, increased reliability, and improves servicing and build density.
-
-Deployment, Scalability, and Configurations
-CPX available as: full NVL144 CPX rack; dual rack (NVL144 + CPX); flexible CPX-only rack for dedicated context processing; PCIe deployment options possible but not confirmed.
-
-Scalable ratio of CPX (context) vs. Rubin (decode) GPUs to optimize for customer workloads and budget.
-
-Networking: ConnectX-9 NICs (1600G), Quantum-X800 InfiniBand, Spectrum-XGS Ethernet, co-packaged optics.
-
-Easily attached CPX racks allow for future upgrade to massive-context processing without replacing existing Rubin/HBM infrastructure.
-
-## Huawei's ascending roadmap - in a market free from Nvidia
+## Huawei's ascend roadmap - in a market free from Nvidia
 
 ## Nvidia trades with Intel: $5B in exchange for custom x86 CPUs
 
-## HBM4 is already be in its "E" form, spurred by Nvidia
+## HBM4 is evolving before it's even here, spurred by Nvidia
+
+The development and progression of HBM is now controlled not by the big three manufacturers (Samsung, SK Hynix, Micron) but by Nvidia, who has shown that they can just [make demands](https://x.com/Jukanlosreve/status/1966061623061381256) as they like and the suppliers will bend to their will. Originally targeting 8Gbps per pin according to JEDEC standards, Nvidia asked their HBM suppliers to raise the speeds to 9, and [then eventually 11Gbps](https://x.com/Jukanlosreve/status/1965960343974470126) - because they could.
+
+![https://x.com/Jukanlosreve/status/1965961127566962885](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/hbm_tweet.png)
+
+*Source: Jukan (@jukanlosreve on X)*
+
+Initially Samsung [met the request](https://www.tweaktown.com/news/107669/nvidia-asked-for-9gbps-on-hbm4-then-for-10-11gbps-samsungs-hbm4-looks-superior-for-10gbps-plus/index.html) head on by promising to hit 10Gbps over each of the 2048 pins, resulting a per-module bandwidth of just over 2.5TB/s. Supporting up to 12 layers in its current implementations, each consisting of 24Gb, this means each 36GB of memory can independently be moved back and forth at that theoretical peak bandwidth. All three manufacturers intend to hit 32Gb capacity per layer and 16 layers in a stack at the same bandwidth (for now), meaning that by the end of 2026, there should be at least three independent implementations of 64GB HBM4 modules.
+
+SK-Hynix being the now dominant HBM manufacturer also claimed that it would reach the target, though more recently may have exceeded that rate too. Micron meanwhile waited a little and then [made headlines](https://www.trendforce.com/news/2025/09/24/news-micron-counters-hbm4-speed-doubts-with-11-gbps-custom-hbm4e-due-2027-with-higher-margins/) by allegedly reaching over 11Gbps, a remarkable number currently under scrutiny as they intend to use the same process node as they use for DRAM for producing their logic dies in house.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/hbm_micron.png)
+
+*Source: Micron*
+
+The logic die controls how the memory is moved to and from the pins connecting to the rest of the chip, as well as many other functions such as ensuring signal integrity and managing error correction. Producing these logic die with a process node optimised for DRAM would naturally result in suboptimal performance, or at least that's what [analysts fear](https://x.com/Jukanlosreve/status/1966362636360286250) after hearing Micron's claims.
+
+To summarise the specs of upcoming implementations ([1](https://www.tomshardware.com/micron-hands-tsmc-the-keys-to-hbm4e) [2](https://www.trendforce.com/news/2025/09/24/news-micron-counters-hbm4-speed-doubts-with-11-gbps-custom-hbm4e-due-2027-with-higher-margins/) [3](https://www.allpcb.com/allelectrohub/3d-dram-roadmap-and-production-timeline)):
+| Vendor/Tech        | DRAM Node (nm) | Base Die Process (nm)   | Bonding Stack/Method                                   | Max Speed (Gbps)          | Max Stack (Hi) | Key Notes                                                 |
+|--------------------|---------------|-------------------------|--------------------------------------------------------|---------------------------|----------------|-----------------------------------------------------------|
+| Samsung HBM4       | 12 (1c)       | 4 (Samsung Foundry)     | TC-NCF (Thermal Compression Non-Conductive Film), Hybrid Bond | 10–11 (target)            | 16             | 4nm logic base, EUV equipped, advanced hybrid bonding      |
+| SK Hynix HBM4      | 13 (1b), ramping to 12 (1c) | 3 (TSMC N3)            | MR-MUF (Mass Reflow Molded Underfill), Hybrid Bond     | >10 (demo, 10.4–11)       | 16             | TSMC N3 logic base die, MR-MUF DRAM stacking               |
+| Micron HBM4        | 12.2 (1β)     | 12.2 (DRAM-based logic) | Standard bonding (classic DRAM stack), limited hybrid  | >11 (claimed, contested)  | 16             | Logic in DRAM node; not external logic node like Samsung/SKH|
 
 ## "AI" SSDs: 100x the speed for reads, but how?
 
@@ -167,7 +104,8 @@ Easily attached CPX racks allow for future upgrade to massive-context processing
 * [Chinese government bans tech firms from buying Nvidia, forcing the use of domestic hardware](https://www.ft.com/content/12adf92d-3e34-428a-8d61-c9169511915c)
 * [Broadcom to devleop OpenAI's custom ASIC - Titan XPU](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/09/05/broadcom-lands-shepherding-deal-for-openai-titan-xpu/amp/)
 * [NVidia cancels SOCAMM, moving on to SOCAMM2 for Rubin - soldering LPDDRXX for now](https://x.com/Jukanlosreve/status/1967145562966544733)
-* []()
+* [Alibaba releases a demo of their Panjiu-series fully liquid-cooled 128 GPU SuperNode at their annual ASPARA conference](https://x.com/semivision_tw/status/1971114184005071175)
+* [Nvidia promises it will buy double Samsung's current total GDDR7 production - likely to supply their RTX and CPX series GPUs](https://www.tweaktown.com/news/107618/nvidia-requests-samsung-to-double-its-gddr7-production-well-double-the-order-so-be-ready/index.html)
 
 ---
 
