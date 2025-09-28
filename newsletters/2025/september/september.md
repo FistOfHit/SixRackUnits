@@ -66,6 +66,34 @@ There's a lot more to say on this topic around the compute tray architecture and
 
 ## Nvidia trades with Intel: $5B in exchange for custom x86 CPUs
 
+To some, this is old news. It's been confirmed that for over a year, Nvidia and Intel have had three separate teams collaborating in secret on joint designs for processors, AI PCs, and datacentre servers. However it all came to light earlier this month when both parties officially announced the long-term partnership with Nvidia committing to investing $5B in Intel through a stock purchase.
+
+Investors expressed cnstock seeing a sharp rise of close to 30% on the day
+
+The two largest victims of this partnership though are ARM and AMD - both suffering from negative sentiment towards their future in AI servers. At least until the end of the Rubin-era, Nvidia has committed to using "Vera" ARM-based CPUs, the successor to their popular "Grace" CPUs pushed with their NVL rack-scale systems. Given that this collaboration with Intel will bear fruit around 2027/28, it's possible that Nvidia will offer x86 alternatives to the ARM CPUs in their NVL cabinets, or maybe just default to Intel CPUs entirely. 
+
+AMD, whose CPUs have already suffered with minor performance issues in Nvidia GPU servers according to SemiAnalysis' testing, may have a difficult time competing. Currently, a variety of vendors/integrators like Dell and SuperMicro offer AMD versions of their popular 8-GPU HGX systems, though with Intel CPUs becoming highly optimised and tightly integrated with Nvidia GPUs in the coming years, this may prove to become a difficult sell.
+
+
+
+Proprietary Interconnect Technology: The partnership centers on NVIDIA's NVLink technology as the high-speed interconnect fabric between components. NVLink Fusion provides ultra-high bandwidth, low latency, and direct peer-to-peer communication between CPUs and GPUs.
+
+Architectural Integration: The collaboration aims for seamless architectural integration beyond traditional CPU-to-GPU setups. This enables tighter coupling than conventional PCIe connections, allowing for platform-level co-optimization.
+
+Data Center Product Development
+Custom x86 CPU Design: Intel will develop NVIDIA-custom x86 CPUs specifically optimized for NVIDIA's AI infrastructure platforms. These processors will feature direct integration into NVIDIA's data center systems rather than traditional add-in configurations.
+
+Deep CPU Architecture Modifications: The involvement of dedicated CPU architecture teams suggests Intel is implementing significant optimizations including tailored cache structures, memory I/O configurations, and coherency protocols. These modifications address the specific high-bandwidth needs of next-generation AI platforms.
+
+Post-Vera Rubin Platform Integration: The custom Intel processors are expected to be utilized in NVIDIA's post-Vera Rubin platform era, indicating long-term strategic planning beyond current product generations.
+
+x86 Server Market Opportunities: Significant potential exists in x86-based, mid and low-range inference AI servers for on-premises enterprise deployments. Intel's established distribution channels combined with NVIDIA's technical capabilities (AI chips, NVLink, CUDA) could capture substantial market demand.
+
+Multi-Architecture Strategy: NVIDIA maintains commitments to existing ARM-based roadmaps including GB10 Grace Blackwell processors and Vera CPUs, while adding x86 capabilities. This multi-architecture approach provides broader market coverage and customer choice.
+
+NVLink-Enabled CPU Integration: Custom Intel x86 CPUs will feature NVLink interfaces enabling direct integration with NVIDIA's AI accelerators. This architecture promises higher throughput and lower latency compared to traditional PCIe-based systems.
+
+
 ## HBM4 is evolving before it's even here, spurred by Nvidia
 
 The development and progression of HBM is now controlled not by the big three manufacturers (Samsung, SK Hynix, Micron) but by Nvidia, who has shown that they can just [make demands](https://x.com/Jukanlosreve/status/1966061623061381256) as they like and the suppliers will bend to their will. Originally targeting 8Gbps per pin according to JEDEC standards, Nvidia asked their HBM suppliers to raise the speeds to 9, and [then eventually 11Gbps](https://x.com/Jukanlosreve/status/1965960343974470126) - because they could.
