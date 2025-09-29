@@ -18,7 +18,7 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 - [**Nvidia trades with Intel: $5B in exchange for custom x86 CPUs**](#nvidia-trades-with-intel-5b-in-exchange-for-custom-x86-cpus)
 
-- [**HBM4 is already be in its "E" form, spurred by Nvidia**](#hbm4-is-already-be-in-its-e-form-spurred-by-nvidia)
+- [**HBM4 is evolving before it's even here, spurred by Nvidia**](#hbm4-is-evolving-before-its-even-here-spurred-by-nvidia)
 
 - [**"AI" SSDs: 100x the speed for reads, but how?**](#ai-ssds-100x-the-speed-for-reads-but-how)
 
@@ -66,33 +66,34 @@ There's a lot more to say on this topic around the compute tray architecture and
 
 ## Nvidia trades with Intel: $5B in exchange for custom x86 CPUs
 
-To some, this is old news. It's been confirmed that for over a year, Nvidia and Intel have had three separate teams collaborating in secret on joint designs for processors, AI PCs, and datacentre servers. However it all came to light earlier this month when both parties officially announced the long-term partnership with Nvidia committing to investing $5B in Intel through a stock purchase.
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/intel_nvidia_logos.jpg)
 
-Investors expressed cnstock seeing a sharp rise of close to 30% on the day
+*Source: Nvidia*
 
-The two largest victims of this partnership though are ARM and AMD - both suffering from negative sentiment towards their future in AI servers. At least until the end of the Rubin-era, Nvidia has committed to using "Vera" ARM-based CPUs, the successor to their popular "Grace" CPUs pushed with their NVL rack-scale systems. Given that this collaboration with Intel will bear fruit around 2027/28, it's possible that Nvidia will offer x86 alternatives to the ARM CPUs in their NVL cabinets, or maybe just default to Intel CPUs entirely. 
+To some, this is old news. It's been confirmed now that for over a year, Nvidia and Intel have had [three separate teams](https://www.tomshardware.com/pc-components/cpus/teams-at-nvidia-and-intel-have-been-working-in-secret-on-jointly-developed-processors-for-a-year-the-trump-administration-has-no-involvement-in-this-partnership-at-all) collaborating in secret on joint designs for processors, AI PCs, and datacentre servers. However it all came to light earlier this month when both parties [officially announced](https://nvidianews.nvidia.com/news/nvidia-and-intel-to-develop-ai-infrastructure-and-personal-computing-products) the long-term partnership with Nvidia committing to investing $5B in Intel through a stock purchase.
 
-AMD, whose CPUs have already suffered with minor performance issues in Nvidia GPU servers according to SemiAnalysis' testing, may have a difficult time competing. Currently, a variety of vendors/integrators like Dell and SuperMicro offer AMD versions of their popular 8-GPU HGX systems, though with Intel CPUs becoming highly optimised and tightly integrated with Nvidia GPUs in the coming years, this may prove to become a difficult sell.
+Investors expressed confidence in both parties through the stocks of two sides seeing significant increases within the day, Intel's being far sharper at an almost 30% increase. For GPU servers on the market now, Intel CPUs have seen a [decline in market share](https://www.techpowerup.com/338409/intels-server-share-slips-to-67-as-amd-and-arm-widen-the-gap) of the past few years with AMD making a steady rise, though with their upcoming Granite rapids processors this might change.
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/intel_nvidia_dgx_default.jpg)
 
+*Source: Intel*
 
-Proprietary Interconnect Technology: The partnership centers on NVIDIA's NVLink technology as the high-speed interconnect fabric between components. NVLink Fusion provides ultra-high bandwidth, low latency, and direct peer-to-peer communication between CPUs and GPUs.
+For a while now, Both [Intel](https://newsroom.intel.com/de/artificial-intelligence/new-intel-xeon-6-cpus-maximize-gpu-ai-performance) and [Nvidia](https://resources.nvidia.com/en-us-dgx-software/dgx-b300-datasheet) have been pushing the higher end [Granite rapids 6776P](https://www.intel.com/content/www/us/en/products/sku/243691/intel-xeon-6776p-processor-336m-cache-2-30-ghz/specifications.html) 64-core (128 threads) CPU as *the* CPU for Nvidia's official 8-GPU DGX servers. Intel CPUs have been extensively studied and optimised in the more common, non-DGX 4 and 8 GPU servers too, which are aimed at hyperscalers and neoclouds. Many of these compute providers have optimised their software and platforms taking Intel and Nvidia as the default.
 
-Architectural Integration: The collaboration aims for seamless architectural integration beyond traditional CPU-to-GPU setups. This enables tighter coupling than conventional PCIe connections, allowing for platform-level co-optimization.
+The largest victims of this partnership therefore [are AMD and ARM](https://www.youtube.com/watch?v=vvlE8-MzxyA) - both suffering from negative investor sentiment towards their future in AI servers. At least [until the end of the Rubin-era](https://www.nextplatform.com/2025/03/19/nvidia-draws-gpu-system-roadmap-out-to-2028/), Nvidia has committed to using "Vera" ARM-based CPUs, the successor to their popular "Grace" CPUs pushed with their NVL rack-scale systems. Given that this collaboration with Intel will bear fruit around 2027/28, it's possible that Nvidia will offer x86 alternatives to the ARM CPUs in their NVL cabinets, or maybe just default to Intel CPUs entirely.
 
-Data Center Product Development
-Custom x86 CPU Design: Intel will develop NVIDIA-custom x86 CPUs specifically optimized for NVIDIA's AI infrastructure platforms. These processors will feature direct integration into NVIDIA's data center systems rather than traditional add-in configurations.
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/intel_nvidia_grace_boards.jpg)
 
-Deep CPU Architecture Modifications: The involvement of dedicated CPU architecture teams suggests Intel is implementing significant optimizations including tailored cache structures, memory I/O configurations, and coherency protocols. These modifications address the specific high-bandwidth needs of next-generation AI platforms.
+*Source: Nvidia*
 
-Post-Vera Rubin Platform Integration: The custom Intel processors are expected to be utilized in NVIDIA's post-Vera Rubin platform era, indicating long-term strategic planning beyond current product generations.
+AMD, whose CPUs have already suffered with [minor performance issues](https://semianalysis.substack.com/p/ai-neocloud-playbook-and-anatomy#:~:text=we%20recommend%20using%20Intel%20CPUs%20as%20on%20Intel%20it%20is%20easier%20to%20get%20NCCL%20performance%20correct) in Nvidia GPU servers according to SemiAnalysis' testing, may have a difficult time competing. Currently, the previously mentioned vendors/integrators offer AMD versions of the popular 8-GPU HGX systems, though with Intel CPUs becoming highly optimised and tightly integrated with Nvidia GPUs in the coming years, this may prove to become a difficult sell.
 
-x86 Server Market Opportunities: Significant potential exists in x86-based, mid and low-range inference AI servers for on-premises enterprise deployments. Intel's established distribution channels combined with NVIDIA's technical capabilities (AI chips, NVLink, CUDA) could capture substantial market demand.
+This tight integration might result in a number of useful features for future DGX/NVL servers:
 
-Multi-Architecture Strategy: NVIDIA maintains commitments to existing ARM-based roadmaps including GB10 Grace Blackwell processors and Vera CPUs, while adding x86 capabilities. This multi-architecture approach provides broader market coverage and customer choice.
-
-NVLink-Enabled CPU Integration: Custom Intel x86 CPUs will feature NVLink interfaces enabling direct integration with NVIDIA's AI accelerators. This architecture promises higher throughput and lower latency compared to traditional PCIe-based systems.
-
+- NVLink integration: Putting 1.8/3.6 TB/s BIDI links for CPU-CPU or CPU-GPU, without needing to recompile anything for ARM ISAs
+- power-sloshing: Dynamic frequency scaling not just between cores on a CPU, but also between the GPU and CPU to balance power and performance where needed
+- Variety for host memory: Making a variety of memory technologies available for the CPU from LPDDR (low power DDR) for energy efficiency to MRDIMMs (multi-rank DIMMs) for capacity
+- Using Intel's AMX (Advanced Matrix Extensions): Allowing x86 Intel CPUs to make more use of AMX with optimised I/O and shared memory spaces between devices on the board
 
 ## HBM4 is evolving before it's even here, spurred by Nvidia
 
