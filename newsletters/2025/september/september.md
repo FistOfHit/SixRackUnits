@@ -64,6 +64,40 @@ There's a lot more to say on this topic around the compute tray architecture and
 
 ## Huawei's ascend roadmap - in a market free from Nvidia
 
+Huawei are capitalising on a market free from Nvidia, having [revealed their roadmap](https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech) for their AI accelerators at their annual Huawei Connect conference earlier this month in China. Now, without a doubt, they've taken second place in the world and have become Nvidia's biggest competitor in Asia, if not the world.
+
+We've seen increasing levels of hype around their current gen. accelerator (910C) over the past year, from when it [began sampling](https://www.tomshardware.com/pc-components/gpus/huawei-guns-for-nvidia-market-share-in-china-ascend-910c-gpu-customer-sampling-begins) with customers to when it was put into the [CloudMatrix 384](https://semianalysis.com/2025/04/16/huawei-ai-cloudmatrix-384-chinas-answer-to-nvidia-gb200-nvl72/) rack-scale system, challenging Nvidia's NVL72 systems in performance. More recently too, we've heard that DeepSeek's V3.1 and possibly even their R2 models were delayed due to pressure from the Chinese government themselves forcing DeepSeek to [use Huawei's AI accelerators](https://www.trendforce.com/news/2025/08/14/news-deepseek-r2-model-launch-reportedly-delayed-amid-huawei-ascend-chip-hurdles/) for training.
+
+As we know now, this was a foreshadowing of what was to come, with the [Chinese government banning](https://www.cnbc.com/2025/09/17/nvidia-ceo-disappointed-after-reports-china-has-banned-its-ai-chips.html) the purchase of Nvidia GPUs across all government agencies and large tech firms as of the 18th of this month. This shock to the market will almost certainly increase the pace of industry's adoption of Huawei's and other Chinese hardware vendors' accelerators.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/ascend_roadmap.webp)
+
+*Source: Huawei*
+
+Staying on topic for now though, up next in the roadmap are the [950 series](https://www.tomshardware.com/tech-industry/semiconductors/huawei-unveils-ascend-roadmap-backed-by-in-house-hbm), split into two chips by role: the 950PR for prefill and the 950DT for decode. Both appear to use the same compute die, but the 950PR enters mass production in 1Q26, aiming for optimising costs on pre-fill workloads (see our article above on the Rubin CPX).The PR will be using 128 GB of Huawei's proprietary "HiBL 1.0" HBM technology keeping the bandwidth low at 1.6TB/s.
+
+For the DT in 4Q26, Huawei will use 144 GB of the second generation of their proprietary "HiZQ 2.0" HBM technology, more than doubling the bandwidth to 4TB/s. Both will be capable of 2 TB/s scale-up through the Unified Bus (UB) fabric, but only the DT will feature in their upcoming datacentre-scale "SuperPoD" system: the Atlas 950.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/ascend_atlas_950.webp)
+
+*Source: Huawei*
+
+[Spanning 160 racks](https://mp.weixin.qq.com/s?__biz=MzU4ODY5ODU5Ng==&mid=2247493728&idx=1&sn=24ed394eddfeb19ee32e664644bcdab5&chksm=fc91a6665036842dc87bd213d4524f965fe9935cb1a0107f99c14e9f8586034a3639dda52390&xtrack=1&scene=90&subscene=93&sessionid=1758215190), over a thousand square meters of datacentre floor, and packing 8,192 Ascend 950DT cards into a single scale-up fabric over optics, the Atlas 950 dwarfs Nvidia's scale-up domain plans in the Rubin Ultra NVL144. It's estimated to provide 8 exaFLOPs of FP8 over 16 PB/s of aggregated interconnect bandwidth, and will likely not be much more energy efficient (or inefficient rather) than the CloudMatrix 384. But we have (still conflicting) evidence now that this isn't a as much of a problem in Chinese datacentres as it is in the west.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/ascend_atlas_superpod.jpeg)
+
+*Source: Omdia. The Atlas Super cluster, combining multiple Atlas 950 SuperPoDs into a single, enormous cluster.*
+
+After that, in 4Q27 the [Atlas 960](https://mp.weixin.qq.com/s?__biz=MzAxNzU3NjcxOA==&mid=2650761468&idx=1&sn=4774340abf71e15b0ae4da27acbf37bc&chksm=823acb0fd0bcbb428ceafb749b5f9a079cb72bc2780098eec06c7166b05f96b07a9488376e9d&xtrack=1&scene=90&subscene=93&sessionid=1758605636) will push 30 exaFLOPs of FP8 over 34 PB/s of aggregated interconnect bandwidth. To link 15,488 Ascend 960 cards, Huawei plan to upgrade their UB interconnect technology by the end of 2026 to it's second generation, improving performance but also supporting such an incredible number of endpoints in one scale-up domain.
+
+The [Ascend 960](https://mp.weixin.qq.com/s?__biz=MzAxNzU3NjcxOA==&mid=2650761489&idx=1&sn=327f5a95a9024914e2c4049e6a80b671&chksm=82290315e7601e94b7aeaaf24b12c46b82539df333567f69494c5693e292b4380988793f4f42&xtrack=1&scene=90&subscene=93&sessionid=1758650045) raises the memory capacity to 288 GB per device, though no information is given yet on the memory technology used. Huawei plan for an aggregate bandwidth of 9.6TB/s, still a generation behind Nvidia in this regard. Each card should deliver 2 PFLOPs of FP8, though it should be noted that Ascend "NPUs" (Neural Processing Units) are not designed to be 1:1 competitive with Nvidia GPUs, but aim to compete at the system level (Atlas SuperPoDs vs NVL144/576).
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/ascend_table.webp)
+
+*Source: Huawei, Bernstein*
+
+Finally, by the end of 2028, we expect to see the Ascend 970, hitting 4 PFLOPs of FP8 with 14.4 TB/s memory bandwidth over its 288 GB per card. Even fewer details are given here, and no information on what the Atlas 970 will look like. What we do know for sure is that each passing day now accelerates the decay of Nvidia's hopes of ever recovering their position in the Chinese market
+
 ## Nvidia trades with Intel: $5B in exchange for custom x86 CPUs
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/intel_nvidia_logos.jpg)
