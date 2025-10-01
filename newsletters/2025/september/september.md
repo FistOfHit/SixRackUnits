@@ -20,8 +20,6 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 - [**HBM4 is evolving before it's even here, spurred by Nvidia**](#hbm4-is-evolving-before-its-even-here-spurred-by-nvidia)
 
-- [**"AI" SSDs: 100x the speed for reads, but how?**](#ai-ssds-100x-the-speed-for-reads-but-how)
-
 - [**Other notable headlines**](#other-notable-headlines)
 
 ---
@@ -141,7 +139,7 @@ Initially Samsung [met the request](https://www.tweaktown.com/news/107669/nvidia
 
 SK-Hynix being the now dominant HBM manufacturer also claimed that it would reach the target, though more recently may have exceeded that rate too. Micron meanwhile waited a little and then [made headlines](https://www.trendforce.com/news/2025/09/24/news-micron-counters-hbm4-speed-doubts-with-11-gbps-custom-hbm4e-due-2027-with-higher-margins/) by allegedly reaching over 11Gbps, a remarkable number currently under scrutiny as they intend to use the same process node as they use for DRAM for producing their logic dies in house.
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/hbm_micron.png)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/september/images/hbm_micron.jpg)
 
 *Source: Micron*
 
@@ -153,8 +151,6 @@ To summarise the specs of upcoming implementations ([1](https://www.tomshardware
 | Samsung HBM4       | 12 (1c)       | 4 (Samsung Foundry)     | TC-NCF (Thermal Compression Non-Conductive Film), Hybrid Bond | 10–11 (target)            | 16             | 4nm logic base, EUV equipped, advanced hybrid bonding      |
 | SK Hynix HBM4      | 13 (1b), ramping to 12 (1c) | 3 (TSMC N3)            | MR-MUF (Mass Reflow Molded Underfill), Hybrid Bond     | >10 (demo, 10.4–11)       | 16             | TSMC N3 logic base die, MR-MUF DRAM stacking               |
 | Micron HBM4        | 12.2 (1β)     | 12.2 (DRAM-based logic) | Standard bonding (classic DRAM stack), limited hybrid  | >11 (claimed, contested)  | 16             | Logic in DRAM node; not external logic node like Samsung/SKH|
-
-## "AI" SSDs: 100x the speed for reads, but how?
 
 ---
 
@@ -169,6 +165,10 @@ To summarise the specs of upcoming implementations ([1](https://www.tomshardware
 * [NVidia cancels SOCAMM, moving on to SOCAMM2 for Rubin - soldering LPDDRXX for now](https://x.com/Jukanlosreve/status/1967145562966544733)
 * [Alibaba releases a demo of their Panjiu-series fully liquid-cooled 128 GPU SuperNode at their annual ASPARA conference](https://x.com/semivision_tw/status/1971114184005071175)
 * [Nvidia promises it will buy double Samsung's current total GDDR7 production - likely to supply their RTX and CPX series GPUs](https://www.tweaktown.com/news/107618/nvidia-requests-samsung-to-double-its-gddr7-production-well-double-the-order-so-be-ready/index.html)
+* [Samsung to release PCIe gen. 6 SSDs with 512 TB capacity in 2027](https://www.tweaktown.com/news/107954/samsung-teases-it-will-release-its-next-gen-gen6-ssd-in-512tb-capacity-in-2027/index.html)
+* [Kioxia and Nvidia team up for "AI SSDs", hoping for 100x current SSD read speeds](https://www.tweaktown.com/news/107700/nvidia-rumored-to-team-with-kioxia-to-make-new-ssds-that-are-100x-faster-for-ai-workloads/index.html)
+* [Intel's Granite rapids workstation CPU specs leaked](https://wccftech.com/intel-granite-rapids-xeon-workstation-cpu-leak-86-cores-172-threads-w890-platform/)
+* [It's possible that the MI450X caused VR200 delays due to last minute TDP increases to stay competetive, according to SemiAnalysis](https://www.tweaktown.com/news/107939/amds-next-gen-instinct-mi450x-forced-nvidia-to-increase-tgp-memory-bandwidth-on-rubin-gpus/index.html)
 
 ---
 
