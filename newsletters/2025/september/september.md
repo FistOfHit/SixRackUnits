@@ -161,14 +161,14 @@ To summarise the specs of upcoming implementations ([1](https://www.tomshardware
 * [Tesla might make its next custom silicon using Intel's 18A process](https://www.tweaktown.com/news/107721/tesla-rumored-to-make-an-ai-chip-for-its-evs-on-the-intel-18a-process-node/index.html)
 * [NVidia considering TSMC's A16 for its Feynman architecture GPUs for 2028](https://www.trendforce.com/news/2025/09/15/news-nvidia-may-be-among-the-first-to-adopt-tsmc-a16-for-2028-feynman-architecture/)
 * [Chinese government bans tech firms from buying Nvidia, forcing the use of domestic hardware](https://www.ft.com/content/12adf92d-3e34-428a-8d61-c9169511915c)
-* [Broadcom to devleop OpenAI's custom ASIC - Titan XPU](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/09/05/broadcom-lands-shepherding-deal-for-openai-titan-xpu/amp/)
+* [Broadcom to develop OpenAI's custom ASIC - Titan XPU](https://www-nextplatform-com.cdn.ampproject.org/c/s/www.nextplatform.com/2025/09/05/broadcom-lands-shepherding-deal-for-openai-titan-xpu/amp/)
 * [NVidia cancels SOCAMM, moving on to SOCAMM2 for Rubin - soldering LPDDRXX for now](https://x.com/Jukanlosreve/status/1967145562966544733)
 * [Alibaba releases a demo of their Panjiu-series fully liquid-cooled 128 GPU SuperNode at their annual ASPARA conference](https://x.com/semivision_tw/status/1971114184005071175)
 * [Nvidia promises it will buy double Samsung's current total GDDR7 production - likely to supply their RTX and CPX series GPUs](https://www.tweaktown.com/news/107618/nvidia-requests-samsung-to-double-its-gddr7-production-well-double-the-order-so-be-ready/index.html)
 * [Samsung to release PCIe gen. 6 SSDs with 512 TB capacity in 2027](https://www.tweaktown.com/news/107954/samsung-teases-it-will-release-its-next-gen-gen6-ssd-in-512tb-capacity-in-2027/index.html)
 * [Kioxia and Nvidia team up for "AI SSDs", hoping for 100x current SSD read speeds](https://www.tweaktown.com/news/107700/nvidia-rumored-to-team-with-kioxia-to-make-new-ssds-that-are-100x-faster-for-ai-workloads/index.html)
 * [Intel's Granite rapids workstation CPU specs leaked](https://wccftech.com/intel-granite-rapids-xeon-workstation-cpu-leak-86-cores-172-threads-w890-platform/)
-* [It's possible that the MI450X caused VR200 delays due to last minute TDP increases to stay competetive, according to SemiAnalysis](https://www.tweaktown.com/news/107939/amds-next-gen-instinct-mi450x-forced-nvidia-to-increase-tgp-memory-bandwidth-on-rubin-gpus/index.html)
+* [It's possible that the MI450X caused VR200 delays due to last minute TDP increases to stay competitive, according to SemiAnalysis](https://www.tweaktown.com/news/107939/amds-next-gen-instinct-mi450x-forced-nvidia-to-increase-tgp-memory-bandwidth-on-rubin-gpus/index.html)
 
 ---
 
