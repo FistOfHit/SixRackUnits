@@ -18,11 +18,65 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 # This month's updates
 
-## Broadcom TH6 davisson and Thor ultra NIC
+## Broadcom's relentless pace - CPO TH6, and an 800G NIC
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_th6.png)
+
+*Source: Broadcom*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_switch.png)
+
+*Source: Broadcom*
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_nic.png)
+
+*Source: Broadcom*
+
 
 ## AMD Solar Flare and other stuff
 
-## Nvidia's incredible update pace from OCP25 through to GTC-DC
+
+## Nvidia news: OCP25 through to GTC-DC
+
+Across the two major conferences this month, Nvidia has delivered four major announcements to the market:
+
+- A new 800VDC power architecture for datacentres of the near future
+- BlueField 4 DPUs and SuperNICs, and a roadmap for the series finally
+- The reveal of the Vera-Rubin superchip and the VR200 compute tray
+
+### 800VDC
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_800vdc.webp)
+
+*Source: Nvidia*
+
+Arguably one of the most impactful contributions to the industry this month (or even year), Nvidia contributed their 800VDC power architecture for datacentres to OCP, making it open to use by all. For datacentre providers and hyperscalers, adopting these higher voltage designs wont just improve the power efficiency of the sites, but will enable them to host the increasingly denser GPU racks Nvidia is planning for the coming years.
+
+Datacentre power delivery architectures determine how power reaches the hardware from the grid supply, defining how the 13.8kW AC from the (North American) grid supply is transformed to the 12VDC required by the servers. 800VDC is a significant upgrade from existing 48/54VDC deployed in many newer Hyperscaler and high end sites, and a complete overhaul compared to 480VAC architectures in older datacentres. Hosting H100/H200 servers in 480VAC sites already results in a lot of wastage from all the steps and components required, resulting in as little as 75% of the wattage supplied being available for the servers themselves. 54VDC lets newer builds skip some steps and enables deploying the most demanding racks like the GB200 NVL72, but as soon as 2026 when Vera-Rubin racks ship, will still result in poor efficiencies and additional costs for heavy copper busbars and large numbers of PSUs to support the power draw.
+
+For more information on the 800VDC architecture, you can read our article on [XPU.pub](https://xpu.pub/2025/10/28/nvidia-800-v/), where we dive deeper into power architectures and 800VDC.
+
+### BF4 DPU/SuperNIC
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_bf4.jpeg)
+
+*Source: ServeTheHome*
+
+Finally, a full year after it was supposed to be released, the BlueField 4 SuperNIC (and DPU?) has been announced for 2026, in sync with the Vera-Rubin product timeline. Ethernet for the front-end and storage networks has been relatively slow in scaling from 400G to 800G, and much of it is just a lack of necessity. .  In this time, Networking has been relatively slow 
+Official:
+
+- 800G NIC expressed as two 400G ports
+- 64-core Grace CPU on board
+- A ConnectX-9 ASIC powering the network interface
+- Supporting SpectrumX (Ethernet)
+
+Assumed:
+- PCIe gen 6 capable (256GBps BIDI)
+
+The BF3 comes in two variants
+
+### VR Superchip and tray
+
 
 ## Cisco P200
 
@@ -34,9 +88,9 @@ As we detailed in our [september issue](https://sixrackunits.substack.com/i/1736
 
 *Source: Andreas Schilling on X (@aschilling)*
 
-At OCP25 earlier this month, Intel surprised everyone by formally announcing a [new GPU](https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu) aimed at the first half of LLM inferencing. Named "Crescent Island" as a product series for now, and likely coming in 2H26, it's expected to compete with Nvidia's Rubin CPX and whatever AMD and other vendors will be releasing at the time. Whatever little we know about it so far sounds quite ordinary however, especially given that it's a year out still.
+At OCP25 earlier this month, Intel surprised everyone by formally announcing a new prefill-focused [new GPU](https://newsroom.intel.com/artificial-intelligence/intel-to-expand-ai-accelerator-portfolio-with-new-gpu), after scrapping their Gaudi and Falcon shores roadmap's and the many months of silence since. Now, this new series named "Crescent Island", scheduled for release in 2H26, is expected to compete with Nvidia's Rubin CPX and whatever AMD and other vendors will be releasing at the time.
 
-The prefill GPU is [reported to be air-cooled](https://www.hardwareluxx.de/index.php/news/hardware/grafikkarten/67263-crescent-island-neue-data-center-gpu-auf-basis-von-xe3p-mit-160-gb-lpddr5x-von-intel.html) or at least have an air-cooled variant, and we can safely assume it will come in PCIe form factor, implying that it likely wont exceed a 1000W TDP. We also know that it will provide 160GB of LPDDR5X memory though no details are available yet on the setup of that capacity and the bandwidth we can expect. The choice of using LPDDR5X over GDDR6 or 7 has raised some questions, but when optimising for performance/power and even memory latency, LPDDR5X is the better choice.
+The GPU is [reported to be air-cooled](https://www.hardwareluxx.de/index.php/news/hardware/grafikkarten/67263-crescent-island-neue-data-center-gpu-auf-basis-von-xe3p-mit-160-gb-lpddr5x-von-intel.html) or at least have an air-cooled variant, and we can safely assume it will come in PCIe form factor, implying that it likely wont exceed a 1000W TDP. We also know that it will provide 160GB of LPDDR5X memory though no details are available yet on the setup of that capacity and the bandwidth we can expect. The choice of using LPDDR5X over GDDR6 or 7 has raised some questions, but when optimising for performance/power and even memory latency, LPDDR5X is the better choice.
 
 We do know about its architecture though, Xe3P hinted at during Intel's tech tour in Arizona prior to OCP and then confirmed in the presentation at the conference. Xe3P continues the lineage of the Xe GPU silicon architectures, serving the Arc-C series of discrete GPUs and focusing on performance per watt according to Intel.
 
