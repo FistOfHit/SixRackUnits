@@ -2,9 +2,9 @@
 
 # September 2025
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/title.jpeg)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/title.png)
 
-**
+*Is it the parts of a network that defines it, or the connections between the parts? *
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so we do it for you.
 
@@ -12,7 +12,11 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 [**This month's updates:**](#this-months-updates)
 
+- [**Broadcom's relentless pace - CPO TH6, and an 800G NIC**]
+- [**Nvidia news: OCP25 through to GTC-DC**]
+- [**Cisco announces the P200 - a new 100 Terabit switch ASIC**]
 - [**Intel announces a prefill GPU - No roadmap yet, but some hope at last**]
+- [**Other notable headlines**]
 
 ---
 
@@ -24,6 +28,8 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 *Source: Broadcom*
 
+Broadcom is now widely seen as the clear leader in Ethernet and (non-nvidia) datacentre networking hardware. Having announced the first 102.4T ASIC - Tomahawk 6 - last month, they've now announced a new 102.4T switch ASIC - TH6 - and a new 800G NIC - TH6 CPO.
+
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_switch.png)
 
 *Source: Broadcom*
@@ -32,17 +38,13 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 *Source: Broadcom*
 
-
-## AMD Solar Flare and other stuff
-
-
 ## Nvidia news: OCP25 through to GTC-DC
 
-Across the two major conferences this month, Nvidia has delivered four major announcements to the market:
+Across the two major conferences this month, Nvidia has delivered three major announcements to the market:
 
-- A new 800VDC power architecture for datacentres of the near future
-- BlueField 4 DPUs and SuperNICs, and a roadmap for the series finally
-- The reveal of the Vera-Rubin superchip and the VR200 compute tray
+- A new 800VDC power architecture for the datacentres of the near future
+- A long awaited BlueField 4 SuperNIC, and an updated roadmap for the series
+- The reveal of the Vera-Rubin superchip and the cable-less VR200 compute tray
 
 ### 800VDC
 
@@ -50,9 +52,11 @@ Across the two major conferences this month, Nvidia has delivered four major ann
 
 *Source: Nvidia*
 
-Arguably one of the most impactful contributions to the industry this month (or even year), Nvidia contributed their 800VDC power architecture for datacentres to OCP, making it open to use by all. For datacentre providers and hyperscalers, adopting these higher voltage designs wont just improve the power efficiency of the sites, but will enable them to host the increasingly denser GPU racks Nvidia is planning for the coming years.
+Arguably one of the most impactful developments in the industry this month (or even year), Nvidia contributed their 800VDC power architecture for datacentres to OCP, making it open to use by all. For datacentre providers and hyperscalers, adopting these higher voltage designs wont just improve the power efficiency of their sites, but will enable them to host the increasingly dense GPU racks Nvidia is planning for the coming years.
 
-Datacentre power delivery architectures determine how power reaches the hardware from the grid supply, defining how the 13.8kW AC from the (North American) grid supply is transformed to the 12VDC required by the servers. 800VDC is a significant upgrade from existing 48/54VDC deployed in many newer Hyperscaler and high end sites, and a complete overhaul compared to 480VAC architectures in older datacentres. Hosting H100/H200 servers in 480VAC sites already results in a lot of wastage from all the steps and components required, resulting in as little as 75% of the wattage supplied being available for the servers themselves. 54VDC lets newer builds skip some steps and enables deploying the most demanding racks like the GB200 NVL72, but as soon as 2026 when Vera-Rubin racks ship, will still result in poor efficiencies and additional costs for heavy copper busbars and large numbers of PSUs to support the power draw.
+Datacentre power delivery architectures determine how power reaches the hardware from the grid. They define how the 13.8kW AC (North America) from the supply is transformed to the 12VDC required by the servers. 800VDC is a significant upgrade from the existing 48/54VDC deployed in many newer Hyperscaler and high end sites, and a complete overhaul compared to 480VAC architectures in older datacentres.
+
+Hosting H100/H200 servers in 480VAC sites already results in a lot of wastage from all the steps and components required, resulting in as little as 75% of the wattage supplied being available for the servers themselves. 54VDC lets newer builds skip some steps and enables deploying the most demanding racks like the GB200 NVL72, but as soon as 2026 when Vera-Rubin racks ship, will still result in poor efficiencies and additional costs for heavy copper busbars and large numbers of PSUs to support the power draw.
 
 For more information on the 800VDC architecture, you can read our article on [XPU.pub](https://xpu.pub/2025/10/28/nvidia-800-v/), where we dive deeper into power architectures and 800VDC.
 
@@ -62,7 +66,12 @@ For more information on the 800VDC architecture, you can read our article on [XP
 
 *Source: ServeTheHome*
 
-Finally, a full year after it was supposed to be released, the BlueField 4 SuperNIC (and DPU?) has been announced for 2026, in sync with the Vera-Rubin product timeline. Ethernet for the front-end and storage networks has been relatively slow in scaling from 400G to 800G, and much of it is just a lack of necessity. .  In this time, Networking has been relatively slow 
+Finally, a full year after it was supposed to be released, the [BlueField 4 SuperNIC](https://blogs.nvidia.com/blog/bluefield-4-ai-factory/) (and DPU?) has been announced for 2026, in sync with the Vera-Rubin product timeline. Ethernet for the front-end and storage networks has been relatively slow in scaling from 400G to 800G, and much of it is just a lack of necessity. Even converged networks handling internet, in-band management, and storage traffic rarely are bottlenecked by the 200G/400G fabrics they're run over.
+
+Dual-port 800G frontend NICs would offer some benefit over existing 400G if used today, though it's not difficult to assume that high-performance storage or other communications offloaded to the frontend network will eventually require more bandwidth. Currently, such cards could provide 4x200G or even 8x100G uplinks with splitter cables, expanding the possibilities of the topologies possible in these deployments.
+
+Anyway, here's what we know so far about the BF4:
+
 Official:
 
 - 800G NIC expressed as two 400G ports
@@ -70,15 +79,26 @@ Official:
 - A ConnectX-9 ASIC powering the network interface
 - Supporting SpectrumX (Ethernet)
 
-Assumed:
-- PCIe gen 6 capable (256GBps BIDI)
+Assumed ([1](https://www.servethehome.com/nvidia-bluefield-4-with-64-arm-cores-and-800g-networking-announced-for-2026/)):
 
-The BF3 comes in two variants
+- PCIe gen 6 capable (256GBps BIDI)
+- Supporting down to 100G per port configurations
+- QSFP112 form factor for the ports
 
 ### VR Superchip and tray
 
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_vr.png)
 
-## Cisco P200
+*Source: Tweaktown*
+
+A stunningly beautiful board was [showcased at GTC-DC](https://www.tweaktown.com/news/108533/nvidia-shows-off-its-next-gen-vera-rubin-superchip-at-gtc-washington-with-two-huge-gpus/index.html?utm_source=newsletter&utm_campaign=newsletter), along with the compute tray that it will sit in. Jensen emphasised the cable-less design now further optimised for lower error rates and better thermal management for the inter-chip communications, though those keeping up with the news would have seen this coming from [SemiAnalysis'](https://newsletter.semianalysis.com/p/another-giant-leap-the-rubin-cpx-specialized-accelerator-rack) (and [our own](https://sixrackunits.substack.com/i/173661634/rubin-cpx-the-gpu-no-one-saw-coming)) post over a month and half ago.
+
+Analysts all over the world have been speculating on what they can infer from the video feed we have so far, and some interesting details have come to light. As we at SixRackUnits noticed almost instantly, the VR superchip will finally have SOCAMM modules on board for its LPDDR (we assume), a welcome surprise given how their involvement in GB300 boards was [delayed](https://www.tomshardware.com/pc-components/gpus/nvidia-postpones-socamm-technology-originally-planned-for-blackwell-ultra-gb300-now-scheduled-for-rubin-rubin-ultra) earlier this year. WeChat user Brendan006 on [Brendan's Packaging Hut](https://mp.weixin.qq.com/s?chksm=c1375a0ef640d3185bbe9bd561c57c931bf860dc456f2a23458c90d7be4e4d4f70de3f03f77f&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1761763695_1&req_id=1761763695454495&mid=2247484034&sn=5a3f205c723e6c3fd584fec7caadd9ab&idx=1&__biz=MzkwOTc0MjU2Mw%3D%3D&scene=169&subscene=200&sessionid=1761763694) also took a close look at the Vera CPU die and noticed that it's likely 6 separate dies on an interposer as opposed to a monolithic design.
+
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_vr_zoomed.webp)
+
+## Cisco's P200 - a new 100 Terabit switch ASIC
+
 
 ## Intel announces a prefill GPU - No roadmap yet, but some hope at last
 
