@@ -1,6 +1,6 @@
 [![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
 
-# September 2025
+# October 2025
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/title.png)
 
@@ -10,7 +10,7 @@ This is the SixRackUnits AI hardware newsletter, keeping you up to date with the
 
 For a space to share sources and news/updates, join our telegram channel <a href="https://t.me/aihpc_infra_fans">here</a> or if you like short form posts on similar topics, check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar58">LinkedIn</a>.
 
-[**This month's updates:**](#this-months-updates)
+[**This month's updates:**]
 
 - [**Broadcom's relentless pace - CPO TH6, and an 800G NIC**]
 - [**Nvidia news: OCP25 through to GTC-DC**]
@@ -136,7 +136,7 @@ We do know about its architecture though, Xe3P hinted at during Intel's tech tou
 * [Intel to launch a Gaudi 3 + B200 mixed device rack-scale product optimised for LLM inferencing](https://www.linkedin.com/posts/semianalysis_intel-just-took-another-step-on-combining-activity-7385112732125224960-V40q)
 * [Synopsys developing LPDDR6 IP on TSMCs N2P process node, hitting up to 86GB/s per module](https://www.tweaktown.com/news/108337/synopsys-teases-silicon-bring-up-of-next-gen-lpddr6-ip-fabbed-on-tsmcs-new-n2p-process-node/index.html)
 * [Alibaba cloud claims to reduce its Nvidia GPU use by up to 82% with its new Aegaeon software](https://www.scmp.com/business/article/3329450/alibaba-cloud-claims-slash-nvidia-gpu-use-82-new-pooling-system)
-* [Microsoft to use Intel's 18A process for its nex generation of MAIA accelerators](https://www.tweaktown.com/news/108358/microsoft-to-reportedly-use-intel-foundry-and-18a-for-its-next-gen-maia-ai-accelerator/index.html)
+* [Microsoft to use Intel's 18A process for its next generation of MAIA accelerators](https://www.tweaktown.com/news/108358/microsoft-to-reportedly-use-intel-foundry-and-18a-for-its-next-gen-maia-ai-accelerator/index.html)
 * [IBM Spyre AI accelerators now shipping](https://www.nextplatform.com/2025/10/10/ibm-ships-homegrown-spyre-accelerators-embraces-anthropic-for-ai-push/)
 * [Samsung to produce NVLink fusion hardware, not just TSMC](https://www.tomshardware.com/samsung-joins-nvidia-nvlink-fusion)
 * [Intel foundry reportedly trying to secure AMD as a customer for its 18A and 14A process nodes - for CPUs?](https://www.tweaktown.com/news/108037/intel-is-reportedly-trying-to-secure-amd-as-a-semiconductor-customer-to-make-its-next-gen-chips/index.html)
