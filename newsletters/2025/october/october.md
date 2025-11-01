@@ -14,7 +14,6 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 - [**Broadcom's relentless pace - CPO TH6, and an 800G NIC**]
 - [**Nvidia news: OCP25 through to GTC-DC**]
-- [**Cisco announces the P200 - a new 100 Terabit switch ASIC**]
 - [**Intel announces a prefill GPU - No roadmap yet, but some hope at last**]
 - [**Other notable headlines**]
 
@@ -40,7 +39,7 @@ The TH6 Davisson now pushes the series forward in energy efficiency, claiming a 
 
 Joining Nvidia's ConnectX-8 and AMD's Vulcano, The Thor Ultra is the third prominent member of the 800G NIC club. Broadcom will likely ship ultra-ethernet consortium (UEC) compliant hardware long before AMD, with the Thor Ultra already implementing various technologies in hardware such as packet-level multipathing, OOO delivery to device memory, and selective re-transmission to name a few. Unlike with the BF4 mentioned later in this issue, this NIC will be used for both frontend and backend networks, likely seeing serious adoption in non-Nvidia deployments.
 
-The NIC will support a PCIe 6 x16 host connection, come with a choice of either 100G or 200G serdes for port-breakout flexibility, and come in PCIe or OCP 3.0 form factors with OSFP ports. Sampling is already underway, and shipping will likely commence sometime in 1H26.
+The NIC will support a PCIe 6 x16 host connection, come with a choice of either 100G or 200G serdes for port-breakout flexibility, and come in PCIe or OCP 3.0 form factors with OSFP ports. More details are already available on their [product pages](https://www.broadcom.com/products/ethernet-connectivity/network-adapters/n1800go) it seems, though nothing stands out other than the above. Sampling is already underway, and shipping will likely commence sometime in 1H26.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_nic.png)
 
@@ -104,8 +103,6 @@ A stunningly beautiful board was [showcased at GTC-DC](https://www.tweaktown.com
 Analysts all over the world have been speculating on what they can infer from the video feed we have so far, and some interesting details have come to light. As we at SixRackUnits noticed almost instantly, the VR superchip will finally have SOCAMM modules on board for its LPDDR (we assume), a welcome surprise given how their involvement in GB300 boards was [delayed](https://www.tomshardware.com/pc-components/gpus/nvidia-postpones-socamm-technology-originally-planned-for-blackwell-ultra-gb300-now-scheduled-for-rubin-rubin-ultra) earlier this year. WeChat user Brendan006 on [Brendan's Packaging Hut](https://mp.weixin.qq.com/s?chksm=c1375a0ef640d3185bbe9bd561c57c931bf860dc456f2a23458c90d7be4e4d4f70de3f03f77f&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1761763695_1&req_id=1761763695454495&mid=2247484034&sn=5a3f205c723e6c3fd584fec7caadd9ab&idx=1&__biz=MzkwOTc0MjU2Mw%3D%3D&scene=169&subscene=200&sessionid=1761763694) also took a close look at the Vera CPU die and noticed that it's likely 6 separate dies on an interposer as opposed to a monolithic design.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_vr_zoomed.png)
-
-## Cisco's P200 - a new 100 Terabit switch ASIC
 
 ## Intel announces a prefill GPU - No roadmap yet, but some hope at last
 
