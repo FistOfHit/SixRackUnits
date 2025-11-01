@@ -4,7 +4,7 @@
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/title.png)
 
-*Is it the parts of a network that defines it, or the connections between the parts? *
+*What defines a network? Is it the sum of the parts connected, or the connections between the individual parts? What would be scarier if broken?*
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so we do it for you.
 
@@ -28,11 +28,19 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 *Source: Broadcom*
 
-Broadcom is now widely seen as the clear leader in Ethernet and (non-nvidia) datacentre networking hardware. Having announced the first 102.4T ASIC - Tomahawk 6 - last month, they've now announced a new 102.4T switch ASIC - TH6 - and a new 800G NIC - TH6 CPO.
+Broadcom has been outpacing its competitors consistently enough now to be widely recognised as the clear leader in (non-nvidia) Ethernet datacentre networking hardware. At OCP25 this month they sustained that momentum by announcing two new major products: a Co-Packaged Optics (CPO) version of the [Tomahawk 6 (TH6) named "Davisson"](https://www.broadcom.com/company/news/product-releases/63626), and a new 800G NIC called the ["Thor Ultra"](https://www.broadcom.com/company/news/product-releases/63641).
+
+The original TH6 was the first major release on our radar, revealed as far back as [June](https://sixrackunits.substack.com/p/june-2025). Since then, Broadcom have shown an incredible pace of development, adding the scale-up focused [Tomahawk Ultra 51.2T](https://sixrackunits.substack.com/i/169948586/broadcoms-inevitable-yet-surprising-new-chip-tomahawk-ultra) and the network-layer defining [Jericho4 51.2T](https://sixrackunits.substack.com/i/172426860/yet-another-switch-from-broadcom-scaling-across-with-jericho) "scale-across" ASICs to their lineup.
+
+The TH6 Davisson now pushes the series forward in energy efficiency, claiming a 3.5x decrease in energy use compared to an equivalent switch (with the original TH6, we should assume) using pluggable optics. The lack of pluggable optics (optical transceivers) avoids the need for many discrete optical modules for converting signals between electrical and optical domains. CPO technology allows for these conversions from incoming signals to happen near the ASIC package and be consolidated to fewer digital signal processors (DSPs), improving signal integrity and reducing power use.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_switch.png)
 
 *Source: Broadcom*
+
+Joining Nvidia's ConnectX-8 and AMD's Vulcano, The Thor Ultra is the third prominent member of the 800G NIC club. Broadcom will likely ship ultra-ethernet consortium (UEC) compliant hardware long before AMD, with the Thor Ultra already implementing various technologies in hardware such as packet-level multipathing, OOO delivery to device memory, and selective re-transmission to name a few. Unlike with the BF4 mentioned later in this issue, this NIC will be used for both frontend and backend networks, likely seeing serious adoption in non-Nvidia deployments.
+
+The NIC will support a PCIe 6 x16 host connection, come with a choice of either 100G or 200G serdes for port-breakout flexibility, and come in PCIe or OCP 3.0 form factors with OSFP ports. Sampling is already underway, and shipping will likely commence sometime in 1H26.
 
 ![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/broadcom_nic.png)
 
@@ -95,10 +103,9 @@ A stunningly beautiful board was [showcased at GTC-DC](https://www.tweaktown.com
 
 Analysts all over the world have been speculating on what they can infer from the video feed we have so far, and some interesting details have come to light. As we at SixRackUnits noticed almost instantly, the VR superchip will finally have SOCAMM modules on board for its LPDDR (we assume), a welcome surprise given how their involvement in GB300 boards was [delayed](https://www.tomshardware.com/pc-components/gpus/nvidia-postpones-socamm-technology-originally-planned-for-blackwell-ultra-gb300-now-scheduled-for-rubin-rubin-ultra) earlier this year. WeChat user Brendan006 on [Brendan's Packaging Hut](https://mp.weixin.qq.com/s?chksm=c1375a0ef640d3185bbe9bd561c57c931bf860dc456f2a23458c90d7be4e4d4f70de3f03f77f&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1761763695_1&req_id=1761763695454495&mid=2247484034&sn=5a3f205c723e6c3fd584fec7caadd9ab&idx=1&__biz=MzkwOTc0MjU2Mw%3D%3D&scene=169&subscene=200&sessionid=1761763694) also took a close look at the Vera CPU die and noticed that it's likely 6 separate dies on an interposer as opposed to a monolithic design.
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_vr_zoomed.webp)
+![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2025/october/images/nvidia_vr_zoomed.png)
 
 ## Cisco's P200 - a new 100 Terabit switch ASIC
-
 
 ## Intel announces a prefill GPU - No roadmap yet, but some hope at last
 
