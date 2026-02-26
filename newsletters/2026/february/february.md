@@ -23,9 +23,106 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## ZAM
 
+HBM (as we know it) appears to be reaching some physical limits, and even though experts forecast continuous improvement up to 2038, others are working on a new approach that promises progress sooner.
+
+Z-Angle Memory, or ZAM, is a next-generation vertically-stacked DRAM technology designed to compete with HBM in future hardware that will require large volumes of on-device, high-bandwidth memory. Basically, GPUs, TPUs, and whatever other PUs will aim for AI training and bandwidth-intensive inference workloads. ZAM differs from HBM in a few key ways that we'll detail shortly, but the most apparent is that the DRAM dies are stacked vertically, rather than horizontally as in HBM.
+
+![ZAM architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_architecture.png)
+
+*Source: SemiVision*
+
+
+
+ZAM = Z-Angle Memory, a next-generation vertically-stacked DRAM technology designed to compete with (and potentially displace) HBM in AI/HPC datacenter workloads.
+The "Z-Angle" name refers to a staggered interconnect topology that routes connections diagonally within the die stack, rather than drilling straight down via traditional TSVs (Through-Silicon Vias) as used in HBM. Tom's Hardware
+ZAM uses a single central channel to deliver power and signals, replacing HBM's "honeycomb TSV mesh" with a single-axis structure. Eight wafers containing the novel NGDB DRAM architecture are vertically bonded on a base wafer and connected using an alternative "via-in-one" construct. Substack
+ZAM utilises copper-to-copper (Cu-Cu) hybrid bonding, creating a monolithic-like silicon block that significantly reduces the vertical height of the stack while improving thermal conductivity. FinancialContent
+Intel's Embedded Multi-Die Interconnect Bridge (EMIB) is used to reduce latency between the individual stacked chips, and would connect the memory to the AI accelerator. Tom's Hardware
+
+Why does ZAM exist? (The problem it solves)
+
+Traditional memory uses a planar stacked structure that is reaching its limits due to power and heat constraints. Current designs have pushed 16 layers close to the maximum, with 20 layers considered the upper limit. TrendForce
+HBM stacks rely on thousands of TSVs per die that consume valuable silicon area, reduce effective memory density, weaken wafer mechanical integrity, and increase warpage risk. As stack layers increase (12-Hi, 16-Hi and beyond), middle dies become thermal dead zones where heat generated must pass through multiple low-conductivity layers, creating thermal gradients and hot spots. Substack
+Memory bandwidth is currently a major bottleneck in AI processing. Surging HBM demand has led to a global shortage in NAND stocks, pushing up prices and creating supply chain shortages. HPCwire
+HBM often trades improved bandwidth for lower performance in other areas, like capacity. The NGDB initiative aims to remove this tradeoff, bridging the gap between HBM and conventional DDR DRAM while delivering significantly better energy efficiency. TrendForce
+
+Claimed performance targets vs HBM
+
+Capacity: Up to 512 GB per chip — 2x to 3x the capacity of current HBM. TrendForce
+Power: Energy consumption reduced by 40–50% due to improved thermal regulation and optimised architecture. NEWS.am TECH
+Cost: Mass-production costs targeted at around 60% of HBM, per Nikkei reports. TrendForce
+Thermal: Vertical die stacking conducts heat from each die upward evenly, addressing thermal challenges that plague planar stacking. The central channel acts like a vertical heat pipe. TrendForce
+Manufacturing: Diagonal Z-Angle interconnects are claimed to simplify manufacturing vs TSV-based approaches, potentially improving production yields.
+
+Who is involved? (The consortium)
+
+SAIMEMORY (SoftBank subsidiary): Founded in December 2024, officially launched in June 2025. A joint venture between SoftBank, Intel, and the University of Tokyo. TrendForce Led by President and CEO Hideya Yamaguchi. Responsible for design, IP management, and commercialisation.
+Intel: Technology, innovation, and standards partner. Provides stacking architecture and NGDB know-how. This marks Intel's return to the memory market for the first time since the 1980s. Tom's Hardware Intel's role described as "initial investment and strategic decisions."
+SoftBank Group: Parent of Saimemory. Capital provider. SoftBank plans to invest roughly ¥3 billion (~$21M) through prototype completion in fiscal 2027. TrendForce Has also invested $2 billion directly in Intel.
+PSMC (Powerchip Semiconductor Manufacturing Corp.): Taiwan's PSMC has teamed up in the collaboration, taking on a key role in pilot production and manufacturing. trendforce This gives Taiwan its first real foothold in AI memory manufacturing.
+Shinko Electric Industries (Japan): Assists in pilot production and manufacturing / packaging.
+Fujitsu: Also involved, contributing along with Japan's RIKEN National Research Institute, ¥1 billion ($7M). Blocks and Files
+University of Tokyo: Research partner.
+Sandia National Laboratory, Lawrence Livermore National Laboratory, Los Alamos National Laboratory (the "Tri-Lab"): The NGDB program is part of the Advanced Memory Technology (AMT) project, managed by the U.S. Department of Energy and National Nuclear Security Administration (NNSA). The program is currently in its third year — years one and two focused on R&D, year three on productisation. HPCwire
+
+Key people mentioned
+
+Dr. Joshua Fryman — Intel Fellow and CTO of Intel Government Technologies. Presented ZAM at the Japan event.
+Makoto Ono — Intel Japan CEO. Co-presented at Intel Connection Japan 2026.
+Hideya Yamaguchi — President and CEO of SAIMEMORY.
+Gwen Voskuilen — Principal Member of Technical Staff at Sandia National Laboratories. Validated the NGDB approach.
+
+The underlying tech: NGDB (Next Generation DRAM Bonding)
+
+Intel's NGDB initiative was completed under the Advanced Memory Technology (AMT) program managed by the U.S. DOE and NNSA through the Sandia, Lawrence Livermore, and Los Alamos National Laboratories. TweakTown
+Intel and Sandia designed a new stacking approach and a different way of organising the DRAM chips. Early prototypes confirmed it was possible to increase capacity through new stacking techniques, and recent developments demonstrated the necessary high performance. Tom's Hardware
+NGDB test assemblies consist of eight DRAM wafers vertically bonded on a base wafer, connected using the "via-in-one" construct. Substack
+ZAM is described as potentially using a capacitor-less design. Wccftech
+
+Timeline
+
+December 2024: SAIMEMORY incorporated.
+Mid-2025: Intel and SoftBank begin building the first prototype, leveraging Intel's packaging technologies and key Japanese patents.
+June 2025: SAIMEMORY officially launched.
+February 2, 2026: Formal collaboration agreement signed between SAIMEMORY and Intel.
+February 3, 2026: First public prototype unveiling at Intel Connection Japan 2026 in Tokyo.
+Q1 2026: Operations commence.
+FY2027 (by March 31, 2028): Prototype completion target.
+FY2029 (2029–2030): Commercial mass production target.
+
+Geopolitical / strategic angle
+
+This is a US-Japan-Taiwan consortium ("friendshoring") explicitly building AI memory supply chains that don't depend on the South Korean memory oligopoly (Samsung, SK hynix) or China. Substack
+Japan was a major memory manufacturing region in the 1980s but fell behind with the rise of Korean and Taiwanese manufacturing. SAIMEMORY represents Japan's attempt to re-enter the cutting-edge memory market. Tom's Hardware
+Intel exited DRAM in 1985 due to competition from Japanese vendors. This is their return, but now partnering with Japan rather than competing against it. Wccftech Intel once commanded nearly 90% of the global DRAM market (they invented the first commercial DRAM in 1970).
+SoftBank's collaboration with Intel on ZAM could allow it to own the memory stack for its own custom ASICs (e.g., the Izanagi lineup), giving greater control over architectural layout. Wccftech
+Note: PSMC's Tongluo P5 fab is simultaneously being acquired by Micron for $1.8B (expected to close Q2 2026), adding an interesting wrinkle to the supply chain dynamics.
+
+Market reaction
+
+Intel stock surged 5% overnight while SoftBank rose 3.13% after the announcement. Techbuzz
+
+Competitive context
+
+ZAM will compete against HBM4 (expected from Samsung, SK hynix, Micron in the same timeframe).
+Samsung is separately developing zHBM, another alternative approach.
+NEO Semiconductor is pursuing a similar non-TSV stacking approach.
+Between a stage demonstration and scalable mass production lie packaging hurdles, yield problems, and cost issues. Diagonal interconnects may look elegant but must compete with established TSV processes optimised over many years. HBM has a massive lead in ecosystem, standardisation, and integration into GPU and AI accelerator designs. igor´sLAB
+
+Key risks / scepticism
+
+Still at early prototype stage — proof of concept, not production-ready.
+Years of testing, process refinement, and certification ahead before mass production.
+Must achieve favourable yield and cost economics at scale.
+Needs design wins with accelerator vendors (NVIDIA adoption would be critical).
+HBM incumbents are not standing still — HBM4 and HBM5 roadmaps are active.
+The 2027 prototype milestone is the key proof point.
+
 ## Meta goes all-in on NVIDIA
 
 ## HBM news
+
+CPX using HBM3E instead of GDDR7
 
 ---
 
@@ -41,6 +138,7 @@ For a space to share sources and news/updates, join our telegram channel <a href
 * [Rumours of AMD's MI400 racks being delayed surface, though credibility remains low](https://x.com/Alex_Intel_/status/2023453704289198429)
 * [Rumours of NVIDIA's VR200 racks being ahead of schedule - something that seemed impossible just weeks ago](https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-denies-report-of-mi455x-delays-as-nvidia-vr200-systems-are-rumored-to-arrive-early-company-says-helios-systems-on-target-for-2h-2026)
 * [China's GPU manufacturers race to power Chinese frontier models, domestic market now contested by NVIDIA again](https://www.digitimes.com/news/a20260216VL208/gpu-moore-threads-chips-performance-demand.html)
+* [Rubin CPX might end up using HBM after all instead of GDDR7](https://x.com/jukan05/status/2025728266473213974)
 
 ---
 
