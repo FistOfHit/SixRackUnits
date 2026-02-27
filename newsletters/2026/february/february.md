@@ -25,13 +25,21 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 HBM (as we know it) appears to be reaching some physical limits, and even though experts forecast continuous improvement up to 2038, others are working on a new approach that promises progress sooner.
 
-Z-Angle Memory, or ZAM, is a next-generation vertically-stacked DRAM technology designed to compete with HBM in future hardware that will require large volumes of on-device, high-bandwidth memory. Basically, GPUs, TPUs, and whatever other PUs will aim for AI training and bandwidth-intensive inference workloads. ZAM differs from HBM in a few key ways that we'll detail shortly, but the most apparent is that the DRAM dies are stacked vertically, rather than horizontally as in HBM.
+![HBM roadmap](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_hbm_roadmap.png)
+
+*Source: KAIST teralabs*
+
+Z-Angle Memory, or ZAM, is a next-generation vertically-stacked DRAM technology designed to compete with HBM in future hardware that will require large volumes of on-device, high-bandwidth memory. Basically, GPUs, TPUs, and whatever other PUs will aim for AI training and bandwidth-intensive inference workloads. ZAM differs from HBM in a few key ways that we'll detail shortly, but the most apparent is that the DRAM dies stand upright, rather than laying flat horizontally as in HBM.
 
 ![ZAM architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_architecture.png)
 
 *Source: SemiVision*
 
+Stacking dies horizontally works great to increase capacity and bandwidth in a small volume, but it comes with 
 
+![HBM TSVs](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_hbm.jpeg)
+
+*Source: Block and Files*
 
 ZAM = Z-Angle Memory, a next-generation vertically-stacked DRAM technology designed to compete with (and potentially displace) HBM in AI/HPC datacenter workloads.
 The "Z-Angle" name refers to a staggered interconnect topology that routes connections diagonally within the die stack, rather than drilling straight down via traditional TSVs (Through-Silicon Vias) as used in HBM. Tom's Hardware
