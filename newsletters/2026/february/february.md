@@ -1,21 +1,21 @@
-[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
+[![Header](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/header.png)](https://sixrackunits.substack.com)
 
 # February 2026
 
-![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/title.png)
+![Title](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/title.png)
 
 *History is supposed to repeat itself. Usually, we look back at the past year to how our plans unfolded and developed and try to learn from that, to see what we can do differently this year. This of course, assumes that the coming year will be the same as the year the passed. The same patterns, people, and processes that we've already seen. It looks like this is no longer the case though, at least in our industry. Every year it seems things change faster than we can keep up with. Patterns we saw in markets or technology don't repeat, each development or hurdle seems to be completely new and unpredictable, and in this case, what should one do? To know how to best act in the future, do we still study history, or actively strive to forget it?*
 
 This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so we do it for you.
 
-For a space to share sources and news/updates, join our telegram channel <a href="https://t.me/aihpc_infra_fans">here</a> or if you like short form posts on similar topics, check out the <a href="https://sixrackunits.substack.com/notes">notes</a> section of this newsletter or my <a href="https://www.linkedin.com/in/hitesh-kumar-6ru/>LinkedIn</a>.
+For a space to share sources and news/updates, join our [telegram channel](https://t.me/aihpc_infra_fans) or if you like short form posts on similar topics, check out the [notes section](https://sixrackunits.substack.com/notes) of this newsletter or my [LinkedIn](https://www.linkedin.com/in/hitesh-kumar-6ru).
 
-[**This month's updates:**]
+**[This month's updates](#this-months-updates)**
 
-- [**ZAM**]
-- [**Meta goes all-in on NVIDIA**]
-- [**HBM news**]
-- [**Other notable headlines**]
+- [**ZAM**](#zam)
+- [**Meta goes all-in on NVIDIA**](#meta-goes-all-in-on-nvidia)
+- [**HBM news**](#hbm-news)
+- [**Other notable headlines**](#other-notable-headlines)
 
 ---
 
@@ -23,7 +23,7 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## ZAM
 
-HBM, arguably the key enabling technology behind production-scale LLMs, appears to be reaching its physical limits. Despite experts forecasting continuous improvement up to 2038, other teams have began working on a new approach that promises progress even sooner.
+HBM, arguably the key enabling technology behind production-scale LLMs, appears to be reaching its physical limits. Despite experts [forecasting continuous improvement](https://tera.kaist.ac.kr/researches/teralab-hbm-milestone-and-roadmap) up to 2038, other teams have started working on a new approach that promises progress even sooner.
 
 ![ZAM architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_architecture.png)
 
@@ -37,17 +37,17 @@ HBM achieves its high-bandwidths by supplying the logic die at the bottom of the
 
 *Source: Block and Files*
 
-Stacking HBM higher and pushing the bandwidths further has worked great so far, with the latest generations (HBM4) reaching 3.3 TB/s per stack, or as much as 50 sticks of DDR5. But as HBM keeps scaling hitting 16 or even 20 layers per stack, the dies in the middle become thermal dead zones where heat generated must pass through multiple low-conductivity layers, creating thermal gradients and hot spots. ZAM addresses exactly this challenge the most.
+Stacking HBM higher and pushing the bandwidths further has worked great so far, with the latest generations (HBM4) [reaching 3.3 TB/s per stack](https://news.samsung.com/global/samsung-ships-industry-first-commercial-hbm4-with-ultimate-performance-for-ai-computing#:~:text=Setting%20the%20Bar%20for%20Maximum,offerings%20to%20up%20to%2048GB.), or as much as 50 sticks of DDR5. But as HBM keeps scaling hitting 16 or even 20 layers per stack, the dies in the middle become thermal dead zones where heat generated must pass through multiple low-conductivity layers, creating thermal gradients and hot spots. ZAM addresses exactly this challenge the most.
 
-Here, multiple TSVs are replaced with a single, more central channel for both power and signal routing. A copper contact ring around the edges of each DRAM die connects to the central channel on the die below at a "Z-angle", or diagonally through and across the dies. This creates a more centralised heat distribution and signal routing architecture. As a side-effect, having a single channel instead of many TSVs also means a significant amount of die area (previously lost to empty holes) is now available for more memory capacity.
+Here, multiple TSVs are replaced with a [single, more central channel](https://www.linkedin.com/pulse/zam-architectural-alternative-hbm-sharada-yeluri-p8rmc/) for both power and signal routing. A copper contact ring around the edges of each DRAM die connects to the central channel on the die below at a "Z-angle", or diagonally through and across the dies. This creates a more centralised heat distribution and signal routing architecture. As a side-effect, having a single channel instead of many TSVs also means a significant amount of die area (previously lost to empty holes) is now available for more memory capacity.
 
 ![ZAM design](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_design.jpg)
 
 *Source: TrendForce*
 
-Sources state that this new architecture could allow for up to 50% reduction in power consumption compared to HBM (assuming similar performance), and a significant increase in memory capacity per module, as much as 512GB, though no official confirmation or further details on this have been provided yet.
+[Sources state](https://wccftech.com/intel-showcases-its-zam-memory-prototype-for-the-first-time/) that this new architecture could allow for up to 50% reduction in power consumption compared to HBM (assuming similar performance), and a significant increase in memory capacity per module, as much as 512GB, though no official confirmation or further details on this have been provided yet.
 
-As for the motivation behind all this, it appears to be more than just chasing performance and reliability. This new technology is being developed as part of the NGDB (Next Generation DRAM Bonding) initiative, a collaboration between Intel (U.S. DOE's Advanced Memory Technology program) and SoftBank (SAIMEMORY), with research from the University of Tokyo. This means a high-bandwidth memory technology (and research) independent of SK-Hynix and Samsung, both Korean tech giants.
+As for the motivation behind all this, it appears to be more than just chasing performance and reliability. This new technology is being developed as part of the [NGDB (Next Generation DRAM Bonding)](https://www.softbank.jp/en/corp/news/press/sbkk/2026/20260203_01/) initiative, a collaboration between Intel (U.S. DOE's Advanced Memory Technology program) and SoftBank (SAIMEMORY), with research from the University of Tokyo. This means a high-bandwidth memory technology (and research) [independent of SK-Hynix and Samsung](https://tspasemiconductor.substack.com/p/can-zam-replace-hbm-intel-and-softbank), both Korean tech giants.
 
 The geopolitical effects and de-monopolisation efforts of such key technologies have been powerful driving forces in steering AI development in recent times. Which hardware designers get access to a reliable supply of HBM, at whatever cost, will determine their survival and the survival of all of their customers - hyperscalers, AI foundation labs, and everyone in between. It makes sense then that non-Korean teams will continue to push for HBM alternatives as soon as possible.
 
@@ -57,12 +57,8 @@ The geopolitical effects and de-monopolisation efforts of such key technologies 
 
 We can expect to see ZAM samples entering the market in 2028, with mass production expected in 2029, competing with HBM4E and HBM5 according to current timelines.
 
-
-## Meta goes all-in on NVIDIA
-
 ## HBM news
 
-CPX using HBM3E instead of GDDR7
 
 ---
 
@@ -79,7 +75,10 @@ CPX using HBM3E instead of GDDR7
 * [Rumours of NVIDIA's VR200 racks being ahead of schedule - something that seemed impossible just weeks ago](https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-denies-report-of-mi455x-delays-as-nvidia-vr200-systems-are-rumored-to-arrive-early-company-says-helios-systems-on-target-for-2h-2026)
 * [China's GPU manufacturers race to power Chinese frontier models, domestic market now contested by NVIDIA again](https://www.digitimes.com/news/a20260216VL208/gpu-moore-threads-chips-performance-demand.html)
 * [Rubin CPX might end up using HBM after all instead of GDDR7](https://x.com/jukan05/status/2025728266473213974)
+* [Samanova introduces new AI accelerator SN50, claims to be three times more efficient than Nvidia B200](https://www.tomshardware.com/tech-industry/artificial-intelligence/sambanova-introduces-new-ai-accelerator-partners-with-intel-to-deploy-xeon-cpus-for-inferencing-and-agentic-workloads-sambanova-claims-sn50-chip-is-three-times-more-efficient-than-nvidia-b200)
+* [Tom's Hardware: Nvidia delivers first Vera Rubin AI GPU samples to customers](https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-delivers-first-vera-rubin-ai-gpu-samples-to-customers-88-core-vera-cpu-paired-with-rubin-gpus-with-288-gb-of-hbm4-memory-apiece)
+* [Bytedance developing internal AI ASIC, manufacturing talks with Samsung](https://www.reuters.com/world/asia-pacific/bytedance-developing-ai-chip-manufacturing-talks-with-samsung-sources-say-2026-02-11/)
 
 ---
 
-[![](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
+[![Footer](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/assets/logo.png)](https://sixrackunits.substack.com)
