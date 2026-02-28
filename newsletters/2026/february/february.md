@@ -23,40 +23,40 @@ For a space to share sources and news/updates, join our telegram channel <a href
 
 ## ZAM
 
-HBM, arguably the key enabling technology behind production-scale LLMs, appears to be reaching some physical limits. Despite experts forecasting continuous improvement up to 2038, other teams have began working on a new approach that promises progress even sooner.
-
-![HBM roadmap](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_hbm_roadmap.png)
-
-*Source: KAIST teralabs*
-
-Z-Angle Memory, or ZAM, is a next-generation vertically-stacked DRAM technology designed to compete with HBM in future hardware that will require large volumes of on-device, high-bandwidth memory. Basically, GPUs, TPUs, and whatever other PUs will aim for AI training and bandwidth-intensive inference workloads. ZAM differs from HBM in a few key ways that we'll detail shortly, but the most important is that DRAM dies now use a more centralised heat distribution and signal routing architecture.
+HBM, arguably the key enabling technology behind production-scale LLMs, appears to be reaching its physical limits. Despite experts forecasting continuous improvement up to 2038, other teams have began working on a new approach that promises progress even sooner.
 
 ![ZAM architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_architecture.png)
 
 *Source: TrendForce*
 
-Stacking DRAM dies horizontally works great to increase the capacity and bandwidth in a single module, but comes with some challenges. As the number of dies stacked increases, the dies in the middle become thermal dead zones where heat generated must pass through multiple low-conductivity layers, creating thermal gradients and hot spots. In addition, the distances that signals must travel from the highest DRAM dies all the way down to the logic die at the bottom increases, damaging signal integrity and latency.
+Z-Angle Memory, or ZAM, is a next-generation DRAM-based memory technology designed to compete with HBM in future hardware that will require large volumes of on-device, high-bandwidth memory. Basically, GPUs, TPUs, and whatever other PUs will aim for AI training and bandwidth-intensive inference workloads.
+
+HBM achieves its high-bandwidths by supplying the logic die at the bottom of the stack with signals from all the DRAM dies above it simultaneously, keeping the very wide data bus saturated. This is implemented by using thousands of TSVs (Through-Silicon Vias), each made from a thin layer of copper, that route both power and signal traffic between the dies.
 
 ![HBM TSVs](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_hbm.jpeg)
 
 *Source: Block and Files*
 
-HBM uses many TSVs (Through-Silicon Vias), which are tiny holes through the thickness of the dies, connecting all the way to the logic die at the bottom of the stack
+Stacking HBM higher and pushing the bandwidths further has worked great so far, with the latest generations (HBM4) reaching 3.3 TB/s per stack, or as much as 50 sticks of DDR5. But as HBM keeps scaling hitting 16 or even 20 layers per stack, the dies in the middle become thermal dead zones where heat generated must pass through multiple low-conductivity layers, creating thermal gradients and hot spots. ZAM addresses exactly this challenge the most.
+
+Here, multiple TSVs are replaced with a single, more central channel for both power and signal routing. A copper contact ring around the edges of each DRAM die connects to the central channel on the die below at a "Z-angle", or diagonally through and across the dies. This creates a more centralised heat distribution and signal routing architecture. As a side-effect, having a single channel instead of many TSVs also means a significant amount of die area (previously lost to empty holes) is now available for more memory capacity.
+
+![ZAM design](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_design.jpg)
+
+*Source: TrendForce*
+
+Sources state that this new architecture could allow for up to 50% reduction in power consumption compared to HBM (assuming similar performance), and a significant increase in memory capacity per module, as much as 512GB, though no official confirmation or further details on this have been provided yet.
 
 As for the motivation behind all this, it appears to be more than just chasing performance and reliability. This new technology is being developed as part of the NGDB (Next Generation DRAM Bonding) initiative, a collaboration between Intel (U.S. DOE's Advanced Memory Technology program) and SoftBank (SAIMEMORY), with research from the University of Tokyo. This means a high-bandwidth memory technology (and research) independent of SK-Hynix and Samsung, both Korean tech giants.
 
 The geopolitical effects and de-monopolisation efforts of such key technologies have been powerful driving forces in steering AI development in recent times. Which hardware designers get access to a reliable supply of HBM, at whatever cost, will determine their survival and the survival of all of their customers - hyperscalers, AI foundation labs, and everyone in between. It makes sense then that non-Korean teams will continue to push for HBM alternatives as soon as possible.
 
+![HBM roadmap](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/zam_hbm_roadmap.png)
+
+*Source: KAIST teralabs*
+
 We can expect to see ZAM samples entering the market in 2028, with mass production expected in 2029, competing with HBM4E and HBM5 according to current timelines.
 
-
-Claimed performance targets vs HBM
-
-Capacity: Up to 512 GB per chip — 2x to 3x the capacity of current HBM. TrendForce
-Power: Energy consumption reduced by 40–50% due to improved thermal regulation and optimised architecture. NEWS.am TECH
-Cost: Mass-production costs targeted at around 60% of HBM, per Nikkei reports. TrendForce
-Thermal: Vertical die stacking conducts heat from each die upward evenly, addressing thermal challenges that plague planar stacking. The central channel acts like a vertical heat pipe. TrendForce
-Manufacturing: Diagonal Z-Angle interconnects are claimed to simplify manufacturing vs TSV-based approaches, potentially improving production yields.
 
 ## Meta goes all-in on NVIDIA
 
