@@ -66,7 +66,7 @@ NVIDIA's roadmap is now being shaped by the availability of memory, despite SK-H
 
 ### HBF
 
-![HBF architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/hbf_architecture.png)
+![HBF architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/hbf_architecture.webp)
 
 *Source: SanDisk*
 
@@ -90,7 +90,7 @@ Moving onto LPDDR6X, Samsung has [reportedly began shipping](https://www.tweakto
 
 Qualcomm have been working on their own AI inferencing accelerators for close to 7 years now, with the original "Cloud AI 100" announed back in April of 2019. Since then, Qualcomm have sold a reasonable number of units (iterations upon the Cloud AI 100 that is) to various clouds such as AWS and Cirrascale to name the biggest, and have worked their way into GigaByte (of course), HPE, Lenovo, and even Dell's datacentre servers offerings.
 
-![Qualcomm's AI2250](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/qualcomm_ai250.png)
+![Qualcomm's AI2250](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/qualcomm_ai250.jpg)
 
 *Source: Qualcomm*
 
@@ -118,12 +118,11 @@ Too bad that there are currently serious gaming GPU shortages plaguing the marke
 * [Nvidia's new RTX 6000D appears in teardown: 84GB GDDR7 in China compared to the full 96GB](https://www.tweaktown.com/news/110135/nvidias-new-rtx-6000d-appears-in-teardown-84gb-gddr7-in-china-compared-to-the-full-96gb/index.html)
 * [World's first PCIe 6.0 SSD enters mass production with 28GB/s speeds: Micron 9650 series SSDs support air and liquid cooling](https://www.tomshardware.com/pc-components/ssds/worlds-first-pcie-6-0-ssd-enters-mass-production-with-28gb-s-speeds-micron-9650-series-ssds-support-air-and-liquid-cooling)
 * [Cisco releases the G300 102.4T switch ASIC](https://mp.weixin.qq.com/s?chksm=e8bf1883dfc89195350bb6dec790d823de6074dac8e9042aa966f21dfca7c113e384fce3d3cb&exptype=unsubscribed_card_recommend_article_u2i_mainprocess_coarse_sort_tlfeeds&ranksessionid=1770883821_3&req_id=1770883878521405&mid=2247488461&sn=975a51dd4d8b1c5900c6b59d8ceb81db&idx=1&__biz=MzIyOTcyNzc3Nw%3D%3D&scene=169&subscene=200&sessionid=1770883820)
-* [Evercore out with a 4Q25 AI Channel Checks, saying $NVDA Vera Rubin appears to be ahead of schedule (Tweet by @halfblindmonkey)](https://x.com/halfblindmonkey/status/2023737861028098525)
 * [Rumours of AMD's MI400 racks being delayed surface, though credibility remains low](https://x.com/Alex_Intel_/status/2023453704289198429)
 * [Rumours of NVIDIA's VR200 racks being ahead of schedule...](https://www.tomshardware.com/tech-industry/artificial-intelligence/amd-denies-report-of-mi455x-delays-as-nvidia-vr200-systems-are-rumored-to-arrive-early-company-says-helios-systems-on-target-for-2h-2026)[But also rumours that they'll be delayed](https://x.com/jukan05/status/2026228673775562820)
 * [China's GPU manufacturers race to power Chinese frontier models, domestic market now contested by NVIDIA again](https://www.digitimes.com/news/a20260216VL208/gpu-moore-threads-chips-performance-demand.html)
 * [Rubin CPX might end up using HBM after all instead of GDDR7](https://x.com/jukan05/status/2025728266473213974)
-* [Sambanova introduces new AI accelerator SN50, claims to be three times more efficient than Nvidia B200](https://www.tomshardware.com/tech-industry/artificial-intelligence/sambanova-introduces-new-ai-accelerator-partners-with-intel-to-deploy-xeon-cpus-for-inferencing-and-agentic-workloads-sambanova-claims-sn50-chip-is-three-times-more-efficient-than-nvidia-b200)
+* [SambaNova introduces new AI accelerator SN50, claims to be three times more efficient than Nvidia B200](https://www.tomshardware.com/tech-industry/artificial-intelligence/sambanova-introduces-new-ai-accelerator-partners-with-intel-to-deploy-xeon-cpus-for-inferencing-and-agentic-workloads-sambanova-claims-sn50-chip-is-three-times-more-efficient-than-nvidia-b200)
 * [Nvidia delivers first Vera Rubin AI GPU samples to customers](https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-delivers-first-vera-rubin-ai-gpu-samples-to-customers-88-core-vera-cpu-paired-with-rubin-gpus-with-288-gb-of-hbm4-memory-apiece)
 * [Bytedance developing internal AI ASIC, in manufacturing talks with Samsung](https://www.reuters.com/world/asia-pacific/bytedance-developing-ai-chip-manufacturing-talks-with-samsung-sources-say-2026-02-11/)
 
