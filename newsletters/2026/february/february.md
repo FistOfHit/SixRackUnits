@@ -66,6 +66,10 @@ NVIDIA's roadmap is now being shaped by the availability of memory, despite SK-H
 
 ### HBF
 
+![HBF architecture](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/hbf_architecture.png)
+
+*Source: SanDisk*
+
 SanDisk announced their intent to create high-bandwidth flash (HBF) just over a year ago now, but so far haven't developed any physical samples or even lab prototypes. That might change very soon though as they've announced a collaboration with SK-Hynix to create standards for the technology and eventually bring it to market.
 
 So far, [SK-Hynix have demonstrated](https://www.trendforce.com/news/2026/01/16/news-expert-says-hbf-may-be-deployed-in-nvidia-gpus-by-2027-28-market-could-surpass-hbm-by-2038/) that HBF shows promise at-least in the simulation space, with their new technology dubbed "H3", which brings together HBM and HBF modules on a single device. Pairing a (simulated) B200 GPU with 8 (simulated) each of HBM and HBF modules, they demonstrated up to 2.69x improvements in performance per watt in (simulated) AI inferencing workloads. Whilst this is far from a serious signal, it indicates that research is going well and sampling is coming soon. Even more recently, five days ago on the 25th of February, the two held a kick-off event at the SanDisk global headquarters and formally launched a joint project under the Open Compute Project (OCP).
@@ -86,6 +90,10 @@ Moving onto LPDDR6X, Samsung has [reportedly began shipping](https://www.tweakto
 
 Qualcomm have been working on their own AI inferencing accelerators for close to 7 years now, with the original "Cloud AI 100" announed back in April of 2019. Since then, Qualcomm have sold a reasonable number of units (iterations upon the Cloud AI 100 that is) to various clouds such as AWS and Cirrascale to name the biggest, and have worked their way into GigaByte (of course), HPE, Lenovo, and even Dell's datacentre servers offerings.
 
+![Qualcomm's AI2250](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/qualcomm_ai250.png)
+
+*Source: Qualcomm*
+
 Now for the latest in this product line, the AI200 and AI250s, Qualcomm will likely be sourcing highly energy-efficient and fast LPDDR6X from Samsung. The capacity and pin rates aren't yet revealed, but likely they'll be in 2GB or 4GB volumes, and pushing anywhere from 12.8 Gbps (Samsung's current gen. LPDDR6 performance) up to well beyond 14.4 Gbps per pin. [SK-Hynix's LPDDR6](https://www.tweaktown.com/news/110149/sk-hynix-shows-off-16gb-lpddr6-at-14-4gbps-while-samsung-sends-lpddr6x-samples-to-qualcomm/index.html) is already overclocking at 14.4 Gbps and so naturally the higher end of the X-generation will have to have a theoretical limit higher than that.
 
 Originally targeting smartphones or other low-power devices in need of faster memory, LPDDR is now popular for AI accelerators optimising for performance per watt such as Qualcomm's AI200/250s, IBM's Spyre, NVIDIA's Grace/Vera CPUs, and more.
@@ -93,6 +101,10 @@ Originally targeting smartphones or other low-power devices in need of faster me
 ### Micron
 
 [Micron finally enters the GDDR7 game](https://www.tomshardware.com/pc-components/gpus/micron-joins-the-3gb-gddr7-party-introduces-36-gbps-modules-for-gpus-lags-behind-speeds-of-samsung-and-sk-hynix) with their 3GB modules, despite each reaching only 36GB/s in bandwidth. Compared to their Korean competition in SK-Hynix and Samsung [(both promising 40GB/s+)](https://wccftech.com/sk-hynix-gddr7-memory-boosts-gpu-bandwidth-160-gb-s-40-gbps-24-capacity/), Micron's Graphics DDR appears to be a less attractive product at first. This is almost certainly the case for buyers placing them in AI accelerators, which run at high wattages and with active cooling methods usually. But for anyone buying GDDR for graphics accelerators like NVIDIA's RTX or AMD's Radeon cards, memory modules are often chosen to be of a lower specification or even down-clocked to fit into more modest power and thermal profiles.
+
+![Micron's GDDR7](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/february/images/micron_gddr7.png)
+
+*Source: Micron*
 
 Too bad that there are currently serious gaming GPU shortages plaguing the market right now. Even worse, NVIDIA just announced that there will be [no new graphics cards](https://www.xda-developers.com/this-is-the-first-year-in-three-decades-without-a-new-nvidia-gaming-gpu/) released this year, making it a pretty sad year for gamers and lower-end GDDR manufacturers alike. Regardless, Micron will probably still sell their GDDR7 inventory completely for use in PCIe form-factor AI accelerators like the RTX Pro 6000/D or prefill-focused GPUs like the Rubin CPX.
 
