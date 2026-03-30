@@ -2,7 +2,7 @@
 
 # February 2026
 
-![Title](https://raw.githubusercontent.com/FistOfHit/SixRackUnits/refs/heads/main/newsletters/2026/march/images/title.png)
+![Title](./images/title.png)
 
 **
 
