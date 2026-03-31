@@ -4,15 +4,13 @@
 
 ![Title](./images/title.png)
 
-**
+This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so I do it for you.
 
-This is the SixRackUnits AI hardware newsletter, keeping you up to date with the latest in AI hardware, datacentre technology, and the future of compute. With a field changing this fast, staying on top of everything, or even summarising all the material available can be difficult - so we do it for you.
-
-For a space to share sources and news/updates, join our [telegram channel](https://t.me/aihpc_infra_fans) or if you like short form posts on similar topics, check out the [notes section](https://sixrackunits.substack.com/notes) of this newsletter or my [LinkedIn](https://www.linkedin.com/in/hitesh-kumar-6ru).
+For a space to share sources and news/updates, join the [telegram channel](https://t.me/aihpc_infra_fans) or if you like short form posts on similar topics, check out the [notes section](https://sixrackunits.substack.com/notes) of this newsletter or my [LinkedIn](https://www.linkedin.com/in/hitesh-kumar-6ru).
 
 **[This month's updates](#this-months-updates)**
 
-- [**Meta's roadmap finally revealed, "Four chips in two years"**](#metas-roadmap-finally-revealed-four-chips-in-two-years)
+- [**Meta's very real roadmap revealed: "Four chips in two years"**](#metas-very-real-roadmap-revealed-four-chips-in-two-years)
 - [**Arista's XPO: 100s of liquid-cooled TB/s per server, very soon**](#aristas-xpo-100s-of-liquid-cooled-tbs-per-server-very-soon)
 - [**NVIDIA has enemies home and away: Huawei catches up in China**](#nvidia-has-enemies-home-and-away-huawei-catches-up-in-china)
 - [**Other notable headlines**](#other-notable-headlines)
@@ -21,85 +19,79 @@ For a space to share sources and news/updates, join our [telegram channel](https
 
 # This month's updates
 
-## Meta's roadmap finally revealed, "Four chips in two years"
+## Meta's very real roadmap revealed: "Four chips in two years"
 
-- Meta is effectively saying it now has a real ASIC cadence, not a one-off internal chip program.
-- The central headline is four MTIA generations in two years: MTIA 300, 400, 450, and 500.
-- Meta also explicitly says MTIA is being developed in close partnership with Broadcom, which is worth stating plainly given how central Broadcom has become to hyperscaler custom silicon.
-- Meta says it now has the capability to ship a new AI chip roughly every six months or less, which is much faster than normal hyperscaler silicon cycles.
-- That is probably the most important strategic point in the whole announcement. A six-month cadence matters more than any one chip spec if Meta can actually sustain it.
-- Meta also says it already deploys hundreds of thousands of MTIA chips for inference across both organic content and ads.
-- So MTIA is no longer an experiment or a sidecar; it is already a meaningful production fleet.
-- Meta is still taking a portfolio approach though. It is not claiming MTIA replaces merchant silicon everywhere, only that MTIA sits at the center of its AI infrastructure strategy.
-- The official framing is very deliberate: rapid iteration, inference-first design, and frictionless adoption through industry standards.
-- "Inference-first" is the key architectural philosophy. Meta says mainstream AI chips are usually built for the hardest training workloads first, then reused for inference inefficiently.
-- Meta is explicitly doing the opposite: optimise for GenAI inference first, then reuse upward into ranking, recommendations, and some training tasks where it makes sense.
-- That makes this a direct response to where hyperscaler AI demand is actually going: serving models at scale, not just training frontier models.
-- MTIA 300 is already in production and is aimed at ranking and recommendations training.
-- Andreas Schilling's summary usefully frames the packaging evolution:
-- MTIA 300: 1 compute chiplet, 2 network chiplets, in production.
-- MTIA 400: 2 compute chiplets, 2 network chiplets, 1 SoC chiplet, deployment underway.
-- MTIA 450: 2 compute chiplets, 2 network chiplets, 1 SoC, faster D2D than 400, due early 2027.
-- MTIA 500: 4 compute chiplets, 2 network chiplets, 1 SoC, later in 2027.
-- MTIA 400, 450, and 500 are all described as capable of handling all workloads, but Meta says they will primarily support GenAI inference in the near term and through 2027.
-- Smart inference: Meta is using R&R workloads as the stabilising base and GenAI inference as the growth driver.
-- Meta also says the newer chips all drop into the same rack, chassis, and network infrastructure. That is a huge systems point.
-- This means Meta is designing around infrastructure continuity, not one-off heroic silicon launches.
-- If true, it lets Meta absorb new chip generations into existing datacenter designs much faster than competitors who need a new rack architecture every generation.
-- It also means the real product here is a reusable AI server platform, not just a series of chips.
-- DCD's summary is useful for the rough chip specs, even if some numbers may shift before full deployment.
-- MTIA 300 is reported at about 1.2 PFLOPS FP8, 216GB HBM, 6.1 TB/s memory bandwidth, and 800W TDP.
-- MTIA 400 is reported at 6 PFLOPS FP8, 288GB HBM, 9.2 TB/s memory bandwidth, and 1200W TDP.
-- MTIA 450 is reported at 7 PFLOPS FP8, 288GB HBM, 18.4 TB/s memory bandwidth, and 1400W TDP.
-- MTIA 500 is reported at 10 PFLOPS FP8, 384-512GB HBM, and 1700W TDP.
-- If those numbers are even directionally right, Meta is planning an unusually aggressive memory-bandwidth ramp across the family.
-- Meta's own framing is even stronger: from MTIA 300 to 500, HBM bandwidth rises 4.5x and compute increases 25x in under two years.
-- Another important detail from DCD: Meta says MTIA 400 forms a 72-device scale-up domain in one rack using a switched backplane.
-- That is revealing because Meta is not following NVIDIA's exact NVL72 template, but it is converging on a similar rack-scale unit size.
-- Smart inference: 72 accelerators is becoming a natural rack-scale building block for frontier AI infrastructure, regardless of vendor.
-- Meta also says MTIA 450 and 500 keep the same 1.2 Tbps scale-up and 100 Gbps scale-out networking.
-- So Meta appears to be stabilising the network/chassis platform while improving compute and memory on the silicon side.
-- That is a very "fleet operator" way to build AI infrastructure: keep the deployment and supply chain stable while swapping in better engines.
-- MTIA 300 is more interesting than it first looks because Meta says it already includes built-in NIC chiplets, dedicated message engines for collectives, and near-memory compute for reduction-heavy communication.
-- That suggests the communications stack was treated as a first-class design problem from early on, not bolted on after the fact.
-- In other words, MTIA was always being designed as a scale-out / scale-up system component, not just a standalone inference ASIC.
-- Meta says MTIA 400 brings 400% higher FP8 FLOPS and 51% higher HBM bandwidth than MTIA 300.
-- Meta also says MTIA 400 is its first chip meant not only to save cost but to deliver raw performance competitive with leading commercial products.
-- That is a notable shift in tone. Meta is no longer pitching MTIA as merely "good enough for internal use."
-- The 72-device MTIA 400 rack also supports air-assisted liquid cooling, which is a useful deployment detail because it implies Meta is trying to retrofit into legacy datacenter constraints where possible.
-- MTIA 450 is where Meta gets much more explicit about GenAI inference tuning.
-- Meta says MTIA 450 doubles HBM bandwidth versus 400, raises MX4 FLOPS by 75%, and adds hardware acceleration for attention and FFN bottlenecks.
-- Meta also says MTIA 450 delivers 6x the MX4 FLOPS of FP16/BF16, supports mixed low-precision execution without conversion overhead, and introduces custom data types meant to preserve model quality.
-- That is one of the clearest indications that hyperscaler custom silicon is now being co-designed around low-precision inference numerics rather than generic tensor throughput.
-- MTIA 500 then extends the same logic: 50% more HBM bandwidth than 450, up to 80% more HBM capacity, and 43% higher MX4 FLOPS.
-- Meta's blog stresses industry-standard software and hardware ecosystems from the start, including PyTorch, vLLM, Triton, and OCP-aligned rack systems.
-- Meta goes even further than that in the full post: it describes the strategy as explicitly "PyTorch-native."
-- This is an underappreciated contrast with Huawei. Huawei is trying to become more CUDA-like; Meta is trying to stay as standard and low-friction as possible from day one.
-- Meta is effectively telling developers and infra teams: this should look like normal open AI infrastructure, not a bespoke ASIC island.
-- That matters because adoption cost inside Meta is still real, even if the chips are internal.
-- The software stack description is also unusually detailed for a public hyperscaler silicon post.
-- Meta calls out eager mode and graph mode onboarding via `torch.compile` and `torch.export`, MTIA-tuned compilers across Torch FX, TorchInductor, Triton, MLIR, and LLVM, plus custom kernel-generation and autotuning flows.
-- It also highlights HCCL for communication with chiplet offload, a Rust-based runtime and firmware stack, vLLM support, and production-grade profiling, debugging, and monitoring.
-- That matters because Meta is not just shipping silicon; it is trying to compress the full internal developer loop around open tooling and rapid model onboarding.
-- Another interesting point is that Meta is tying custom silicon directly to "personal superintelligence for all," which tells you MTIA is no longer scoped narrowly around ads and ranking economics.
-- It is being positioned as part of Meta's company-wide AI mission, from feeds to assistants to possibly more advanced model serving over time.
-- The article title says "Four chips in two years," but the real story is more like "one reusable infrastructure, four rapidly swapped silicon generations."
-- Another smart inference: Meta may be trying to compress the merchant-silicon learning loop into its own organisation, so its internal chips can track model evolution faster than traditional vendors.
-- If that works, MTIA becomes less of a cost-saving chip and more of a strategic hedge against being gated by external accelerator roadmaps.
-- The MTIA 500 packaging note is particularly interesting: DCD says it uses a 2x2 arrangement of smaller compute chiplets, several HBM stacks, two network chiplets, and a separate SoC chiplet.
-- The official Meta text confirms this direction even if not every packaging detail is spelled out the same way externally: modular multi-chiplet design is core to the whole cadence claim.
-- That suggests Meta is moving deeper into modular chiplet design rather than scaling one monolithic die.
-- Which makes sense, because chiplets are one of the few ways to keep a six-month cadence plausible without blowing up reticle and yield risk every generation.
-- Another inference: Meta's cadence claim probably depends more on reusable chiplet, rack, and software blocks than on designing four completely fresh chips from scratch.
-- There is also a subtle difference between Meta and many other hyperscalers: Meta is not emphasising training leadership here.
-- Even MTIA 300 being used for R&R training fits that pattern: training is included where economically useful, but the center of gravity remains serving and recommendation infrastructure.
-- It keeps coming back to inference economics, efficiency, and deployability at enormous scale.
-- That aligns with Meta's product reality. Serving Llama, assistants, ranking, recommendations, and generative features across billions of users is an inference problem first.
-- In that sense, MTIA may be the clearest public example yet of a hyperscaler building silicon around the "AI serving era" rather than the "train one giant model" era.
-- The obvious risk is execution. A six-month cadence sounds good on a blog post, but supply chain, packaging, software enablement, and model changes can easily break that rhythm.
-- Another risk is that internal standardisation claims can look cleaner on paper than in live production, especially once several generations coexist in the same fleet.
-- Still, the big takeaway is hard to ignore: Meta has gone from "we have a custom AI chip" to "we think we can iterate custom AI silicon like software infrastructure."
-- That is probably the most consequential part of the announcement, and also the most dangerous one for merchant accelerator vendors if Meta proves it can keep the pace.
+![Picture of an MTIA accelerator](./images/meta_title.png)
+
+*Source: Meta*
+
+_Meta finally lay out a strong roadmap for at least four iterations of its internal-use MTIA inference accelerator, promising serious raw performance on paper as well as a solid understanding of what's needed for rapid and widespread adoption among their developers._
+
+As weve seen from Intel, having a roadmap is everything. and Meta isnt even going to sell MTIA public anyway.
+
+It's more than just a trend now for everyone to design their own custom hardware. If you have the money, people, and consistent internal demand for specific workloads, why not? As we've seen in the past though (Intel), roadmaps can be fragile and are not a commitment. Meta's situation is different fortunately, since they have:
+
+- Extensive experience deploying AI-focused clusters reliably, at scale, customising deployments to their benefit
+- Two generations of MTIA already proven with a silicon-to-rack supply chain established
+- No pressure to make hardware for external users, plenty of internal demand to saturate what they build
+
+Proof of their wisdom is that all the future MTIA generations they've annouced will be designed to sit in the same chassis and racks, so they can easily upgrade existing deployments rather than having to build new racks and power/cooling architectures each time. This will make it easier for them to stick to their promised 6-month cadence, outpacing every hyperscaler and most merchant silicon vendors too.
+
+![Picture of an MTIA 400 72-device domain depoyed](./images/meta_rack.svg)
+
+*Source: Meta*
+
+Meta are very clear that MTIA will not replace their GPU fleet - training workloads still need NVIDIA hardware to be run effectively, and undoubtedly some inference will still be done across the many generations of GPUs that Meta operate efficiently. But unlike many in the custom silicon game, they aren't pushing to support training or branching their roadmap into workload-specific lanes. Instead, from MTIA 450 onwards, Meta are pushing for supporting modern LLM inference efficiently first, and then optimising for their own ranking/recommender models later.
+
+The hardware looks great so far, but we've seen many times that the robustness and capability of the software can completely define the future of an accelerator too. Here, Meta are arguably one of the best positioned in the industry as founders of the Pytorch foundation and now among the worlds largest users of vLLM and Triton. In addition, they've written extensively on their own networking and observability stacks (FBOSS, NCCLX, Dynolog etc.) and how they can optimise both NVIDIA and their own hardware for their use cases.
+
+I'm quite interested to see how this roadmap gets realised over the coming months. It's easy to be hopeful about Meta.
+
+Finally, the specs we know so far:
+
+![Picture of an MTIA 300](./images/meta_300.png)
+
+*Source: Meta*
+
+- MTIA 300
+  - In production now, already deployed at meaningful scale for Meta's own workloads
+  - 1 compute, 2 network chiplets
+  - ~1.2 PFLOPS FP8, 216GB HBM @ 6.1 TB/s, 800W TDP
+  - 1TB/s scale-up unidirectional, 1.6T scale-out
+  - **16-device scale-up domain, possibly within a single server, likely between a few servers**
+
+![Picture of an MTIA 400](./images/meta_400.png)
+
+*Source: Meta*
+
+- MTIA 400
+  - Deployment underway, framed as genuinely performance-competitive
+  - 2 compute, 2 network, 1 SoC chiplets
+  - ~6 PFLOPS FP8, 288GB HBM @ 9.2 TB/s, 1200W TDP.
+  - 1.2TB/s scale-up unidirectional, 800G scale-out
+  - **72-device scale-up domain, in one rack, switched backplace**
+
+![Picture of an MTIA 450](./images/meta_450.png)
+
+*Source: Meta*
+
+- MTIA 450
+  - Due early 2027, tuned directly for LLM inference
+  - 2 compute, 2 network, 1 SoC chiplets
+  - ~7 PFLOPS FP8, 288GB HBM @ 18.4 TB/s, 1400W TDP
+  - 1.2TB/s scale-up unidirectional, 800G scale-out
+  - **Doubling die-to-die interconnects from MTIA 400**
+
+![Picture of an MTIA 500](./images/meta_500.png)
+
+*Source: Meta*
+
+- MTIA 500
+  - Due late 2027, the most modular and most ambitious
+  - 4 compute, 2 network, 1 SoC chiplets
+  - ~10 PFLOPS FP8, 384-512GB HBM, 1700W TDP
+  - 1.2TB/s scale-up unidirectional, 800G scale-out
+  - **2x2 compute chiplet arrangement**
 
 ## Arista's XPO: 100s of liquid-cooled TB/s per server, very soon
 
