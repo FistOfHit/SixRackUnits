@@ -121,12 +121,19 @@ The XPO MSA (Multi-Source Agreement) itself hasn't published a list of their mem
 
 ## Huawei catching up in China, NVIDIA has enemies both home and away now
 
-**Huawei has been making serious progress towards becoming China's default domestic AI accelerator stack, not because it has clearly beaten NVIDIA on raw silicon, but because it is finally attacking the real lock-in point: software compatibility and full-system deployability.**
+**Huawei has made significant progress towards becoming China's default domestic AI accelerator stack. They probably won't beat NVIDIA on silicon anytime soon, but they're finally starting to break down the real walls to adoption: software compatibility and system-level design.**
 
-- This story is less "Huawei finally matched NVIDIA in raw silicon" and more "Huawei finally attacked NVIDIA's real moat: CUDA lock-in."
-- Smart inference: Huawei has effectively admitted the market will not learn a brand-new programming model. Compatibility beats elegance, so "CUDA-like" is the fastest path to adoption.
+It can't be an easy realisation to have, that your software stack has to be compatible with someone else's just to gain traction in any market. But now that Huawei have made strides in mapping their CANN (Compute Architecture for Neural Networks) stack to something a CUDA developer would recognise, they seemed to have piqued the interest of domestic hyperscalers even.
 
-CANN, short for Compute Architecture for Neural Networks, is Huawei's core software stack around Ascend: the compiler, runtime, operator libraries, tooling, and framework integration layer that sits between models and the hardware. More specifically, the new CANN Next direction looks like the biggest part of Huawei's recent shift. Huawei is no longer just asking developers to tolerate a different programming model. Instead, it is making Ascend look much more CUDA-like, with GPU-style execution concepts and tooling, while still mapping those abstractions onto its own architecture. That matters far more than one benchmark slide, and for now Huawei also seems to have a real lead in China around low-precision inference support such as FP4.
+CANN is Huawei's core software stack for their Ascend AI accelerators - the compiler, runtime, operator libraries, tooling, and framework integration layer that sits between models and the hardware. Specifcally, "CANN Next" now supports a CUDA-like model with thread blocks, and warps, `<<>>` style invocation, PyTorch and vLLM compatibility, and more. This isn't just a translation layer it seems. Huawei has reportedly open-sourced key components such as CANN and their inferencing engine MindIE, as well as contributing to over 50 third-party open-source projects since the Ascend program started (albeit many years ago). Just like NVIDIA, they are trying to show a long-term commitment to widening their developer base through collaboration.
+
+
+
+Their silicon itself might not be competitive on the global scale, but Huawei has proven to be quite forward thinking with their strategy. Almost at the same time as NVIDIA, in September of 2025, Huawei announced a split roadmap for the Ascend 950 series, with separate chips for LLM prefill and decode workloads. The Rubin CPX was originally intended to be NVIDIA's prefill processor with it's GDDR7 lower speed and better compute:memory bandwidth ratio and when it was announced, a lot of analysts and engineers understood the importance of this.
+
+Huawei, along with a very small number of other AI accelerator manufacturers like Google, had also reacted to the need for this hardware-to-workload mapping and split, showing a good understanding of the industry and the future. The Ascend 950PR (1Q26) and 950DT (4Q26) were originally intended to provide 128GB @ 1.6TB/s and 144GB @ 4TB/s respectively, a very similar performance split to Rubin CPX and R200 GPUs.
+
+But the realised performance of the 950PR half a year later tells a new story. Reporting at 112GB @ 1.4TB/s, the unacknowledged reduction in performance speaks to difficulties somewhere in the memory supply chain. This is consistent with the current state of memory making in China where restrictions on the import of advanced manufacturing technologies  
 
 - CANN Next appears to be the key change. Huawei has added a CUDA-like SIMT programming model with thread blocks, warps, and kernel launches.
 - Important nuance: this does not look like a simple translation layer. Huawei seems to be treating CUDA as the de facto programming standard, then mapping those abstractions natively onto Ascend.
